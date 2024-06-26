@@ -1,0 +1,46 @@
+[{
+    "mia_dolan": {
+        "role": "Protagonist",
+        "backstory": "An aspiring actress from Nevada, Mia moved to Los Angeles to pursue her dreams. She works as a barista on a studio lot while attending numerous auditions, struggling to break into the industry.",
+        "strengths": "Determined, passionate about acting, creative in her pursuits, and resilient in the face of constant rejection.",
+        "weaknesses": "Self-doubt, fear of failure, and occasional lack of direction.",
+        "psychology": "High in Openness (creative, imaginative), Moderate in Conscientiousness (hardworking but sometimes disorganized), Moderate in Extraversion (outgoing but sometimes withdrawn), High in Agreeableness (empathetic, supportive), High in Neuroticism (anxious, self-critical).",
+        "beliefs": "Believes in following her dreams and the importance of art and self-expression. Struggles with the practicality versus passion dilemma.",
+        "motivations": "Driven by her desire to become a successful actress and make a mark in Hollywood. Motivated by her love for performing and telling stories.",
+        "social_dynamics": "Has a close-knit group of friends who support each other in their artistic endeavors. Her relationship with Sebastian adds complexity to her social interactions.",
+        "arc": "Mia grows from an insecure, struggling actress into a confident and accomplished performer. Her journey involves overcoming numerous obstacles, including self-doubt and relationship challenges, to achieve her dreams."
+    },
+    "sebastian_wilder": {
+        "role": "Protagonist's love interest, Antagonist to his own dreams",
+        "backstory": "A dedicated jazz musician with dreams of opening his own jazz club. Sebastian is passionate about preserving traditional jazz and struggles with the compromises needed for commercial success.",
+        "strengths": "Talented pianist, passionate about jazz, determined, and knowledgeable about music history.",
+        "weaknesses": "Stubborn, resistant to change, sometimes self-sabotaging, and can be inflexible.",
+        "psychology": "High in Openness (artistic, adventurous in his musical tastes), High in Conscientiousness (dedicated, disciplined), Moderate in Extraversion (sociable but also enjoys solitude), Moderate in Agreeableness (supportive but can be abrasive), High in Neuroticism (prone to anxiety and mood swings).",
+        "beliefs": "Deeply believes in the purity and importance of traditional jazz. Values artistic integrity over commercial success.",
+        "motivations": "Driven by his passion for jazz and his dream of opening a jazz club. Motivated by a desire to make a lasting impact on the music scene.",
+        "social_dynamics": "Often clashes with others due to his strong opinions and stubborn nature. His relationship with Mia is central to his social world, providing both support and conflict.",
+        "arc": "Sebastian learns to balance his passion for jazz with the practicalities of life. His journey involves recognizing the value of compromise and understanding that success can come in different forms."
+    },
+    "keith": {
+        "role": "Antagonist (in the context of Sebastian's purity of jazz vision)",
+        "backstory": "A former bandmate of Sebastian's who has embraced a more modern, commercial approach to jazz. He represents the new wave of jazz musicians blending traditional elements with contemporary sounds.",
+        "strengths": "Charismatic, innovative in his musical approach, successful in the music industry.",
+        "weaknesses": "Sometimes seen as compromising artistic integrity for commercial success, can be perceived as dismissive of traditionalists.",
+        "psychology": "High in Openness (innovative, experimental), Moderate in Conscientiousness (organized but flexible), High in Extraversion (outgoing, persuasive), Moderate in Agreeableness (collaborative but assertive), Low in Neuroticism (calm, confident).",
+        "beliefs": "Believes in the evolution of jazz and the necessity of adapting to contemporary tastes to keep the genre alive.",
+        "motivations": "Driven by a desire to succeed in the music industry and bring jazz to a wider audience. Motivated by innovation and the challenge of blending old and new.",
+        "social_dynamics": "Often in conflict with traditionalists like Sebastian but maintains a network of musicians who share his vision.",
+        "arc": "Keith represents the changing landscape of jazz. His arc is more about influencing others, like Sebastian, to accept and adapt to change rather than personal transformation."
+    },
+    "laura": {
+        "role": "Supporting character, provides a grounding influence for both Mia and Sebastian",
+        "backstory": "Sebastian’s older sister who has taken on a pragmatic approach to life. She offers a counterpoint to Sebastian's idealism and Mia's dreams, emphasizing stability and practical concerns.",
+        "strengths": "Practical, supportive, grounded, and caring.",
+        "weaknesses": "Can be perceived as overly pragmatic, sometimes dismisses artistic dreams as impractical.",
+        "psychology": "Moderate in Openness (appreciates creativity but values practicality), High in Conscientiousness (organized, responsible), Moderate in Extraversion (sociable but not overly so), High in Agreeableness (empathetic, supportive), Low in Neuroticism (calm, emotionally stable).",
+        "beliefs": "Values stability, security, and practical achievements. Believes in balancing dreams with real-world responsibilities.",
+        "motivations": "Motivated by a desire to see her brother succeed in a sustainable way and to ensure he has a stable future.",
+        "social_dynamics": "Acts as a voice of reason for Sebastian, often clashing with his idealism but ultimately supporting his pursuits.",
+        "arc": "Laura remains a consistent figure of stability, helping to anchor Sebastian and Mia as they navigate their tumultuous journeys."
+    }
+}]

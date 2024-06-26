@@ -1,0 +1,46 @@
+[{
+    "benjamin_franklin_gates": {
+        "role": "Protagonist, driving the action in the pursuit of the treasure",
+        "backstory": "Descendant of a long line of treasure hunters, motivated by family legacy",
+        "strengths": "Intelligence, resourcefulness, deep historical knowledge",
+        "weaknesses": "Obsession with the treasure, sometimes disregards personal safety",
+        "psychology": "High openness (creative, curious), high conscientiousness (dedicated, meticulous), moderate extraversion (charismatic), high agreeableness (loyal, cooperative), low neuroticism (calm under pressure)",
+        "beliefs": "Strong belief in the value of history and preservation, driven by familial duty",
+        "motivations": "To vindicate his family's name and fulfill a long-standing family quest",
+        "social_dynamics": "Collaborative with his team, confrontational with adversaries like Ian Howe",
+        "arc": "Grows from being driven purely by the treasure hunt to valuing relationships and heritage more deeply"
+    },
+    "ian_howe": {
+        "role": "Antagonist, creating obstacles for Ben Gates",
+        "backstory": "Wealthy adventurer with a history of financing expeditions, often motivated by greed",
+        "strengths": "Strategic, manipulative, and financially powerful",
+        "weaknesses": "Overconfidence, lack of loyalty",
+        "psychology": "Low openness (pragmatic, traditional), low conscientiousness (impulsive), high extraversion (dominant), low agreeableness (self-centered), low neuroticism (emotionally stable but ruthless)",
+        "beliefs": "Pragmatic and opportunistic, believes in seizing opportunities regardless of the cost",
+        "motivations": "Driven by greed and the desire for power and wealth",
+        "social_dynamics": "Commanding presence among his henchmen, deceitful and untrustworthy in alliances",
+        "arc": "Remains largely unredeemed, increasingly desperate and ruthless as the story progresses"
+    },
+    "abigail_chase": {
+        "role": "Love interest and ally, supporting the protagonist",
+        "backstory": "Historian and archivist at the National Archives, passionate about history and preservation",
+        "strengths": "Intelligence, bravery, expertise in American history",
+        "weaknesses": "Initially skeptical, vulnerable due to her professional reputation",
+        "psychology": "High openness (intellectual curiosity), high conscientiousness (organized, diligent), moderate extraversion (social but reserved), high agreeableness (empathetic, cooperative), moderate neuroticism (concerned about security)",
+        "beliefs": "Strong belief in historical preservation and academic integrity",
+        "motivations": "Initially to protect the Declaration of Independence, later becomes invested in the treasure hunt and Ben’s cause",
+        "social_dynamics": "Initially cautious, develops a trusting and collaborative relationship with Ben",
+        "arc": "Transforms from a skeptic to an active participant in the treasure hunt, finding personal and professional fulfillment"
+    },
+    "riley_poole": {
+        "role": "Sidekick, providing technical support and comic relief",
+        "backstory": "Tech-savvy expert with a knack for hacking and electronics, long-time friend of Ben",
+        "strengths": "Technical skills, quick-thinking, loyalty",
+        "weaknesses": "Lack of field experience, sometimes overly cautious",
+        "psychology": "High openness (innovative), moderate conscientiousness (capable but sometimes careless), high extraversion (talkative, humorous), high agreeableness (friendly), moderate neuroticism (occasionally anxious)",
+        "beliefs": "Values friendship and loyalty, believes in the importance of their mission",
+        "motivations": "Driven by loyalty to Ben and the thrill of the adventure",
+        "social_dynamics": "Provides balance to Ben’s intensity, supportive and loyal friend",
+        "arc": "Gains confidence and courage through the adventure, becoming more assertive and capable"
+    }
+}]

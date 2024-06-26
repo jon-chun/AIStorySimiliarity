@@ -1,0 +1,14 @@
+[{
+    "characters": {
+        ""
+    },
+    "plot": {
+
+    },
+    "setting": {
+
+    },
+    "themes": {
+
+    }
+}]

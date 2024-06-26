@@ -1,0 +1,57 @@
+[{
+    "jack_dawson": {
+        "role": "Protagonist",
+        "backstory": "Jack is a young artist and drifter who wins a third-class ticket to board the Titanic in a poker game. He has lived a bohemian lifestyle, moving from place to place, and has seen much of the world despite his young age.",
+        "strengths": "Jack is resourceful, courageous, and has a deep sense of empathy. His artistic talent allows him to capture the beauty of the world around him, and his adventurous spirit leads him to take risks that others might avoid.",
+        "weaknesses": "Jack's lack of social status and financial resources put him at a disadvantage in the rigid class structures of the Titanic. His impulsive nature can also lead him into dangerous situations.",
+        "psychology": "Jack exhibits high levels of Openness (creative, curious), moderate Conscientiousness (spontaneous but reliable), high Extraversion (sociable, energetic), high Agreeableness (compassionate, cooperative), and low Neuroticism (calm, emotionally stable).",
+        "beliefs": "Jack believes in the equality and value of all human beings, regardless of their social class. He values freedom, creativity, and living life to the fullest.",
+        "motivations": "Jack is driven by a desire to experience life fully, see the world, and connect with people on a deep level. His love for Rose becomes a central motivation as he strives to protect her and show her the joy of living.",
+        "social_dynamics": "Jack forms a deep bond with Rose, becoming her confidant and lover. His relationships with other characters, like his friend Fabrizio, highlight his loyalty and protective nature. He clashes with Cal and other upper-class passengers who look down on him due to his social standing.",
+        "arc": "Jack transforms from a carefree drifter to a devoted lover and protector. His relationship with Rose brings out his selfless and heroic qualities, leading to his ultimate sacrifice to ensure her survival."
+    },
+    "rose_dewitt_bukater": {
+        "role": "Protagonist",
+        "backstory": "Rose is a young woman from an aristocratic family, engaged to the wealthy but controlling Cal Hockley. She feels trapped by her social obligations and the expectations placed on her by her mother and fianc\u00e9.",
+        "strengths": "Rose is intelligent, strong-willed, and compassionate. Her artistic inclinations and curiosity about the world set her apart from the other first-class passengers.",
+        "weaknesses": "Rose's initial lack of agency and her struggle against societal constraints make her vulnerable. Her rebelliousness, while a strength, also puts her at odds with those who seek to control her.",
+        "psychology": "Rose exhibits high Openness (artistic, imaginative), moderate Conscientiousness (dutiful but rebellious), moderate Extraversion (sociable but introspective), high Agreeableness (empathetic, warm), and moderate Neuroticism (emotional, sensitive).",
+        "beliefs": "Rose values individual freedom, self-expression, and genuine human connections. She rejects the superficial values of her social class and seeks a more authentic life.",
+        "motivations": "Rose is driven by a desire to break free from her restrictive life and to find true love and happiness. Her relationship with Jack becomes a catalyst for her transformation.",
+        "social_dynamics": "Rose's interactions with Jack are transformative, leading her to challenge the expectations of her social class. Her strained relationship with Cal and her mother highlights the conflict between her desires and her obligations.",
+        "arc": "Rose evolves from a constrained and unhappy socialite to an independent and self-assured woman. Her experiences on the Titanic and her love for Jack empower her to take control of her life."
+    },
+    "caledon_hockley": {
+        "role": "Antagonist",
+        "backstory": "Cal is a wealthy and arrogant heir to a vast fortune. He is engaged to Rose, seeing her as a trophy and a means to uphold his status.",
+        "strengths": "Cal is assertive, wealthy, and influential. His financial resources and social standing give him considerable power and control over others.",
+        "weaknesses": "Cal's arrogance, possessiveness, and lack of empathy make him deeply flawed. His need to dominate and control those around him ultimately leads to his downfall.",
+        "psychology": "Cal exhibits low Openness (traditional, resistant to change), high Conscientiousness (organized, diligent), moderate Extraversion (assertive, outgoing), low Agreeableness (manipulative, uncooperative), and high Neuroticism (prone to anger and jealousy).",
+        "beliefs": "Cal believes in the importance of social status, wealth, and power. He views people as assets or obstacles to be managed rather than individuals with their own rights and desires.",
+        "motivations": "Cal is motivated by a desire to maintain his social status and control over Rose. His actions are driven by a need to assert his dominance and protect his reputation.",
+        "social_dynamics": "Cal's relationships are characterized by manipulation and control. He sees Rose as a possession and views Jack as a threat to his authority. His interactions with other characters, like his valet Lovejoy, reinforce his domineering nature.",
+        "arc": "Cal's arc is one of increasing desperation and loss. As he loses control over Rose and the situation aboard the Titanic deteriorates, his true nature is revealed, leading to his ultimate defeat and isolation."
+    },
+    "ruth_dewitt_bukater": {
+        "role": "Supporting Antagonist",
+        "backstory": "Ruth is Rose's mother, a widow who is determined to secure her family's social standing through Rose's marriage to Cal. She represents the pressures and expectations of high society.",
+        "strengths": "Ruth is determined, socially astute, and protective of her family's interests. She knows how to navigate the upper echelons of society and uses her influence to further her goals.",
+        "weaknesses": "Ruth's rigid adherence to social norms and her controlling nature create tension with Rose. Her inability to empathize with her daughter's desires makes her appear cold and unyielding.",
+        "psychology": "Ruth exhibits low Openness (traditional, conservative), high Conscientiousness (organized, responsible), moderate Extraversion (socially active, assertive), low Agreeableness (critical, uncooperative), and moderate Neuroticism (anxious about social status).",
+        "beliefs": "Ruth believes in the importance of social status, propriety, and financial security. She values appearances and social success above personal happiness.",
+        "motivations": "Ruth is motivated by a desire to secure her family's future and uphold their social standing. She sees Rose's marriage to Cal as essential to their financial and social survival.",
+        "social_dynamics": "Ruth's interactions with Rose are marked by conflict and control. She views Jack as a threat to her plans and disapproves of Rose's growing independence. Her relationship with Cal is based on mutual interests rather than genuine affection.",
+        "arc": "Ruth's arc is one of gradual realization and loss. As the events of the Titanic unfold, she is forced to confront the futility of her ambitions and the loss of her daughter's respect and love."
+    },
+    "molly_brown": {
+        "role": "Sidekick",
+        "backstory": "Molly is a wealthy, self-made woman who is new to high society. Despite her recent rise to wealth, she remains grounded and approachable, often bridging the gap between social classes on the Titanic.",
+        "strengths": "Molly is practical, warm-hearted, and resilient. Her down-to-earth nature and generosity make her a beloved figure among the passengers.",
+        "weaknesses": "Molly's straightforwardness and lack of concern for social norms can put her at odds with the more traditional upper-class passengers.",
+        "psychology": "Molly exhibits high Openness (curious, imaginative), moderate Conscientiousness (organized but flexible), high Extraversion (sociable, energetic), high Agreeableness (compassionate, cooperative), and low Neuroticism (emotionally stable).",
+        "beliefs": "Molly believes in the value of hard work, kindness, and equality. She rejects the rigid class structures and elitism of the time, advocating for more inclusive and humane treatment of all individuals.",
+        "motivations": "Molly is motivated by a desire to help others and challenge social injustices. She supports Jack and Rose in their relationship and provides practical assistance during the crisis.",
+        "social_dynamics": "Molly's interactions with Jack and Rose are supportive and encouraging. She acts as a mentor and ally, helping them navigate the complexities of the Titanic's social environment. Her relationships with other first-class passengers highlight the contrast between her progressive values and their traditionalism.",
+        "arc": "Molly's arc is one of affirmation and resilience. Throughout the story, she remains true to her values, providing a beacon of hope and humanity amidst the tragedy of the Titanic. Her actions reinforce her role as a protector and advocate for those in need."
+    }
+}]

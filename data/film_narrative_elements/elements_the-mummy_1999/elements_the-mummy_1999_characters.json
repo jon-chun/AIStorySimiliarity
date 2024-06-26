@@ -1,0 +1,57 @@
+[{
+    "benjamin_franklin_gates": {
+        "role": "Protagonist, treasure hunter driving the action by seeking out and decoding clues to find the hidden treasure.",
+        "backstory": "Raised in a family with a long history of treasure hunting; inspired by tales from his grandfather about the hidden treasure.",
+        "strengths": "Highly intelligent, knowledgeable in history and cryptography, resourceful, and determined.",
+        "weaknesses": "Obsessive about finding the treasure, often takes risks, and can be overly trusting of his friends.",
+        "psychology": "High openness and conscientiousness, moderately extroverted, agreeable but can be stubborn, low neuroticism.",
+        "beliefs": "Believes in the value of historical knowledge and preserving history, driven by a sense of family legacy and duty.",
+        "motivations": "Motivated by the desire to prove his family’s legacy, uncover the truth, and protect historical artifacts.",
+        "social_dynamics": "Interacts with allies with a sense of camaraderie, has a complex relationship with his father who disapproves of treasure hunting, and an adversarial relationship with Ian Howe.",
+        "arc": "Grows from a somewhat reckless treasure hunter into a more thoughtful and strategic protector of history, earning respect and reconciliation with his father."
+    },
+    "abigail_chase": {
+        "role": "Protagonist’s love interest and key ally, a National Archives conservator who becomes deeply involved in the treasure hunt.",
+        "backstory": "A dedicated historian and conservator, passionate about preserving historical documents and artifacts.",
+        "strengths": "Highly knowledgeable in American history, detail-oriented, courageous, and resourceful.",
+        "weaknesses": "Initially skeptical and cautious, can be overly cautious and hesitant to break rules.",
+        "psychology": "High conscientiousness and agreeableness, moderately open and extroverted, low neuroticism.",
+        "beliefs": "Strong belief in the importance of historical preservation and integrity, values truth and knowledge.",
+        "motivations": "Driven by her passion for history and a growing sense of adventure, as well as her evolving feelings for Ben.",
+        "social_dynamics": "Develops a strong bond with Ben, shifting from skepticism to trust and admiration, supportive of the team’s efforts.",
+        "arc": "Transforms from a cautious conservator into an active participant in the treasure hunt, embracing risk and adventure while maintaining her principles."
+    },
+    "ian_howe": {
+        "role": "Antagonist, a wealthy and ruthless treasure hunter who creates obstacles for Ben and his team.",
+        "backstory": "A British treasure hunter who finances expeditions and is driven by greed and a desire for wealth and power.",
+        "strengths": "Intelligent, resourceful, well-funded, and capable of elaborate schemes and manipulation.",
+        "weaknesses": "Greedy, untrustworthy, willing to endanger others for his goals, and often underestimates his opponents.",
+        "psychology": "High openness and conscientiousness, low agreeableness, moderately extroverted, moderately high neuroticism.",
+        "beliefs": "Believes in the pursuit of wealth and power above all else, views historical artifacts as means to an end.",
+        "motivations": "Driven by greed, a desire for power and recognition, and a deep-seated rivalry with Ben.",
+        "social_dynamics": "Manipulative and deceitful, uses his allies as pawns, adversarial relationship with Ben marked by moments of grudging respect.",
+        "arc": "Remains largely unchanged in his greed and ruthlessness, ultimately defeated and outmaneuvered by Ben’s integrity and resourcefulness."
+    },
+    "riley_poole": {
+        "role": "Sidekick, tech expert and Ben’s loyal friend who provides comic relief and technical support.",
+        "backstory": "A skilled computer expert who becomes involved in treasure hunting through his friendship with Ben.",
+        "strengths": "Highly skilled in technology and hacking, loyal, quick-witted, and provides a humorous perspective.",
+        "weaknesses": "Can be insecure about his contributions, often underestimates his own bravery and intelligence.",
+        "psychology": "High openness and conscientiousness, high agreeableness, moderately extroverted, low neuroticism.",
+        "beliefs": "Believes in the adventure and thrill of the hunt, values friendship and loyalty, and has a growing respect for history.",
+        "motivations": "Driven by loyalty to Ben, the excitement of the adventure, and the desire to prove his worth.",
+        "social_dynamics": "Acts as a loyal friend to Ben, often the voice of reason or comic relief, develops a friendly rapport with Abigail.",
+        "arc": "Gains confidence and recognition for his contributions, evolving from a tech-savvy sidekick to a crucial member of the team."
+    },
+    "patrick_henry_gates": {
+        "role": "Ben’s father, initially a skeptic who creates emotional obstacles for Ben but later becomes a crucial ally.",
+        "backstory": "A former treasure hunter who gave up the pursuit, skeptical of the family’s legacy and its impact on their lives.",
+        "strengths": "Knowledgeable, experienced, and resourceful, with a deep love for his family.",
+        "weaknesses": "Cynical, reluctant to believe in the treasure, and often clashes with Ben over his pursuits.",
+        "psychology": "High conscientiousness and agreeableness, moderately open, low neuroticism.",
+        "beliefs": "Believes in practicality and the importance of family, initially dismissive of the treasure hunt as a futile endeavor.",
+        "motivations": "Motivated by a desire to protect his family and prevent Ben from making the same mistakes he believes he made.",
+        "social_dynamics": "Strained relationship with Ben marked by disapproval and later support, serves as a grounding influence for the team.",
+        "arc": "Transforms from a skeptic to a believer, reconciling with Ben and supporting the treasure hunt, ultimately proud of his son’s achievements."
+    }
+}]
