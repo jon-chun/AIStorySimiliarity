@@ -1,0 +1,15 @@
+[{
+    "overall": 25,
+    "character": 40,
+    "plot": 20,
+    "setting": 30,
+    "theme": 10,
+
+    "character_score_explanation": "The characters in 'Office Space' and 'Raiders of the Lost Ark' are fundamentally different. While 'Raiders' features an adventurous and charismatic protagonist, Indiana Jones, 'Office Space' focuses on the mundane lives of office workers like Peter Gibbons. The lack of adventure and historical intrigue in 'Office Space' results in a low similarity score in character comparison.",
+
+    "plot_score_explanation": "The plot of 'Raiders of the Lost Ark' is centered on a high-stakes adventure involving the search for the Ark of the Covenant, while 'Office Space' revolves around the daily grind of office life and a plan to embezzle money from a company. The lack of action, adventure, and historical exploration in 'Office Space' leads to a very low plot similarity score.",
+
+    "setting_score_explanation": "The setting of 'Raiders of the Lost Ark' spans various exotic locations like Peru, Nepal, and Egypt, adding to the film's adventurous feel. In contrast, 'Office Space' is set primarily in a dull office environment and suburban locations. The drastic difference in settings results in a low similarity score for this element.",
+
+    "theme_score_explanation": "Themes in 'Raiders of the Lost Ark' include adventure, the supernatural, and the battle between good and evil. 'Office Space,' on the other hand, deals with themes of workplace dissatisfaction, corporate culture, and personal freedom. The disparity in themes leads to a very low similarity score for this narrative element."
+}]

@@ -30,7 +30,7 @@ if OPENAI_API_KEY:
     openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
     SLEEP_SECONDS = 0.1
 
-OPENAI_MODEL='gpt-3.5-turbo'
+MODEL_NAME='gpt-3.5-turbo'
 DEFAULT_TEMPERATURE = 0.1
 DEFAULT_TOP_P = 0.5
 
@@ -43,7 +43,8 @@ SAMPLE_SIZE = 30
 INPUT_DIR = os.path.join('data','film_scripts_txt')
 
 SCRIPT_REFERENCE = 'script_laura-croft-tomb-raider_2001.txt'
-SCRIPT_TITLE_YEAR = 'Raiders of the Lost Ark (1981 film)'
+SCRIPT_TITLE_YEAR = '###FILM: Raiders of the Lost Ark\n###YEAR: 1981\n'
+SCRIPT_TITLE_YEAR_FILENAME = 'raiders-of-the-lost-ark_1981'
 
 scripts_list_full = sorted(os.listdir(INPUT_DIR))
 scripts_list = [string for string in scripts_list_full if string != SCRIPT_REFERENCE]
@@ -86,7 +87,7 @@ def save_to_file(decision, content, file_path):
         logging.info(f"Successfully wrote to {file_path}")
     except IOError as e:
         logging.error(f"Error writing to {file_path}: {e}")
-        
+
 
 def call_openai(prompt_str):
     
@@ -98,14 +99,14 @@ def call_openai(prompt_str):
                     "content": prompt_str,
                 }
             ],
-            model=OPENAI_MODEL,
+            model=MODEL_NAME,
             temperature=DEFAULT_TEMPERATURE,
             top_p=DEFAULT_TOP_P,
             # response_format={"type": "json_object"}
         )
 
         response = completion.choices[0].message.content
-        print(f'\n\nOpenAI {OPENAI_MODEL} response: {response}\n\n')
+        print(f'\n\nOpenAI {MODEL_NAME} response: {response}\n\n')
         # return json.loads(response)
         return response
 
@@ -214,8 +215,8 @@ if COMPARISON_TYPE == 'memory':
     
     # Save results to CSV
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    csv_filename = f"memory_results_{timestamp}.csv"
-    csv_path = os.path.join(output_root_dir, csv_filename)
+    csv_filename = f"rank_by_{COMPARISON_TYPE}_{MODEL_NAME}_{SCRIPT_TITLE_YEAR_FILENAME}_{timestamp}.csv"
+    csv_path = os.path.join(output_root_dir, MODEL_NAME, csv_filename)
     
     csv_content = "Script,Response\n"
     for script, response in results:
@@ -252,8 +253,8 @@ elif COMPARISON_TYPE in ['scripts', 'score', 'rank']:
         
         # Save results to CSV
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        csv_filename = f"{COMPARISON_TYPE}_results_{timestamp}.csv"
-        csv_path = os.path.join(output_root_dir, csv_filename)
+        csv_filename = f"rank_by_{COMPARISON_TYPE}_{MODEL_NAME}_{SCRIPT_TITLE_YEAR_FILENAME}_{timestamp}.csv"
+        csv_path = os.path.join(output_root_dir, MODEL_NAME, csv_filename)
         
         csv_content = "Rank,Script,Distance\n"
         for rank, (script, distance) in enumerate(scripts_ranked, start=1):

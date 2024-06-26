@@ -1,0 +1,17 @@
+[
+    {
+        "overall": 60,
+        "character": 65,
+        "plot": 55,
+        "setting": 70,
+        "theme": 50,
+
+        "character_score_explanation": "Both Raiders of the Lost Ark and The Mummy feature charismatic, adventurous protagonists (Indiana Jones and Rick O'Connell) who face ancient threats. However, while Indiana Jones is a more rugged archaeologist, Rick O'Connell is portrayed more as a soldier of fortune. The supporting characters and antagonists differ significantly in their roles and development, leading to some narrative divergence.",
+
+        "plot_score_explanation": "Both films revolve around the discovery and protection of ancient artifacts, blending adventure, action, and supernatural elements. Raiders of the Lost Ark focuses more on the historical and archaeological aspects, while The Mummy introduces a strong supernatural horror element with a detailed backstory of curses and resurrection. This gives The Mummy a darker and more fantasy-oriented plot.",
+
+        "setting_score_explanation": "Raiders of the Lost Ark and The Mummy both utilize exotic, historical settings central to their narratives. Raiders spans multiple locations like Peru, Nepal, and Egypt in the 1930s, emphasizing archaeological sites. The Mummy is primarily set in 1920s Egypt, focusing on ancient tombs and desert landscapes. Both settings enhance their respective adventurous tones, but The Mummy's consistent Egyptian backdrop is more specific.",
+
+        "theme_score_explanation": "Raiders of the Lost Ark explores themes of power, corruption, and the clash between science and faith, with a significant emphasis on historical preservation. The Mummy, while also touching on historical preservation, delves deeper into themes of resurrection, eternal love, and supernatural retribution. This gives The Mummy a darker, more fantastical thematic structure compared to the more adventure-driven Raiders."
+    }
+]

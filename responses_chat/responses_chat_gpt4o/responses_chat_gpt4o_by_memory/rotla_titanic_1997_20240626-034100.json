@@ -1,0 +1,15 @@
+[{
+    "overall": 45,
+    "character": 40,
+    "plot": 50,
+    "setting": 30,
+    "theme": 60,
+
+    "character_score_explanation": "The characters in Titanic differ significantly from Raiders of the Lost Ark. Titanic focuses on a romantic duo, Rose and Jack, whose personal growth and emotional journey are central to the story. Raiders of the Lost Ark features an adventurous and charismatic protagonist, Indiana Jones, whose interactions are action-driven and less focused on emotional development. The supporting characters in Titanic, such as Cal and Ruth, also serve different narrative functions compared to the more action-oriented characters in Raiders of the Lost Ark.",
+
+    "plot_score_explanation": "The plot of Titanic revolves around the ill-fated voyage of the ship and the love story between Rose and Jack. It is a historical romance with a tragic ending, focusing on the personal experiences of the characters during the disaster. In contrast, Raiders of the Lost Ark is an action-adventure film centered on the quest to find the Ark of the Covenant. The stakes in Raiders are tied to supernatural elements and world-altering consequences, whereas Titanic focuses on human tragedy and historical events.",
+
+    "setting_score_explanation": "Titanic is set primarily on the RMS Titanic, a luxurious passenger liner, during its maiden voyage in 1912. The setting is confined and richly detailed, highlighting the opulence of the ship and the era. Raiders of the Lost Ark, however, features diverse and exotic locations around the world, such as Peru, Nepal, and Egypt, spanning different cultures and historical periods. The global and archaeological exploration in Raiders contrasts with the single, historical setting of Titanic.",
+
+    "theme_score_explanation": "Both Titanic and Raiders of the Lost Ark explore themes of history and the preservation of knowledge, but they approach these themes differently. Titanic delves into themes of love, class disparity, and human tragedy, emphasizing the personal and societal impacts of the disaster. Raiders of the Lost Ark focuses on adventure, the supernatural, and the conflict between good and evil, with themes of heroism and the dangers of seeking power. The ethical responsibilities of those who uncover history are present in both, but with different focal points."
+}]

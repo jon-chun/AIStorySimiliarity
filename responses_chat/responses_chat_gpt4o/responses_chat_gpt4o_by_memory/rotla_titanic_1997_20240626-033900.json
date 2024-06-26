@@ -1,0 +1,15 @@
+{
+    "overall": 35,
+    "character": 30,
+    "plot": 40,
+    "setting": 50,
+    "theme": 30,
+
+    "character_score_explanation": "The characters in Titanic are primarily focused on the romantic and social dynamics between Rose and Jack, which is different from the adventurous and action-oriented characters like Indiana Jones in Raiders of the Lost Ark. While both have strong protagonists, the context and motivations differ significantly, with Titanic being more romance and drama-focused.",
+
+    "plot_score_explanation": "Titanic's plot revolves around the ill-fated voyage and the love story between Jack and Rose, which contrasts sharply with the treasure-hunting and action-packed narrative of Raiders of the Lost Ark. The latter features a fast-paced adventure with a clear antagonist, while Titanic is a historical romance intertwined with tragedy.",
+
+    "setting_score_explanation": "The setting of Titanic is the historical and grand ship of the same name, providing a detailed and immersive backdrop of the early 20th century. Raiders of the Lost Ark, on the other hand, spans various exotic locations around the world, including jungles and deserts, which serve to enhance its adventurous tone. The settings are both crucial to their narratives but serve different thematic purposes.",
+
+    "theme_score_explanation": "Titanic explores themes of love, class disparity, and tragedy, focusing on personal and historical narratives. Raiders of the Lost Ark emphasizes adventure, the battle between good and evil, and the quest for historical artifacts. While both films deal with historical elements, their thematic focus and execution are quite different, with Titanic leaning towards a dramatic retelling of a real event and Raiders providing a fictional adventure story."
+}

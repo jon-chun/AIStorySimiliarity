@@ -1,0 +1,15 @@
+[{
+    "overall": 25,
+    "character": 30,
+    "plot": 20,
+    "setting": 15,
+    "theme": 35,
+
+    "character_score_explanation": "The characters in 'Office Space' and 'Raiders of the Lost Ark' differ significantly. While 'Raiders' features a charismatic and adventurous protagonist, Indiana Jones, 'Office Space' centers around Peter Gibbons, a disillusioned office worker. The supporting characters in both stories serve different purposes, with 'Office Space' focusing on mundane, relatable office dynamics, unlike the heroic and villainous archetypes in 'Raiders'.",
+
+    "plot_score_explanation": "The plots of 'Raiders of the Lost Ark' and 'Office Space' have little in common. 'Raiders' is an action-adventure centered around the quest for a powerful artifact, with a fast-paced, high-stakes narrative. 'Office Space' is a satirical comedy about office life, with a focus on the protagonist's personal rebellion against corporate culture, lacking the adventurous and epic elements of 'Raiders'.",
+
+    "setting_score_explanation": "The settings of 'Raiders of the Lost Ark' and 'Office Space' are vastly different. 'Raiders' takes place in exotic locations around the world, such as jungles, deserts, and ancient temples, creating a sense of adventure and historical mystery. In contrast, 'Office Space' is set in a mundane office environment in a modern city, emphasizing the drudgery of corporate life.",
+
+    "theme_score_explanation": "The themes in 'Raiders of the Lost Ark' and 'Office Space' are also quite distinct. 'Raiders' explores themes of adventure, the supernatural, and the battle between good and evil, highlighting the importance of preserving historical artifacts. 'Office Space' deals with themes of corporate disillusionment, personal freedom, and the absurdity of office culture, focusing on the individual's struggle against an oppressive work environment."
+}]

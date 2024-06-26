@@ -1,0 +1,15 @@
+{
+    "overall": 45,
+    "character": 50,
+    "plot": 40,
+    "setting": 30,
+    "theme": 60,
+    
+    "character_score_explanation": "While 'Titanic' and 'Raiders of the Lost Ark' both feature strong, charismatic protagonists (Rose and Jack versus Indiana Jones), their character arcs and dynamics differ significantly. Rose and Jack's relationship is a central romantic element, contrasting with Indy's more adventure-driven and solo-focused character arc. Supporting characters in 'Titanic' play roles centered around social class and personal transformation, unlike the action-oriented and rival-driven characters in 'Raiders of the Lost Ark'.",
+    
+    "plot_score_explanation": "The plot of 'Titanic' focuses on a historical romance and disaster narrative, centering around the ill-fated maiden voyage of the RMS Titanic and the love story of Rose and Jack. 'Raiders of the Lost Ark' is an action-adventure film that revolves around Indiana Jones's quest to find the Ark of the Covenant, filled with high-stakes chases and supernatural elements. The primary difference lies in the genre and pacing—romantic drama versus action-packed adventure.",
+    
+    "setting_score_explanation": "The setting of 'Titanic' is primarily confined to the ship itself, highlighting its luxurious interiors and the eventual chaos of its sinking. In contrast, 'Raiders of the Lost Ark' spans multiple exotic locations including Peru, Nepal, and Egypt, emphasizing archaeological sites and ancient ruins. The time periods also differ, with 'Titanic' set in 1912 and 'Raiders of the Lost Ark' set in the 1930s.",
+    
+    "theme_score_explanation": "Both 'Titanic' and 'Raiders of the Lost Ark' explore themes of love, loss, and the human spirit. 'Titanic' delves deeply into themes of class disparity, love against the odds, and human tragedy. 'Raiders of the Lost Ark' explores themes of adventure, the battle between good and evil, and the ethical implications of uncovering historical artifacts. While there is thematic overlap in the human experience and moral choices, the narrative focus and tone are quite different."
+}

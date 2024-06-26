@@ -1,0 +1,15 @@
+[{
+    "overall": 30,
+    "character": 25,
+    "plot": 35,
+    "setting": 30,
+    "theme": 30,
+
+    "character_score_explanation": "The characters in 'Titanic' and 'Raiders of the Lost Ark' have significant differences. 'Titanic' focuses on the romantic and class struggle between Jack and Rose, while 'Raiders' features the adventurous and rugged Indiana Jones. The supporting characters in 'Titanic' add to the emotional depth, unlike the more action-driven characters in 'Raiders.'",
+
+    "plot_score_explanation": "The plot of 'Titanic' centers on a historical romance and the tragedy of the ship's sinking, whereas 'Raiders of the Lost Ark' follows an action-packed adventure to recover a religious artifact. The narratives differ greatly in tone and structure, with 'Titanic' being more dramatic and 'Raiders' being more adventurous and fast-paced.",
+
+    "setting_score_explanation": "The settings in 'Titanic' are largely confined to the ship and its luxurious and tragic voyage, contrasting with the diverse, globe-trotting locales in 'Raiders of the Lost Ark' which include jungles, deserts, and ancient temples. Both films effectively use their settings to enhance the story, but they serve different narrative purposes.",
+
+    "theme_score_explanation": "While both films deal with themes of love and loss, 'Titanic' focuses on class differences, personal sacrifice, and the human impact of disaster. 'Raiders of the Lost Ark' explores themes of good versus evil, the power of history, and the dangers of hubris. The thematic focus of each film is quite distinct, leading to a moderate thematic similarity."
+}]

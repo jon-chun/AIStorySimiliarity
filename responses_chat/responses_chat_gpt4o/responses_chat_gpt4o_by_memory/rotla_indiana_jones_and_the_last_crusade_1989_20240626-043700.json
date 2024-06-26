@@ -1,0 +1,15 @@
+[{
+    "overall": 80,
+    "character": 90,
+    "plot": 85,
+    "setting": 75,
+    "theme": 70,
+
+    "character_score_explanation": "The script of 'Indiana Jones and the Last Crusade' features Indiana Jones, a character nearly identical to the protagonist of 'Raiders of the Lost Ark.' Both characters are adventurous archaeologists who undertake perilous missions. The secondary characters, including the villains and sidekicks, follow similar archetypes, contributing to the high character similarity score.",
+
+    "plot_score_explanation": "Both films revolve around the quest for a powerful, ancient artifact. 'Raiders of the Lost Ark' follows Indiana Jones as he seeks the Ark of the Covenant, while 'The Last Crusade' follows his quest for the Holy Grail. The plots are filled with action, puzzles, and rival treasure hunters, making them closely aligned.",
+
+    "setting_score_explanation": "While 'Raiders of the Lost Ark' spans locations like Egypt and Nepal, 'The Last Crusade' includes settings in the United States, Venice, and Austria. Both scripts use diverse and exotic locations, although 'Raiders' is slightly more varied and global in scope.",
+
+    "theme_score_explanation": "The themes of both films center on the importance of historical artifacts and the ethical dilemmas surrounding their discovery and protection. 'Raiders of the Lost Ark' emphasizes the supernatural and the dangers of misusing power, while 'The Last Crusade' focuses on the quest for eternal life and the bond between father and son."
+}]

@@ -1,0 +1,17 @@
+[
+    {
+        "overall": 65,
+        "character": 70,
+        "plot": 65,
+        "setting": 80,
+        "theme": 45,
+
+        "character_score_explanation": "Both 'Raiders of the Lost Ark' and 'The Mummy' feature charismatic and adventurous protagonists (Indiana Jones and Rick O'Connell) who are knowledgeable and resourceful. However, Indiana Jones is more of a scholarly figure, while Rick O'Connell is more of a rugged adventurer. The supporting characters in both films play significant roles, but Indiana's relationships are more emotionally complex compared to the more straightforward and humorous interactions in 'The Mummy'.",
+
+        "plot_score_explanation": "The plots of both films involve the protagonists embarking on quests to uncover and protect ancient artifacts while facing numerous dangers and adversaries. 'Raiders of the Lost Ark' focuses on the supernatural powers of the Ark, while 'The Mummy' centers around the resurrection of an ancient curse. Both plots are action-packed and adventurous, but 'Raiders' has a more intricate and historically grounded storyline compared to the fantasy elements in 'The Mummy'.",
+
+        "setting_score_explanation": "Both films feature diverse and exotic settings, with 'Raiders of the Lost Ark' spanning multiple countries like Peru, Nepal, and Egypt, immersing the audience in archaeological sites and ancient ruins. 'The Mummy' primarily takes place in Egypt, with a strong emphasis on ancient Egyptian mythology and artifacts. The historical period and authenticity of 'Raiders' add depth, while 'The Mummy' creates a rich, mythical atmosphere through its detailed Egyptian settings.",
+
+        "theme_score_explanation": "The themes in 'Raiders of the Lost Ark' revolve around the ethical responsibilities of archaeologists, the power of ancient artifacts, and the conflict between science and the supernatural. 'The Mummy' shares some of these themes, such as the dangers of disturbing ancient relics and the supernatural consequences, but it places more emphasis on fantasy and adventure rather than the ethical and historical aspects. 'Raiders' provides a more cautionary tale, while 'The Mummy' focuses on entertainment and spectacle."
+    }
+]

@@ -1,0 +1,16 @@
+
+[{
+    "overall": 27,
+    "character": 25,
+    "plot": 20,
+    "setting": 35,
+    "theme": 30,
+
+    "character_score_explanation": "The characters in 'Raiders of the Lost Ark' and 'Titanic' differ significantly in their focus and development. Indiana Jones is an action-driven, adventurous archaeologist, while Jack and Rose are characters rooted in a dramatic romance. The primary motivation and narrative function of these characters lead to a low similarity score.",
+
+    "plot_score_explanation": "The plot of 'Raiders of the Lost Ark' is centered on a fast-paced, action-filled adventure to recover an artifact, whereas 'Titanic' focuses on a romantic tragedy set against a historical disaster. The fundamental nature of the plots in both films is very different, leading to a low plot similarity score.",
+
+    "setting_score_explanation": "Both films have historical settings, but 'Raiders of the Lost Ark' features diverse, exotic locations related to archaeology, while 'Titanic' is set on the RMS Titanic and explores early 20th-century social dynamics. The historical context provides some similarity, but the specific settings are quite different.",
+
+    "theme_score_explanation": "While both 'Raiders of the Lost Ark' and 'Titanic' explore historical themes, the focus is different. 'Raiders' deals with adventure, the pursuit of knowledge, and moral conflicts, whereas 'Titanic' emphasizes love, class conflict, and tragedy. The thematic overlap is moderate but not strong."
+}]

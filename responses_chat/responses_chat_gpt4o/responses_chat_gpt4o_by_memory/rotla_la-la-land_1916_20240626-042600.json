@@ -1,0 +1,15 @@
+[{
+    "overall": 25,
+    "character": 30,
+    "plot": 20,
+    "setting": 40,
+    "theme": 30,
+
+    "character_score_explanation": "Raiders of the Lost Ark features adventurous and rugged characters like Indiana Jones, while La La Land's protagonists, Mia and Sebastian, are more focused on their personal dreams and artistic ambitions. The similarity is low because the characters' motivations and environments are vastly different, despite both being driven by a strong personal passion.",
+
+    "plot_score_explanation": "The plot of Raiders of the Lost Ark is an action-packed adventure involving the pursuit of an ancient artifact with global implications. In contrast, La La Land follows the romantic and professional struggles of two artists in Los Angeles. The primary similarity lies in the characters' pursuit of their goals, but the narrative structure and stakes are quite different.",
+
+    "setting_score_explanation": "Raiders of the Lost Ark is set in various exotic locations around the world in the 1930s, emphasizing historical and archaeological elements. La La Land, however, is set in contemporary Los Angeles, focusing on the city's artistic and cultural milieu. The similarity in setting is minimal, apart from the general theme of exploration.",
+
+    "theme_score_explanation": "The themes of Raiders of the Lost Ark include the battle between good and evil, the power of faith, and the preservation of history. La La Land's themes revolve around dreams, love, and the sacrifices required for artistic success. While both films touch on the pursuit of goals, their thematic focuses are distinct."
+}]

@@ -1,0 +1,15 @@
+[{
+    "overall": 65,
+    "character": 60,
+    "plot": 70,
+    "setting": 50,
+    "theme": 80,
+
+    "character_score_explanation": "Both Raiders of the Lost Ark and National Treasure feature protagonists who are scholarly adventurers driven by a deep respect for history. However, Indiana Jones is portrayed with a more rugged and physically adept persona, while Benjamin Gates relies more on intellectual prowess. Supporting characters in both films contribute to the hero's journey, but the complexity of relationships in Raiders is more emotionally charged compared to the collaborative nature in National Treasure.",
+
+    "plot_score_explanation": "The plots of both films revolve around the pursuit of historical artifacts and involve a series of clues and puzzles leading the protagonists to their goals. Raiders of the Lost Ark is more action-oriented with numerous high-stakes chases and confrontations, while National Treasure focuses on intellectual challenges and historical riddles, with a modern-day setting. Both plots involve evading rival treasure hunters, but Raiders has a greater emphasis on physical danger and combat.",
+
+    "setting_score_explanation": "Raiders of the Lost Ark spans multiple exotic locations across different countries and historical periods, immersing the audience in ancient ruins and archaeological sites. National Treasure is set primarily in contemporary United States, featuring well-known American landmarks and historical sites. The modern setting of National Treasure is less diverse compared to the global and historical exploration emphasized in Raiders.",
+
+    "theme_score_explanation": "Both films explore the importance of history, the preservation of knowledge, and the ethical responsibilities of uncovering it. Raiders of the Lost Ark delves into themes of power, corruption, and the supernatural, highlighting the dangers of exploiting ancient artifacts. National Treasure, while sharing the theme of historical preservation, places a stronger emphasis on patriotism and uncovering hidden truths about national heritage. The themes in National Treasure are presented with a more optimistic and educational tone compared to the darker, cautionary perspective in Raiders."
+}]

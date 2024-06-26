@@ -1,0 +1,17 @@
+[
+    {
+        "overall": 75,
+        "character": 70,
+        "plot": 80,
+        "setting": 85,
+        "theme": 65,
+
+        "character_score_explanation": "Raiders of the Lost Ark and The Mummy both feature charismatic and determined protagonists (Indiana Jones and Rick O'Connell) who are adventurous and knowledgeable. Both characters are motivated by a mix of personal and ethical reasons to pursue their quests. Supporting characters in both films play crucial roles, but Indiana Jones' relationships are more complex and emotionally charged, whereas Rick's are more collaborative and supportive, particularly with Evelyn Carnarvon.",
+
+        "plot_score_explanation": "The plots of Raiders of the Lost Ark and The Mummy revolve around the race to uncover and protect historical artifacts, blending adventure with elements of mystery and suspense. Both films involve a series of clues and confrontations that lead the protagonists to their goals while evading rival treasure hunters. Raiders of the Lost Ark is more focused on the supernatural consequences of the artifacts, while The Mummy incorporates more supernatural horror elements and ancient curses.",
+
+        "setting_score_explanation": "Both Raiders of the Lost Ark and The Mummy feature diverse and exotic settings that play crucial roles in the narrative. Raiders of the Lost Ark spans multiple countries, immersing the audience in ancient ruins and archaeological sites. The Mummy primarily takes place in Egypt, emphasizing ancient tombs and desert landscapes that enhance the film's adventurous and mystical tone. The historical period of the 1930s in Raiders adds an element of pre-World War II tension, while The Mummy's 1920s setting provides a post-World War I context.",
+
+        "theme_score_explanation": "The themes in Raiders of the Lost Ark and The Mummy revolve around the importance of history, the preservation of knowledge, and the ethical responsibilities of those who uncover it. Raiders of the Lost Ark explores themes of power, corruption, and the supernatural, delving into the dangers of exploiting ancient artifacts. The Mummy shares similar themes but places a stronger emphasis on the consequences of disturbing ancient curses and the resurrection of the dead. Both films highlight the conflict between personal ambition and the greater good."
+    }
+]
