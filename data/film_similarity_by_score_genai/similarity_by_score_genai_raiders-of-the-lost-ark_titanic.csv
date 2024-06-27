@@ -1,2 +1,3 @@
-film,characters,plot,setting,themes,overall
-titanic),53,70,38,48,52.25
+film,datetime,sample,unique_id,characters,plot,setting,themes,overall
+titanic,20240627-174722,1,gk3D9qzm,65,70,46,50,57.75
+titanic,20240627-180050,2,xODo8tvL,66,70,56,40,58.0

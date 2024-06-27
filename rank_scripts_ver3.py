@@ -1,10 +1,8 @@
 import os
-import string
-import random
 import json
 import time
-import datetime
 import pandas as pd
+from datetime import datetime
 import pickle
 import logging
 from openai import OpenAI
@@ -42,10 +40,10 @@ DEFAULT_TOP_P = 0.5
 OVERWRITE_FLAG = False  
 
 # Max retries to parse OpenAI API response into Python Dictionary
-MAX_RETRY_DICT_PARSE = 3
+MAX_RETRY_DICT_PARSE = 2
 
 # Configure how many iterations to run
-SAMPLE_SIZE = 10
+SAMPLE_SIZE = 30
 
 
 # IMPORT PROMPTS =====
@@ -371,7 +369,8 @@ def clean_title(title_dirty):
     return title_clean
 
 
-def get_genai_distance(script_reference, film_name, narrative_element, unique_id):
+
+def get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element):
     title_clean_reference = clean_title(SCRIPT_REFERENCE)
     title_clean_test = clean_title(film_name)
     prompt_header = f"\n\n###REFERENCE_FILM:\n{title_clean_reference}\n\n###TEST_FILM:\n{title_clean_test}\n"
@@ -381,7 +380,7 @@ def get_genai_distance(script_reference, film_name, narrative_element, unique_id
     except NameError:
         raise ValueError(f"Variable prompt_similarity_{narrative_element} is not defined")
 
-    prompt_full = f"ID: {unique_id}\n\n" + prompt_header + prompt_similarity_value
+    prompt_full = prompt_header + prompt_similarity_value
     
     # Log the prompt being sent (for debugging purposes)
     # print(f"PROMPT_FULL to OpenAI for {narrative_element}:")
@@ -415,8 +414,7 @@ from functools import lru_cache
 def cached_get_genai_distance(SCRIPT_REFERENCE: str, film_name: str, narrative_element: str) -> Dict[str, any]:
     return get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element)
 
-def generate_unique_id(length=8):
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+
 
 
 def main():
@@ -425,82 +423,66 @@ def main():
     print(f"  scripts_list: {scripts_list}\n")
 
     print(f"SIMILARITY #1.A. rank_by_score of RefGen-TestGen")
-    columns_list = ['film', 'datetime', 'sample', 'unique_id'] + ELEMENTS_TYPE_LIST + ['overall']
+    rankbyscore_refgentestgen_filmdict = {}
+    columns_list = ['film'] + ELEMENTS_TYPE_LIST + ['overall']
     rankbyscore_refgentestgen_filmdf = pd.DataFrame(columns=columns_list)
 
-    scripts_list_filtered = scripts_list  # DEBUG scripts_list[-4:]
+    scripts_list_filtered = scripts_list[-4:] # DEBUG
+    for film_index, film_info in enumerate(scripts_list_filtered):
+        film_name, film_year = film_info  # Correctly unpack the film info
+        
+        # Check if output file exists and OVERWRITE_FLAG is False
+        output_file = f"{output_fullpath_csv.rsplit('.', 1)[0]}_{film_name}.csv"
+        if os.path.exists(output_file) and not OVERWRITE_FLAG:
+            print(f"Skipping film {film_name} as output file already exists.")
+            continue
+        
+        try:
+            print(f"PROCESSING film #{film_index}: {film_name}) vs REFERENCE: {SCRIPT_REFERENCE}")
+            film_similarity_row_dict = {'film': f"{film_name}"}
+            similarity_sum = 0
+            rankbyscore_refgentestgen_elementdict = {}
 
-    for sample in range(SAMPLE_SIZE):
-        print(f"Processing sample {sample + 1} of {SAMPLE_SIZE}")
-        rankbyscore_refgentestgen_filmdict = {}
+            for narrative_element in ELEMENTS_TYPE_LIST:
+                print(f"  NARRATIVE ELEMENT: {narrative_element}")
+                similarity_element_dict = cached_get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element)
+                print(f"\n\n\nsimilarity_element_dict for {narrative_element}:")
+                print(json.dumps(similarity_element_dict, indent=4, ensure_ascii=False))
+                rankbyscore_refgentestgen_elementdict[narrative_element] = similarity_element_dict
 
-        for film_index, film_info in enumerate(scripts_list_filtered):
-            film_name, film_year = film_info
+                similarity_overall = similarity_element_dict['similarity_overall']
+                print(f"similarity_overall for {narrative_element}: {similarity_overall}")
+                film_similarity_row_dict[narrative_element] = similarity_overall
+                similarity_sum += similarity_overall
+
+            overall_similarity = similarity_sum / len(ELEMENTS_TYPE_LIST)
+            print(f"Overall similarity for {film_name}): {overall_similarity}")
+            film_similarity_row_dict['overall'] = overall_similarity
             
-            output_file = f"{output_fullpath_csv.rsplit('.', 1)[0]}_{film_name}.csv"
-            if os.path.exists(output_file) and not OVERWRITE_FLAG:
-                print(f"Appending to existing file for film {film_name}.")
-            else:
-                print(f"Creating new file for film {film_name}.")
-            
+            # Add the new row to the DataFrame
+            new_row_df = pd.DataFrame([film_similarity_row_dict])
+            rankbyscore_refgentestgen_filmdf = pd.concat([rankbyscore_refgentestgen_filmdf, new_row_df], ignore_index=True)
+            rankbyscore_refgentestgen_filmdict[f"{film_name})"] = rankbyscore_refgentestgen_elementdict
+
+            # Save results after each film is processed
             try:
-                print(f"PROCESSING film #{film_index}: {film_name}) vs REFERENCE: {SCRIPT_REFERENCE}")
-
-                datetime_str = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-                unique_id = generate_unique_id()
-                film_similarity_row_dict = {'film': f"{film_name}", 'datetime': datetime_str, 'sample': sample + 1, 'unique_id': unique_id}
-                similarity_sum = 0
-                rankbyscore_refgentestgen_elementdict = {}
-
-                for narrative_element in ELEMENTS_TYPE_LIST:
-                    print(f"  NARRATIVE ELEMENT: {narrative_element}")
-                    similarity_element_dict = get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element, unique_id)
-                    print(f"\n\n\nsimilarity_element_dict for {narrative_element}:")
-                    print(json.dumps(similarity_element_dict, indent=4, ensure_ascii=False))
-                    rankbyscore_refgentestgen_elementdict[narrative_element] = similarity_element_dict
-
-                    similarity_overall = similarity_element_dict['similarity_overall']
-                    print(f"similarity_overall for {narrative_element}: {similarity_overall}")
-                    film_similarity_row_dict[narrative_element] = similarity_overall
-                    similarity_sum += similarity_overall
-
-                overall_similarity = similarity_sum / len(ELEMENTS_TYPE_LIST)
-                print(f"Overall similarity for {film_name}): {overall_similarity}")
-                film_similarity_row_dict['overall'] = overall_similarity
-                
-                new_row_df = pd.DataFrame([film_similarity_row_dict])
-                rankbyscore_refgentestgen_filmdf = pd.concat([rankbyscore_refgentestgen_filmdf, new_row_df], ignore_index=True)
-                rankbyscore_refgentestgen_filmdict[f"{film_name})_{datetime_str}"] = rankbyscore_refgentestgen_elementdict
-
-                # Save results after each film is processed
-                try:
-                    pkl_output_file = f"{output_fullpath_pkl.rsplit('.', 1)[0]}_{film_name}_{datetime_str}.pkl"
-                    save_to_pkl(rankbyscore_refgentestgen_filmdict, pkl_output_file)
-                    
-                    if os.path.exists(output_file) and not OVERWRITE_FLAG:
-                        existing_df = pd.read_csv(output_file)
-                        updated_df = pd.concat([existing_df, new_row_df], ignore_index=True)
-                    else:
-                        updated_df = new_row_df
-                    
-                    save_to_csv(updated_df, output_file)
-                    print(f"Data saved successfully for {film_name}, sample {sample + 1}")
-                except Exception as e:
-                    print(f"Error saving output files for {film_name}, sample {sample + 1}: {str(e)}")
-
+                save_to_pkl(rankbyscore_refgentestgen_filmdict, f"{output_fullpath_pkl.rsplit('.', 1)[0]}_{film_name}.pkl")
+                save_to_csv(rankbyscore_refgentestgen_filmdf, output_file)
+                print(f"Data saved successfully for {film_name}")
             except Exception as e:
-                print(f"Error processing film {film_name}): {str(e)}")
-                continue
+                print(f"Error saving output files for {film_name}: {str(e)}")
+
+        except Exception as e:
+            print(f"Error processing film {film_name}): {str(e)}")
+            continue
 
     # Final save of the complete DataFrame
     if not rankbyscore_refgentestgen_filmdf.empty:
-        rankbyscore_refgentestgen_filmdf.sort_values(by=['film', 'sample', 'datetime'], ascending=[True, True, False], inplace=True)
+        rankbyscore_refgentestgen_filmdf.sort_values(by='overall', ascending=False, inplace=True)
         try:
-            final_datetime_str = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-            final_pkl_output = f"{output_fullpath_pkl.rsplit('.', 1)[0]}_{final_datetime_str}.pkl"
-            save_to_pkl(rankbyscore_refgentestgen_filmdict, final_pkl_output)
+            save_to_pkl(rankbyscore_refgentestgen_filmdict, output_fullpath_pkl)
             save_to_csv(rankbyscore_refgentestgen_filmdf, output_fullpath_csv)
-            print(f"Final data saved successfully to {final_pkl_output} and {output_fullpath_csv}")
+            print(f"Final data saved successfully to {output_fullpath_pkl} and {output_fullpath_csv}")
         except Exception as e:
             print(f"Error saving final output files: {str(e)}")
     else:
@@ -514,3 +496,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
