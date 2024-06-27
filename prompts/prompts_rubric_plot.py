@@ -28,9 +28,9 @@ between the above ###TEST_FILM and the above ###REFERENCE_FILM
 
 Based upon these ###RUBRIC similiarities, 
 give a FINAL similarity_overall score for these two films
-using the following ###TEMPLATE:
-
-and return a response in a valid Python Dictionary format using this ###TEMPLATE
+and return the valid JSON structure using the following ###TEMPLATE by
+populating the JSON structure in ###EXAMPLE
+(Be sure to use double quotes and trailing commas)
 
 ###TEMPLATE
 
@@ -76,9 +76,57 @@ and return a response in a valid Python Dictionary format using this ###TEMPLATE
             "loose_ends": integer range(0,100),
             "subplots": integer range(0,100),
         },
-        "similarity_overall" : integer range(0,100)
     },
+    "similarity_overall" : integer range(0,100)
 } 
+
+
+###EXAMPLE:
+
+```json
+{
+    "reference_film": {
+        "film_title": "",
+        "features": {
+            "protagonist_intro": "",
+            "inciting_incident": "",
+            "rising_action": "",
+            "climax": "",
+            "resolution": "",
+            "consequences": "",
+            "final_outcome": "",
+            "loose_ends": "",
+            "subplots": ""
+        }
+    },
+    "test_film": {
+        "film_title": "",
+        "features": {
+            "protagonist_intro": "",
+            "inciting_incident": "",
+            "rising_action": "",
+            "climax": "",
+            "resolution": "",
+            "consequences": "",
+            "final_outcome": "",
+            "loose_ends": "",
+            "subplots": ""
+        }
+    },
+    "similarity_by_features": {
+        "protagonist_intro": 0,
+        "inciting_incident": 0,
+        "rising_action": 0,
+        "climax": 0,
+        "resolution": 0,
+        "consequences": 0,
+        "final_outcome": 0,
+        "loose_ends": 0,
+        "subplots": 0
+    },
+    "similarity_overall": 0
+}
+```
 """;
 
 
@@ -118,7 +166,7 @@ and return a response in valid Python Dictionary format using this ###TEMPLATE
 
 ###TEMPLATE
 
-[{
+{
     "reference_film": {
         "film_title": string len(,50),
         "features": {
@@ -160,13 +208,13 @@ and return a response in valid Python Dictionary format using this ###TEMPLATE
             "loose_ends": integer range(0,100),
             "subplots": integer range(0,100),
         },
-        "similarity_overall" : integer range(0,100)
     },
-}] 
+    "similarity_overall" : integer range(0,100)
+}]
 
 ##### <RESPONSE> #####
 
-[{
+{
     "reference_film": {
         "film_title": "Raiders of the Lost Ark",
         "features": {
@@ -208,8 +256,8 @@ and return a response in valid Python Dictionary format using this ###TEMPLATE
             "loose_ends": 70,
             "subplots": 75
         },
-        "similarity_overall": 78
     }
-}]
+    "similarity_overall": 78
+}
 
 """;

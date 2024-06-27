@@ -25,9 +25,9 @@ between the above ###TEST_FILM and the above ###REFERENCE_FILM
 
 Based upon these ###RUBRIC similiarities, 
 give a FINAL similarity_overall score for these two films
-using the following ###TEMPLATE:
-
-and return a response in valid Python Dictionary format using this ###TEMPLATE
+and return the valid JSON structure using the following ###TEMPLATE by
+populating the JSON structure in ###EXAMPLE
+(Be sure to use double quotes and trailing commas)
 
 ###TEMPLATE
 
@@ -98,6 +98,69 @@ and return a response in valid Python Dictionary format using this ###TEMPLATE
     },
     "similarity_overall": integer range(0,100)
 }
+
+###EXAMPLE:
+
+{
+    "reference_film": {
+        "film_title": "",
+        "features": {
+            "main_theme": "",
+            "secondary_themes": {
+                "secondary_theme_0": "",
+                "secondary_theme_1": ""
+            },
+            "tertiary_themes": {
+                "tertiary_theme_0": "",
+                "tertiary_theme_1": ""
+            },
+            "resolution_main_them": "",
+            "resolution_secondary_themes": {
+                "resolution_secondary_theme_0": "",
+                "resolution_secondary_theme_1": ""
+            },
+            "resolution_tertiary_themes": {
+                "resolution_tertiary_theme_0": "",
+                "resolution_tertiary_theme_1": ""
+            }
+        }
+    },
+    "test_film": {
+        "film_title": "",
+        "features": {
+            "main_theme": "",
+            "secondary_themes": {
+                "secondary_theme_0": "",
+                "secondary_theme_1": ""
+            },
+            "tertiary_themes": {
+                "tertiary_theme_0": "",
+                "tertiary_theme_1": ""
+            },
+            "resolution_main_them": "",
+            "resolution_secondary_themes": {
+                "resolution_secondary_theme_0": "",
+                "resolution_secondary_theme_1": ""
+            },
+            "resolution_tertiary_themes": {
+                "resolution_tertiary_theme_0": "",
+                "resolution_tertiary_theme_1": ""
+            }
+        }
+    },
+    "similarity_by_features": {
+        "features": {
+            "main_theme": 0,
+            "secondary_themes": 0,
+            "tertiary_themes": 0,
+            "resolution_main_them": 0,
+            "resolution_secondary_themes": 0,
+            "resolution_tertiary_themes": 0
+        }
+    },
+    "similarity_overall": 0
+}
+
 """;
 
 
@@ -134,7 +197,7 @@ and return a response in a valid Python Dictionary format using this ###TEMPLATE
 
 ###TEMPLATE
 
-[{
+{
     "reference_film": {
         "film_title": string len(,50),
         "features": {
@@ -200,7 +263,7 @@ and return a response in a valid Python Dictionary format using this ###TEMPLATE
         },
     },
     "similarity_overall": integer range(0,100)
-}] 
+} 
 
 ##### <RESPONSE> #####
 

@@ -30,9 +30,9 @@ between the above ###TEST_FILM and the above ###REFERENCE_FILM
 
 Based upon these ###RUBRIC similiarities, 
 give a FINAL similarity_overall score for these two films
-as a Python Dictionary using the following ###TEMPLATE:
-
-and return a response as a Python Dictionary using this ###TEMPLATE
+and return the valid JSON structure using the following ###TEMPLATE by
+populating the JSON structure in ###EXAMPLE
+(Be sure to use double quotes and trailing commas)
 
 ###TEMPLATE
 
@@ -78,6 +78,53 @@ and return a response as a Python Dictionary using this ###TEMPLATE
     },
     "similarity_overall" : integer range(0,100)
 }
+
+
+###EXAMPLE: (populate this JSON datastructure with your values)
+
+{
+    "reference_film": {
+        "film_title": "",
+        "features": {
+            "role": "",
+            "backstory": "",
+            "strengths": "",
+            "weakness": "",
+            "psychology": "",
+            "beliefs": "",
+            "motivations": "",
+            "sodial_dynamics": "",
+            "arc": ""
+        }
+    },
+    "test_film": {
+        "film_title": "",
+        "features": {
+            "role": "",
+            "backstory": "",
+            "strengths": "",
+            "weakness": "",
+            "psychology": "",
+            "beliefs": "",
+            "motivations": "",
+            "sodial_dynamics": "",
+            "arc": ""
+        }
+    },
+    "similarity_by_features": {
+        "role": 0,
+        "backstory": 0,
+        "strengths": 0,
+        "weakness": 0,
+        "psychology": 0,
+        "beliefs": 0,
+        "motivations": 0,
+        "sodial_dynamics": 0,
+        "arc": 0
+    },
+    "similarity_overall": 0
+}
+
 
 """;
 

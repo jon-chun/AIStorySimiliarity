@@ -1,5 +1,6 @@
 import os
 import json
+import time
 import pandas as pd
 from datetime import datetime
 import pickle
@@ -33,8 +34,11 @@ MODEL_NAME = 'gpt-3.5-turbo' # 'gpt-4o'
 DEFAULT_TEMPERATURE = 0.1
 DEFAULT_TOP_P = 0.5
 
+# Set to True if you want to reprocess all films, else make for more efficient restarting without reprocessing
+OVERWRITE_FLAG = False  
+
 # Max retries to parse OpenAI API response into Python Dictionary
-MAX_RETRY_DICT_PARSE = 3
+MAX_RETRY_DICT_PARSE = 2
 
 # Configure how many iterations to run
 SAMPLE_SIZE = 30
@@ -47,14 +51,17 @@ INPUT_SCRIPTS_DIR = os.path.join('data', 'film_scripts_txt')
 INPUT_ELEMENTS_DIR = os.path.join('data','film_narrative_elements')
 
 # REFERENCE FILM
-SCRIPT_REFERENCE = 'raiders-of-the-lost-ark_1981'
+SCRIPT_REFERENCE = 'raiders-of-the-lost-ark'
 SCRIPT_TITLE_YEAR = '###FILM: Raiders of the Lost Ark\n###YEAR: 1981\n'
 SCRIPT_TITLE_YEAR_FILENAME = 'raiders-of-the-lost-ark_1981'
 
 scripts_list_full = sorted(os.listdir(INPUT_SCRIPTS_DIR))
-scripts_list = [string.split('.')[0] for string in scripts_list_full]
-scripts_list = [string.split('_')[1:] for string in scripts_list]
-scripts_list = [string for string in scripts_list if string != SCRIPT_REFERENCE]
+scripts_list = [string.split('.')[0] for string in scripts_list_full] # Remove filename .ext suffix
+scripts_list = [string.split('_')[1:] for string in scripts_list] # Remove leading (type)_ prefix
+scripts_list = [string for string in scripts_list if string[0] != SCRIPT_REFERENCE]
+print(f"FIRST scripts_list: {scripts_list}")
+
+ELEMENTS_TYPE_LIST = ['characters','plot','setting','themes']
 
 # Add overwrite flag
 OVERWRITE_FLAG = False
@@ -87,18 +94,6 @@ def log_and_terminal(message: str, level: str = "info"):
     print(message)
 
 def read_file(input_dir: str, filename: str) -> str:
-    """
-    Read the content of a file.
-
-    Args:
-        filename (str): The name of the file to read.
-
-    Returns:
-        str: The content of the file.
-
-    Raises:
-        Exception: If there's an error reading the file.
-    """
     try:
         file_fullpath = os.path.join(input_dir, filename)
         with open(file_fullpath, 'r', encoding='utf-8') as fp:
@@ -110,17 +105,6 @@ def read_file(input_dir: str, filename: str) -> str:
         return ""
 
 def save_to_file(decision: str, content: str, file_path: str) -> None:
-    """
-    Save content to the specified file, creating any necessary directories.
-
-    Args:
-        decision (str): A description of the content being saved.
-        content (str): The content to be saved.
-        file_path (str): The path where the file should be saved.
-
-    Returns:
-        None
-    """
     try:
         directory = os.path.dirname(file_path)
         if not os.path.exists(directory):
@@ -135,13 +119,6 @@ def save_to_file(decision: str, content: str, file_path: str) -> None:
         logger.error(f"Error creating directories or writing to {file_path}: {e}")
 
 def save_to_pkl(dictionary: Dict[str, any], file_path: str) -> None:
-    """
-    Save a multi-layer nested dictionary to a pickle file.
-
-    Args:
-        dictionary (Dict[str, Any]): The dictionary to save.
-        file_path (str): The path to the file where the dictionary will be saved.
-    """
     try:
         with open(file_path, 'wb') as file:
             pickle.dump(dictionary, file)
@@ -150,15 +127,6 @@ def save_to_pkl(dictionary: Dict[str, any], file_path: str) -> None:
         print(f"An error occurred while saving the dictionary to {file_path}: {e}")
 
 def read_from_pkl(file_path: str) -> Dict[str, any]:
-    """
-    Read a multi-layer nested dictionary from a pickle file.
-
-    Args:
-        file_path (str): The path to the pickle file to read.
-
-    Returns:
-        Dict[str, Any]: The dictionary read from the file.
-    """
     try:
         with open(file_path, 'rb') as file:
             dictionary = pickle.load(file)
@@ -169,13 +137,6 @@ def read_from_pkl(file_path: str) -> Dict[str, any]:
         return {}
 
 def save_to_csv(df: pd.DataFrame, output_fullpath_csv: str) -> None:
-    """
-    Save a DataFrame to a CSV file.
-
-    Args:
-        df (pd.DataFrame): The DataFrame to save.
-        output_fullpath_csv (str): The full path where the CSV file will be saved.
-    """
     try:
         df.to_csv(output_fullpath_csv, index=False)
         print(f"DataFrame successfully saved to {output_fullpath_csv}")
@@ -183,15 +144,6 @@ def save_to_csv(df: pd.DataFrame, output_fullpath_csv: str) -> None:
         print(f"An error occurred while saving the DataFrame to {output_fullpath_csv}: {e}")
 
 def read_from_csv(input_fullpath_csv: str) -> pd.DataFrame:
-    """
-    Read a CSV file into a DataFrame.
-
-    Args:
-        input_fullpath_csv (str): The full path to the CSV file to read.
-
-    Returns:
-        pd.DataFrame: The DataFrame read from the CSV file.
-    """
     try:
         df = pd.read_csv(input_fullpath_csv)
         print(f"DataFrame successfully read from {input_fullpath_csv}")
@@ -201,34 +153,30 @@ def read_from_csv(input_fullpath_csv: str) -> pd.DataFrame:
         return pd.DataFrame()
 
 def call_openai(prompt_str: str) -> Optional[Dict]:
-    """
-    Call the OpenAI API with the given prompt and return the response as a dictionary.
 
-    Args:
-        prompt_str (str): The prompt to send to the API.
-        openai_client (OpenAI): The OpenAI client instance.
-
-    Returns:
-        Optional[Dict]: The API response content as a dictionary, or None if there was an error.
-    """
     try:
-        log_and_terminal(f"Sending prompt to OpenAI: {prompt_str}\n")
-        completion = openai_client.chat.completions.create(
-            messages=[
-                {
-                    "role": "user",
-                    "content": prompt_str,
-                }
-            ],
-            model=MODEL_NAME,
-            temperature=DEFAULT_TEMPERATURE,
-            top_p=DEFAULT_TOP_P,
-        )
-
-        response = completion.choices[0].message.content
-        log_and_terminal(f"Received response from OpenAI: {response}")
-
         for attempt in range(MAX_RETRY_DICT_PARSE):
+
+            log_and_terminal(f"Sending prompt to OpenAI: {prompt_str}\n")
+            completion = openai_client.chat.completions.create(
+                messages=[
+                    {
+                        "role": "user",
+                        "content": prompt_str,
+                    }
+                ],
+                model=MODEL_NAME,
+                temperature=DEFAULT_TEMPERATURE,
+                top_p=DEFAULT_TOP_P,
+                response_format={ "type": "json_object" },
+            )
+
+            time.sleep(5)
+            print(f'  PAUSE 5 Seconds between OpenAI API calls')
+            response = completion.choices[0].message.content
+            log_and_terminal(f"Received response from OpenAI: {response}")
+
+            
             try:
                 response_dict = json.loads(response)
                 log_and_terminal(f"Successfully parsed response to dictionary on attempt {attempt + 1}")
@@ -641,6 +589,9 @@ def main():
         exit()
 """;
 
+# titles_list = [clean_title(string) for string in scripts_list]
+# print(f"titles_list: {titles_list}\n\n")
+
 OUTPUT_DIR_SIM_BY_SCORE_GENAI = os.path.join('data', 'film_similarity_by_score_genai')
 output_filename_pkl = f"similarity_by_score_genai_{SCRIPT_REFERENCE}.pkl"
 output_fullpath_pkl = os.path.join(OUTPUT_DIR_SIM_BY_SCORE_GENAI, output_filename_pkl)
@@ -657,16 +608,17 @@ def get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element):
     except NameError:
         raise ValueError(f"Variable prompt_similarity_{narrative_element} is not defined")
 
-    full_prompt = prompt_header + prompt_similarity_value
+    prompt_full = prompt_header + prompt_similarity_value
     
     # Log the prompt being sent (for debugging purposes)
-    print(f"Sending prompt to OpenAI for {narrative_element}:")
-    print(full_prompt)
+    # print(f"PROMPT_FULL to OpenAI for {narrative_element}:")
+    # print(prompt_full)
 
-    response_raw = call_openai(full_prompt)
+    response_raw = call_openai(prompt_full)
+    time.sleep(10)
     
     # Log the raw response (for debugging purposes)
-    print(f"Received raw response for {narrative_element}:")
+    print(f"RESPONSE from OpenAI for {narrative_element}:")
     print(json.dumps(response_raw, indent=2))
 
     if isinstance(response_raw, dict):
@@ -690,153 +642,154 @@ from functools import lru_cache
 def cached_get_genai_distance(SCRIPT_REFERENCE: str, film_name: str, narrative_element: str) -> Dict[str, any]:
     return get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element)
 
-scripts_list = [
-    ['indiana-jones-and-the-dial-of-destiny', '2023'],
-    ['indiana-jones-and-the-kingdom-of-the-crystal-skull', '2008'],
-    ['indiana-jones-and-the-last-crusade', '1989'],
-    ['indiana-jones-and-the-temple-of-doom', '1984'],
-    ['la-la-land', '2016'],
-    ['laura-croft-tomb-raider', '2001'],
-    ['national-treasure', '2004'],
-    ['office-space', '1999'],
-    ['raiders-of-the-lost-ark', '1981'],
-    ['the-mummy', '1999'],
-    ['titanic', '1997']
-]
+
+
 
 def main():
     print("PROCESSING: ")
     print(f"  SCRIPT_REFERENCE: {SCRIPT_REFERENCE}")
     print(f"  scripts_list: {scripts_list}\n")
 
-    ELEMENT_TYPES_LIST = ['characters', 'plot', 'setting', 'themes']
-
     print(f"SIMILARITY #1.A. rank_by_score of RefGen-TestGen")
-    rank_by_score_refgen_testgen_dict = {}
-    columns_list = ['film'] + ELEMENT_TYPES_LIST + ['overall']
-    film_similarity_rows = []
+    rankbyscore_refgentestgen_filmdict = {}
+    columns_list = ['film'] + ELEMENTS_TYPE_LIST + ['overall']
+    rankbyscore_refgentestgen_filmdf = pd.DataFrame(columns=columns_list)
 
-    for film_index, film_info in enumerate(scripts_list):
+    scripts_list_filtered = scripts_list[-1:] # DEBUG
+    for film_index, film_info in enumerate(scripts_list_filtered):
         film_name, film_year = film_info  # Correctly unpack the film info
+        
+        # Check if output file exists and OVERWRITE_FLAG is False
+        output_file = f"{output_fullpath_csv.rsplit('.', 1)[0]}_{film_name}.csv"
+        if os.path.exists(output_file) and not OVERWRITE_FLAG:
+            print(f"Skipping film {film_name} as output file already exists.")
+            continue
+        
         try:
-            print(f"PROCESSING film #{film_index}: {film_name} ({film_year}) vs REFERENCE: {SCRIPT_REFERENCE}")
-            film_similarity_row_dict = {'film': f"{film_name} ({film_year})"}
+            print(f"PROCESSING film #{film_index}: {film_name}) vs REFERENCE: {SCRIPT_REFERENCE}")
+            film_similarity_row_dict = {'film': f"{film_name})"}
             similarity_sum = 0
-            rank_by_score_refgen_testgen_element_dict = {}
+            rankbyscore_refgentestgen_elementdict = {}
 
-            for narrative_element in ELEMENT_TYPES_LIST:
+            for narrative_element in ELEMENTS_TYPE_LIST:
                 print(f"  NARRATIVE ELEMENT: {narrative_element}")
-                # Pass film_name as a string, not a list
                 similarity_element_dict = cached_get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element)
                 print(f"\n\n\nsimilarity_element_dict for {narrative_element}:")
                 print(json.dumps(similarity_element_dict, indent=4, ensure_ascii=False))
-                rank_by_score_refgen_testgen_element_dict[narrative_element] = similarity_element_dict
+                rankbyscore_refgentestgen_elementdict[narrative_element] = similarity_element_dict
 
                 similarity_overall = similarity_element_dict['similarity_overall']
                 print(f"similarity_overall for {narrative_element}: {similarity_overall}")
                 film_similarity_row_dict[narrative_element] = similarity_overall
                 similarity_sum += similarity_overall
 
-            overall_similarity = similarity_sum / len(ELEMENT_TYPES_LIST)
+            overall_similarity = similarity_sum / len(ELEMENTS_TYPE_LIST)
+            print(f"Overall similarity for {film_name}): {overall_similarity}")
             film_similarity_row_dict['overall'] = overall_similarity
-            print(f"Overall similarity for {film_name} ({film_year}): {overall_similarity}")
             
-            film_similarity_rows.append(film_similarity_row_dict)
-            rank_by_score_refgen_testgen_dict[f"{film_name} ({film_year})"] = rank_by_score_refgen_testgen_element_dict
+            # Add the new row to the DataFrame
+            new_row_df = pd.DataFrame([film_similarity_row_dict])
+            rankbyscore_refgentestgen_filmdf = pd.concat([rankbyscore_refgentestgen_filmdf, new_row_df], ignore_index=True)
+            rankbyscore_refgentestgen_filmdict[f"{film_name})"] = rankbyscore_refgentestgen_elementdict
+
+            # Save results after each film is processed
+            try:
+                save_to_pkl(rankbyscore_refgentestgen_filmdict, f"{output_fullpath_pkl.rsplit('.', 1)[0]}_{film_name}.pkl")
+                save_to_csv(rankbyscore_refgentestgen_filmdf, output_file)
+                print(f"Data saved successfully for {film_name}")
+            except Exception as e:
+                print(f"Error saving output files for {film_name}: {str(e)}")
 
         except Exception as e:
-            print(f"Error processing film {film_name} ({film_year}): {str(e)}")
+            print(f"Error processing film {film_name}): {str(e)}")
             continue
 
-    # Create DataFrame after loop
-    if film_similarity_rows:
-        rank_by_score_refgen_testgen_df = pd.DataFrame(film_similarity_rows, columns=columns_list)
-
+    # Final save of the complete DataFrame
+    if not rankbyscore_refgentestgen_filmdf.empty:
+        rankbyscore_refgentestgen_filmdf.sort_values(by='overall', ascending=False, inplace=True)
         try:
-            save_to_pkl(rank_by_score_refgen_testgen_dict, output_fullpath_pkl)
-            save_to_csv(rank_by_score_refgen_testgen_df, output_fullpath_csv)
-            print(f"Data saved successfully to {output_fullpath_pkl} and {output_fullpath_csv}")
+            save_to_pkl(rankbyscore_refgentestgen_filmdict, output_fullpath_pkl)
+            save_to_csv(rankbyscore_refgentestgen_filmdf, output_fullpath_csv)
+            print(f"Final data saved successfully to {output_fullpath_pkl} and {output_fullpath_csv}")
         except Exception as e:
-            print(f"Error saving output files: {str(e)}")
+            print(f"Error saving final output files: {str(e)}")
     else:
-        print("No data to save. All film processing attempts failed.")
+        print("ERROR: No data to save. All film processing attempts failed.")
 
-    print(json.dumps(rank_by_score_refgen_testgen_dict, indent=4, ensure_ascii=False))
+    print(f"\n\n\nJSON.DUMPS(rankbyscore_refgentestgen_filmdict)")
+    print(json.dumps(rankbyscore_refgentestgen_filmdict, indent=4, ensure_ascii=False))
+
+    print(f"\n\nHEAD: rankbyscore_refgentestgen_filmdf.head()")
+    print(rankbyscore_refgentestgen_filmdf.head())
 
 if __name__ == "__main__":
     main()
 
+
 """
+
 def main():
     print("PROCESSING: ")
     print(f"  SCRIPT_REFERENCE: {SCRIPT_REFERENCE}")
-    scripts_list = [
-        ['indiana-jones-and-the-dial-of-destiny', '2023'],
-        ['indiana-jones-and-the-kingdom-of-the-crystal-skull', '2008'],
-        ['indiana-jones-and-the-last-crusade', '1989'],
-        ['indiana-jones-and-the-temple-of-doom', '1984'],
-        ['la-la-land', '2016'],
-        ['laura-croft-tomb-raider', '2001'],
-        ['national-treasure', '2004'],
-        ['office-space', '1999'],
-        ['raiders-of-the-lost-ark', '1981'],
-        ['the-mummy', '1999'],
-        ['titanic', '1997']
-    ]
     print(f"  scripts_list: {scripts_list}\n")
 
-    ELEMENT_TYPES_LIST = ['characters', 'plot', 'setting', 'themes']
-
     print(f"SIMILARITY #1.A. rank_by_score of RefGen-TestGen")
-    rank_by_score_refgen_testgen_dict = {}
-    columns_list = ['film'] + ELEMENT_TYPES_LIST + ['overall']
-    film_similarity_rows = []
+    rankbyscore_refgentestgen_filmdict = {}
+    columns_list = ['film'] + ELEMENTS_TYPE_LIST + ['overall']
+    rankbyscore_refgentestgen_filmdf = pd.DataFrame(columns=columns_list)
 
     for film_index, film_info in enumerate(scripts_list):
-        film_name, film_year = film_info
+        film_name, film_year = film_info  # Correctly unpack the film info
         try:
-            print(f"PROCESSING film #{film_index}: {film_name} ({film_year}) vs REFERENCE: {SCRIPT_REFERENCE}")
-            film_similarity_row_dict = {'film': f"{film_name} ({film_year})"}
+            print(f"PROCESSING film #{film_index}: {film_name}) vs REFERENCE: {SCRIPT_REFERENCE}")
+            film_similarity_row_dict = {'title': f"{film_name})"}
             similarity_sum = 0
-            rank_by_score_refgen_testgen_element_dict = {}
+            rankbyscore_refgentestgen_elementdict = {}
 
-            for narrative_element in ELEMENT_TYPES_LIST:
+            for narrative_element in ELEMENTS_TYPE_LIST:
                 print(f"  NARRATIVE ELEMENT: {narrative_element}")
-                similarity_element_dict = get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element)
-                print(f"\n\n\nsimilarity_element_dict:")
+                # Pass film_name as a string, not a list
+                similarity_element_dict = cached_get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element)
+                print(f"\n\n\nsimilarity_element_dict for {narrative_element}:")
                 print(json.dumps(similarity_element_dict, indent=4, ensure_ascii=False))
-                rank_by_score_refgen_testgen_element_dict[narrative_element] = similarity_element_dict
+                rankbyscore_refgentestgen_elementdict[narrative_element] = similarity_element_dict
 
                 similarity_overall = similarity_element_dict['similarity_overall']
-                print(f"similarity_overall: {similarity_overall}")
+                print(f"similarity_overall for {narrative_element}: {similarity_overall}")
                 film_similarity_row_dict[narrative_element] = similarity_overall
                 similarity_sum += similarity_overall
 
-            overall_similarity = similarity_sum / len(ELEMENT_TYPES_LIST)
+            overall_similarity = similarity_sum / len(ELEMENTS_TYPE_LIST)
+            print(f"Overall similarity for {film_name}): {overall_similarity}")
             film_similarity_row_dict['overall'] = overall_similarity
-            print(f"Overall similarity: {overall_similarity}")
             
-            film_similarity_rows.append(film_similarity_row_dict)
-            rank_by_score_refgen_testgen_dict[f"{film_name} ({film_year})"] = rank_by_score_refgen_testgen_element_dict
+            # df = pd.concat([df, new_df], ignore_index=True)
+            rankbyscore_refgentestgen_filmdf = pd.concat([rankbyscore_refgentestgen_filmdf, pd.DataFrame([film_similarity_row_dict])], ignore_index=True)
+            # film_similarity_rows.append(film_similarity_row_dict)
+            rankbyscore_refgentestgen_filmdict[f"{film_name})"] = rankbyscore_refgentestgen_elementdict
 
         except Exception as e:
-            print(f"Error processing film {film_name} ({film_year}): {str(e)}")
+            print(f"Error processing film {film_name}): {str(e)}")
             continue
 
     # Create DataFrame after loop
-    if film_similarity_rows:
-        rank_by_score_refgen_testgen_df = pd.DataFrame(film_similarity_rows, columns=columns_list)
-
+    if rankbyscore_refgentestgen_filmdf:
+        # rankbyscore_refgentestgen_df = pd.DataFrame(rankbyscore_refgentestgen_filmdict_df, columns=columns_list)
+        rankbyscore_refgentestgen_filmdf.sort_values(by='overall',ascending=False,inplace=True)
         try:
-            save_to_pkl(rank_by_score_refgen_testgen_dict, output_fullpath_pkl)
-            save_to_csv(rank_by_score_refgen_testgen_df, output_fullpath_csv)
+            save_to_pkl(rankbyscore_refgentestgen_filmdict, output_fullpath_pkl)
+            save_to_csv(rankbyscore_refgentestgen_filmdf, output_fullpath_csv)
             print(f"Data saved successfully to {output_fullpath_pkl} and {output_fullpath_csv}")
         except Exception as e:
             print(f"Error saving output files: {str(e)}")
     else:
-        print("No data to save. All film processing attempts failed.")
+        print("ERROR: No data to save. All film processing attempts failed.")
 
-    print(json.dumps(rank_by_score_refgen_testgen_dict, indent=4, ensure_ascii=False))
+    print(f"\n\n\nJSON.DUMPS(rankbyscore_refgentestgen_filmdict)")
+    print(json.dumps(rankbyscore_refgentestgen_filmdict, indent=4, ensure_ascii=False))
+
+    print(f"\n\nHEAD: rankbyscore_refgentestgen_filmdf.head()")
+    print(rankbyscore_refgentestgen_filmdf.head())
 
 if __name__ == "__main__":
     main()

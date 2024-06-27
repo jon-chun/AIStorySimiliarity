@@ -25,9 +25,9 @@ between the above ###TEST_FILM and the above ###REFERENCE_FILM
 
 Based upon these ###RUBRIC similiarities, 
 give a FINAL similarity_overall score for these two films
-using the following ###TEMPLATE:
-
-and return a response in valid Python Dictionary format using this ###TEMPLATE
+and return the valid JSON structure using the following ###TEMPLATE by
+populating the JSON structure in ###EXAMPLE
+(Be sure to use double quotes and trailing commas)
 
 ###TEMPLATE
 
@@ -64,9 +64,50 @@ and return a response in valid Python Dictionary format using this ###TEMPLATE
             "ideology_and_beliefs": integer range(0,100),
             "economic_and_political_context": integer range(0,100)
         },
-        "similarity_overall" : integer range(0,100)
     },
+    "similarity_overall" : integer range(0,100)
 }
+
+###EXAMPLE:
+
+```json
+{
+    "reference_film": {
+        "film_title": "",
+        "features": {
+            "time_period": "",
+            "geographical_location": "",
+            "cultural_context": "",
+            "social_class": "",
+            "ideology_and_beliefs": "",
+            "economic_and_political_context": ""
+        }
+    },
+    "test_film": {
+        "film_title": "",
+        "features": {
+            "time_period": "",
+            "geographical_location": "",
+            "cultural_context": "",
+            "social_class": "",
+            "ideology_and_beliefs": "",
+            "economic_and_political_context": ""
+        }
+    },
+    "similarity_by_features": {
+        "film_title": "",
+        "features": {
+            "time_period": 0,
+            "geographical_location": 0,
+            "cultural_context": 0,
+            "social_class": 0,
+            "ideology_and_beliefs": 0,
+            "economic_and_political_context": 0
+        }
+    },
+    "similarity_overall": 0
+}
+```
 """;
 
 
@@ -103,7 +144,7 @@ and return a response in a valid Python Dictionary format using this ###TEMPLATE
 
 ###TEMPLATE
 
-[{
+{
     "reference_film": {
         "film_title": string len(,50),
         "features": {
@@ -136,9 +177,9 @@ and return a response in a valid Python Dictionary format using this ###TEMPLATE
             "ideology_and_beliefs": integer range(0,100),
             "economic_and_political_context": integer range(0,100)
         },
-        "similarity_overall" : integer range(0,100)
-    },
-}] 
+    }
+    "similarity_overall" : integer range(0,100)
+} 
 
 ##### <RESPONSE> #####
 
