@@ -27,11 +27,11 @@ Based upon these ###RUBRIC similiarities,
 give a FINAL similarity_overall score for these two films
 using the following ###TEMPLATE:
 
-and return a response in JSON format using this ###TEMPLATE
+and return a response in valid Python Dictionary format using this ###TEMPLATE
 
 ###TEMPLATE
 
-[{
+{
     "reference_film": {
         "film_title": string len(,50),
         "features": {
@@ -66,7 +66,7 @@ and return a response in JSON format using this ###TEMPLATE
         },
         "similarity_overall" : integer range(0,100)
     },
-}] 
+}
 """;
 
 
@@ -99,7 +99,7 @@ Based upon these ###RUBRIC similiarities,
 give a FINAL similarity_overall score for these two films
 using the following ###TEMPLATE:
 
-and return a response in JSON format using this ###TEMPLATE
+and return a response in a valid Python Dictionary format using this ###TEMPLATE
 
 ###TEMPLATE
 
