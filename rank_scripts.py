@@ -1,8 +1,11 @@
 import os
+import json
+import pandas as pd
 from datetime import datetime
+import pickle
 import logging
 from openai import OpenAI
-from typing import List, Tuple, Optional
+from typing import List, Dict, Tuple, Optional
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -11,11 +14,18 @@ logger.addHandler(logging.StreamHandler())
 
 # SETUP OPENAI =====
 
+# Set the OpenAI API Key in the command line shell
+
+# 1. LINUX CLI: export OPENAI_API_KEY="your_openai_api_key"
+# 2. WIN11 PowerShell: $env:OPENAI_API_KEY="your_openai_api_key"
+#                   echo $env:OPENAI_API_KEY
+# 3. WIN11 Command Terminal: set OPENAI_API_KEY=your_openai_api_key
+#                         echo %OPENAI_API_KEY%
+
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 if OPENAI_API_KEY:
     openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
     SLEEP_SECONDS = 0.1
-
 
 MODEL_NAME = 'gpt-3.5-turbo' # 'gpt-4o'
 # 'gpt-3.5-turbo is limited to 16k tokens ~12kb plain text file 
@@ -23,21 +33,28 @@ MODEL_NAME = 'gpt-3.5-turbo' # 'gpt-4o'
 DEFAULT_TEMPERATURE = 0.1
 DEFAULT_TOP_P = 0.5
 
+# Max retries to parse OpenAI API response into Python Dictionary
+MAX_RETRY_DICT_PARSE = 3
+
 # Configure how many iterations to run
 SAMPLE_SIZE = 30
 
 # DEFINE CONSTANTS =====
 
-INPUT_DIR = os.path.join('data', 'film_scripts_txt')
-SCRIPT_REFERENCE = 'script_laura-croft-tomb-raider_2001.txt'
+# INPUTS to compare by full scripts
+INPUT_SCRIPTS_DIR = os.path.join('data', 'film_scripts_txt')
+# INPUTS to compare by extracted narrative elements
+INPUT_ELEMENTS_DIR = os.path.join('data','film_narrative_elements')
+
+# REFERENCE FILM
+SCRIPT_REFERENCE = 'script_raiders-of-the-lost-ark_1981'
 SCRIPT_TITLE_YEAR = '###FILM: Raiders of the Lost Ark\n###YEAR: 1981\n'
 SCRIPT_TITLE_YEAR_FILENAME = 'raiders-of-the-lost-ark_1981'
 
-scripts_list_full = sorted(os.listdir(INPUT_DIR))
-scripts_list = [string for string in scripts_list_full if string != SCRIPT_REFERENCE]
-
-# Select COMPARISON_TYPE_BY in ['memory','scripts','score','rank']
-COMPARISON_TYPE = 'memory'
+scripts_list_full = sorted(os.listdir(INPUT_SCRIPTS_DIR))
+scripts_list = [string.split('.')[0] for string in scripts_list_full]
+scripts_list = [string.split('_')[1:] for string in scripts_list]
+scripts_list = [string for string in scripts_list if string != SCRIPT_REFERENCE]
 
 # Add overwrite flag
 OVERWRITE_FLAG = False
@@ -48,7 +65,28 @@ from prompts.prompts_compare_with_memory import prompt_similarity_to_memory_star
 
 # FUNCTIONS =====
 
-def read_file(filename: str) -> str:
+def log_and_terminal(message: str, level: str = "info"):
+    """
+    Log a message and print it to the terminal.
+
+    Args:
+        message (str): The message to log and print.
+        level (str): The logging level ('info', 'error', etc.). Defaults to 'info'.
+    """
+    if level == "info":
+        logger.info(message)
+    elif level == "error":
+        logger.error(message)
+    elif level == "warning":
+        logger.warning(message)
+    elif level == "debug":
+        logger.debug(message)
+    else:
+        logger.info(message)
+    
+    print(message)
+
+def read_file(input_dir: str, filename: str) -> str:
     """
     Read the content of a file.
 
@@ -62,7 +100,7 @@ def read_file(filename: str) -> str:
         Exception: If there's an error reading the file.
     """
     try:
-        file_fullpath = os.path.join(INPUT_DIR, filename)
+        file_fullpath = os.path.join(input_dir, filename)
         with open(file_fullpath, 'r', encoding='utf-8') as fp:
             file_text = fp.read()
         logger.info(f"Successfully read file: {filename}")
@@ -96,18 +134,85 @@ def save_to_file(decision: str, content: str, file_path: str) -> None:
     except OSError as e:
         logger.error(f"Error creating directories or writing to {file_path}: {e}")
 
-def call_openai(prompt_str: str) -> Optional[str]:
+def save_to_pkl(dictionary: Dict[str, any], file_path: str) -> None:
     """
-    Call the OpenAI API with the given prompt.
+    Save a multi-layer nested dictionary to a pickle file.
+
+    Args:
+        dictionary (Dict[str, Any]): The dictionary to save.
+        file_path (str): The path to the file where the dictionary will be saved.
+    """
+    try:
+        with open(file_path, 'wb') as file:
+            pickle.dump(dictionary, file)
+        print(f"Dictionary successfully saved to {file_path}")
+    except Exception as e:
+        print(f"An error occurred while saving the dictionary to {file_path}: {e}")
+
+def read_from_pkl(file_path: str) -> Dict[str, any]:
+    """
+    Read a multi-layer nested dictionary from a pickle file.
+
+    Args:
+        file_path (str): The path to the pickle file to read.
+
+    Returns:
+        Dict[str, Any]: The dictionary read from the file.
+    """
+    try:
+        with open(file_path, 'rb') as file:
+            dictionary = pickle.load(file)
+        print(f"Dictionary successfully read from {file_path}")
+        return dictionary
+    except Exception as e:
+        print(f"An error occurred while reading the dictionary from {file_path}: {e}")
+        return {}
+
+def save_to_csv(df: pd.DataFrame, output_fullpath_csv: str) -> None:
+    """
+    Save a DataFrame to a CSV file.
+
+    Args:
+        df (pd.DataFrame): The DataFrame to save.
+        output_fullpath_csv (str): The full path where the CSV file will be saved.
+    """
+    try:
+        df.to_csv(output_fullpath_csv, index=False)
+        print(f"DataFrame successfully saved to {output_fullpath_csv}")
+    except Exception as e:
+        print(f"An error occurred while saving the DataFrame to {output_fullpath_csv}: {e}")
+
+def read_from_csv(input_fullpath_csv: str) -> pd.DataFrame:
+    """
+    Read a CSV file into a DataFrame.
+
+    Args:
+        input_fullpath_csv (str): The full path to the CSV file to read.
+
+    Returns:
+        pd.DataFrame: The DataFrame read from the CSV file.
+    """
+    try:
+        df = pd.read_csv(input_fullpath_csv)
+        print(f"DataFrame successfully read from {input_fullpath_csv}")
+        return df
+    except Exception as e:
+        print(f"An error occurred while reading the DataFrame from {input_fullpath_csv}: {e}")
+        return pd.DataFrame()
+
+def call_openai(prompt_str: str) -> Optional[Dict]:
+    """
+    Call the OpenAI API with the given prompt and return the response as a dictionary.
 
     Args:
         prompt_str (str): The prompt to send to the API.
+        openai_client (OpenAI): The OpenAI client instance.
 
     Returns:
-        Optional[str]: The API response content, or None if there was an error.
+        Optional[Dict]: The API response content as a dictionary, or None if there was an error.
     """
     try:
-        logger.info(f"Sending prompt to OpenAI: {prompt_str[:50]}...")
+        log_and_terminal(f"Sending prompt to OpenAI: {prompt_str}\n")
         completion = openai_client.chat.completions.create(
             messages=[
                 {
@@ -121,10 +226,21 @@ def call_openai(prompt_str: str) -> Optional[str]:
         )
 
         response = completion.choices[0].message.content
-        logger.info(f"Received response from OpenAI: {response[:50]}...")
-        return response
+        log_and_terminal(f"Received response from OpenAI: {response}")
+
+        for attempt in range(MAX_RETRY_DICT_PARSE):
+            try:
+                response_dict = json.loads(response)
+                log_and_terminal(f"Successfully parsed response to dictionary on attempt {attempt + 1}")
+                return response_dict
+            except json.JSONDecodeError as parse_error:
+                log_and_terminal(f"Attempt {attempt + 1} failed to parse response to dictionary: {parse_error}", level="error")
+                if attempt == MAX_RETRY_DICT_PARSE - 1:
+                    log_and_terminal("Max retry attempts reached. Returning None.", level="error")
+                    return None
+
     except Exception as e:
-        logger.error(f"Error in API call: {e}")
+        log_and_terminal(f"Error in API call: {e}", level="error")
         return None
 
 def get_distance_between_one(test_n_text: str) -> Optional[str]:
@@ -264,6 +380,54 @@ def merge_sort(reference_file: str, files: List[Tuple[str, int]]) -> List[Tuple[
 
 
 def summarize_narrative(script_text):
+    pass
+
+
+def clean_title(title_dirty):
+    # print(f"IN clean_title() with title_dirty: {title_dirty}")
+    # script_indiana-jones-and-the-dial-of-destiny_2023
+    title_clean = title_dirty.split("_")[1].replace('-',' ').title() + f" ({title_dirty.split('_')[-1]})"
+    # print(f"IN clea_title() with title_clean: {title_clean}")
+    return title_clean
+
+from prompts.prompts_rubric_characters import prompt_similarity_characters
+from prompts.prompts_rubric_plot import prompt_similarity_plot
+from prompts.prompts_rubric_setting import prompt_similarity_setting
+from prompts.prompts_rubric_themes import prompt_similarity_themes
+
+def get_genai_distance(SCRIPT_REFERENCE, film_name):
+    title_clean_reference = clean_title(SCRIPT_REFERENCE)
+    title_clean_test = clean_title(film_name)
+    prompt_header = f"\n\n###REFERENCE_FILM:\n{title_clean_reference}\n\n###TEST_FILM:\n{title_clean_test}\n"
+    full_prompt_characters = prompt_header + prompt_similarity_characters
+    # print(f"IN get_genai_distance() with full_prompt_characters: {full_prompt_characters}")
+    response_characters_raw = call_openai(full_prompt_characters)
+    return response_characters_raw
+
+
+def get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element):
+    title_clean_reference = clean_title(SCRIPT_REFERENCE)
+    title_clean_test = clean_title(film_name)
+    prompt_header = f"\n\n###REFERENCE_FILM:\n{title_clean_reference}\n\n###TEST_FILM:\n{title_clean_test}\n"
+    full_prompt_characters = prompt_header + prompt_similarity_characters
+
+    try:
+        # Use eval to get the value of the variable named by the narrative_element
+        prompt_similarity_value = eval(f"prompt_similarity_{narrative_element}")
+    except NameError:
+        raise ValueError(f"Variable prompt_similarity_{narrative_element} is not defined")
+        return None
+
+    full_prompt_characters = prompt_header + prompt_similarity_value
+    response_characters_raw = call_openai(full_prompt_characters)
+    
+    # Return the response directly without adding an extra nesting level
+    return response_characters_raw
+
+
+
+
+
 
 
 
@@ -271,8 +435,101 @@ def summarize_narrative(script_text):
 # MAIN =====
 
 def main():
-    if COMPARISON_TYPE == 'memory':
-        output_root_dir = 'responses_by_memory'
+    print("PROCESSING: ")
+    print(f"  SCRIPT_REFERENCE: {SCRIPT_REFERENCE}")
+    scripts_list = ['national-treasure_2004']
+    print(f"  scripts_list: {scripts_list}\n")
+
+    ELEMENT_TYPES_LIST = ['characters', 'plot', 'setting', 'themes']
+
+    print(f"SIMILARITY #1.A. rank_by_score of RefGen-TestGen")
+    rank_by_score_refgen_testgen_dict = {}
+    columns_list = ['film'] + ELEMENT_TYPES_LIST + ['overall']
+    film_similarity_rows = []
+
+    for film_index, film_name in enumerate(scripts_list):
+        try:
+            print(f"PROCESSING film #{film_index}: {film_name}")
+            film_similarity_row_dict = {'film': film_name}
+            similarity_sum = 0
+            rank_by_score_refgen_testgen_element_dict = {}
+
+            for narrative_element in ELEMENT_TYPES_LIST:
+                print(f"  NARRATIVE ELEMENT: {narrative_element}")
+                similarity_element_dict = get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element)
+                rank_by_score_refgen_testgen_element_dict[narrative_element] = similarity_element_dict
+                film_similarity_row_dict[narrative_element] = similarity_element_dict['similarity_overall']
+                similarity_sum += film_similarity_row_dict[narrative_element]
+
+                print(f"\n\n\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+                print(f"IN main() with element_{narrative_element}_dict: {similarity_element_dict}")
+                print(f"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n\n")
+
+            similarity_overall = similarity_sum / len(ELEMENT_TYPES_LIST)
+            film_similarity_row_dict['overall'] = similarity_overall
+            film_similarity_rows.append(film_similarity_row_dict)
+            rank_by_score_refgen_testgen_dict[film_name] = rank_by_score_refgen_testgen_element_dict
+
+        except Exception as e:
+            print(f"Error processing film {film_name}: {str(e)}")
+            continue
+
+    # Create DataFrame after loop
+    rank_by_score_refgen_testgen_df = pd.DataFrame(film_similarity_rows, columns=columns_list)
+
+    OUTPUT_DIR_SIM_BY_SCORE_GENAI = os.path.join('data', 'film_similarity_by_score_genai')
+    output_filename_pkl = f"similarity_by_score_genai_{SCRIPT_REFERENCE}.pkl"
+    output_fullpath_pkl = os.path.join(OUTPUT_DIR_SIM_BY_SCORE_GENAI, output_filename_pkl)
+    output_filename_csv = f"similarity_by_score_genai_{SCRIPT_REFERENCE}.csv"
+    output_fullpath_csv = os.path.join(OUTPUT_DIR_SIM_BY_SCORE_GENAI, output_filename_csv)
+
+    try:
+        save_to_pkl(rank_by_score_refgen_testgen_dict, output_fullpath_pkl)
+        save_to_csv(rank_by_score_refgen_testgen_df, output_fullpath_csv)
+    except Exception as e:
+        print(f"Error saving output files: {str(e)}")
+
+    print(json.dumps(rank_by_score_refgen_testgen_dict, indent=4, ensure_ascii=False))
+    print(rank_by_score_refgen_testgen_dict['national-treasure_2004']['overall'])
+
+
+    # B. rank_order: Rank by merge_sort(comparison_closer(reference, test1, test2))
+    print(f"SIMILARITY #1.A. rank_by_order of RefGen-TestGen")
+    rank_by_order_refgen_testgen_dict = {}
+
+
+
+    # SIMILARITY METHOD #1: (refgen-testelem) reference_genai_vs_test_elements
+    # TODO
+
+    # SIMILARITY METHOD #2: (refgen-testscr) reference_genai_vs_test_scripts
+    # TODO
+
+    # SIMILARITY METHOD #3: (refelem-testgen) reference_elements_vs_test_genai
+    # TODO
+
+    # SIMILARITY METHOD #4 (refelem-testelem) reference_elements_vs_test_elements
+    # NOW
+
+    # SIMILARITY METHOD #5 (refelem-testscr) reference_elements_vs_test_script
+    # TODO
+
+    # SIMILARITY METHOD #6 (refscr-testgen) reference_script_vs_test_genai
+    # TODO
+    
+    # SIMILARITY METHOD #7 (refscr-testelem) reference_script_vs_test_elements
+    # TODO
+
+    # SIMILARITY METHOD #8 (refscr-testscr) reference_script_vs_test_script
+    # NOW
+
+
+    # SIMILARITY METHOD #6 reference_script_vs_test_genai
+        # Calculate distance between REFERENCE_TEXT and every other TEST_TEXT
+        # COMPARE generating REFERENCE_TEXT from LLM
+
+    COMPARISON_TYPE=""
+    if False:
         results = []
         for script_index, script_file in enumerate(scripts_list):
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -296,8 +553,29 @@ def main():
         
         save_to_file("Memory Comparison Results", csv_content, csv_path)
 
-    elif COMPARISON_TYPE in ['scripts', 'score', 'rank']:
-        output_root_dir = f'responses_by_{COMPARISON_TYPE}'
+    elif COMPARISON_TYPE == 'score':
+        # Calculate distance between reference text and every other test text
+        # COMPARE both REFERENCE_TEXT and TEST_TEXT in
+        #   subdir: ./data/film_narrative_elements/elements_{film_title}_{film_year}
+        #     4 files ./elements_{film_title}_{film_year}_{narrative_type}.json
+        #     here narrative_element in ['characters','plot','setting','themes']
+
+        pass
+
+
+    elif COMPARISON_TYPE == 'rank':
+        # Calculate a rank order between 2 TEST_TEXTs to 
+        # find which is more silimar to REFERENCE_TEXT
+        # Use a Bubble Sort to rank order all TEST_TEXTs 
+        # by similarity to REFERENCE_TEXT
+        #   subdir: ./data/film_narrative_elements/elements_{film_title}_{film_year}
+        #     4 files ./elements_{film_title}_{film_year}_{narrative_type}.json
+        #     here narrative_element in ['characters','plot','setting','themes']
+        pass
+
+    elif COMPARISON_TYPE == 'scripts':
+        # 
+
         try:
             scripts_with_distances = []
             for script in scripts_list:

@@ -39,7 +39,6 @@ and return a response in JSON format using this ###TEMPLATE
     "name": string len(,50) {
         "role": ...
 
-}]
 
 See the below ###EXAMPLE
 

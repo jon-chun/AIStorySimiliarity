@@ -1,3 +1,90 @@
+prompt_similarity_characters_referencefilm = f"""
+###REFERENCE_FILM:
+"""";
+
+prompt_similarity_characters_referencefilm = f"""
+###TEST_FILM:
+"""";
+
+prompt_similarity_characters = f"""
+###PERSONA:
+You are a world-famous narratologist and successful film scriptwriter.
+
+###RUBRIC:
+Name: Full name of character
+Role: Clarifies the character's function within the story, whether they are driving the action, supporting the protagonist, or creating obstacles.
+Backstory: This attribute helps to understand the formative experiences that shaped each character, providing insights into their motivations and behaviors.
+Strengths: Highlights unique abilities and proficiencies, distinguishing characters by their specific talents and expertise.
+Weaknesses: Humanizes characters by revealing vulnerabilities and personal challenges, making them more relatable and multi-dimensional.
+Psychology: Uses personality assessments, such as the Big 5 OCEAN (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism) model, to offer deeper insight into character traits.
+Beliefs: Offers a window into the ethical and moral framework guiding each character's decisions, crucial for understanding their actions in moral dilemmas.
+Motivations: Describes what drives the character to act, including desires, fears, and goals.
+SocialDynamics: Explores the nature of interactions between characters, which can be pivotal in character development and plot progression.
+Arc: Summarizes how the character changes or grows for better or worse over the story in response to events, decisions, and actions taken
+
+
+###INSTRUCTIONS:
+Think carefully step by step to estimate an overall similarity score between (0-100)
+for the most similiar characters in the above ###RUBRIC
+between the above ###TEST_FILM and the above ###REFERENCE_FILM
+
+Based upon these ###RUBRIC similiarities, 
+give a FINAL similarity_overall score for these two films
+using the following ###TEMPLATE:
+
+and return a response in JSON format using this ###TEMPLATE
+
+###TEMPLATE
+
+[{
+    "reference_film": {
+        "film_title": string len(,50),
+        "features": {
+            "role": string len(100,200),
+            "backstory": string len(100,200),
+            "strengths": string len(100,200),
+            "weakness": string len(100,200),
+            "psychology": string len(100,200),
+            "beliefs": string len(100,200),
+            "motivations": string len(100,200),
+            "sodial_dynamics": string len(100,200),
+            "arc": string len(100,200)
+        },
+    },
+    "test_film": {
+        "film_title": string len(,50),
+        "features": {
+            "role": string len(100,200),
+            "backstory": string len(100,200),
+            "strengths": string len(100,200),
+            "weakness": string len(100,200),
+            "psychology": string len(100,200),
+            "beliefs": string len(100,200),
+            "motivations": string len(100,200),
+            "sodial_dynamics": string len(100,200),
+            "arc": string len(100,200)
+        },
+    },
+    "similarity_by_features": {
+        "role": string len(100,200),
+        "backstory": string len(100,200),
+        "strengths": string len(100,200),
+        "weakness": string len(100,200),
+        "psychology": string len(100,200),
+        "beliefs": string len(100,200),
+        "motivations": string len(100,200),
+        "sodial_dynamics": string len(100,200),
+        "arc": string len(100,200)
+    },
+    "similarity_overall" : range(0,100)
+}]
+
+
+
+""";
+
+
+
 prompt_summarize_narrative_all = f"""
 ###PERSONA:
 You are a world-famous narratologist and successful film scriptwriter.
