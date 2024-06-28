@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 55,
+    "feature_1": {
+        "value": 60,
+        "description": "Core belief in archaeology but with differing initial motivations.",
+        "reasoning": "Both films portray Indiana Jones as valuing historical artifacts, but his motivations evolve differently in each film.",
+    },
+    "feature_2": {
+        "value": 50,
+        "description": "Different initial motivations with eventual convergence towards altruism.",
+        "reasoning": "Indiana's motivations differ significantly at the start but align towards a similar goal of protecting and restoring artifacts by the end.",
+    },
+    "feature_3": {
+        "value": 40,
+        "description": "Different set of companions and relationship dynamics.",
+        "reasoning": "The social dynamics vary considerably due to different companions and the nature of relationships.",
+    },
+    "feature_4": {
+        "value": 70,
+        "description": "Similar adventurous arcs but with different thematic tones and specific goals.",
+        "reasoning": "Both films follow an adventurous arc with Indiana overcoming significant challenges, though the tone and specifics differ.",
+    }
+}

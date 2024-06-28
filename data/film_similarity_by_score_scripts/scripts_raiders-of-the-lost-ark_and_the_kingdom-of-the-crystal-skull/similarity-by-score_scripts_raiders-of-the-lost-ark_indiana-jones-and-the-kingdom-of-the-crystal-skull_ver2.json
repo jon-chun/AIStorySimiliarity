@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 86,
+    "feature_1": {
+        "value": 90,
+        "description": "Beliefs about the supernatural power of artifacts.",
+        "reasoning": "Both films revolve around mystical artifacts believed to hold immense power, driving the characters' actions."
+    },
+    "feature_2": {
+        "value": 85,
+        "description": "Motivations of the protagonists and antagonists.",
+        "reasoning": "Indy's motivations in both films include academic curiosity, protection of artifacts, and personal stakes, while antagonists seek the artifacts for their power."
+    },
+    "feature_3": {
+        "value": 80,
+        "description": "Social dynamics and character interactions.",
+        "reasoning": "Both films feature dynamic interactions between Indy and his allies, as well as confrontations with the antagonists, contributing to the narrative progression."
+    },
+    "feature_4": {
+        "value": 88,
+        "description": "Narrative arc and structure.",
+        "reasoning": "Both narratives follow an adventure structure with exploration, action, and supernatural climaxes, leading to similar storytelling styles."
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 71,
+    "feature_1": {
+        "value": 80,
+        "description": "Indiana Jones's beliefs about archaeology and adventure.",
+        "reasoning": "Indy's core beliefs are consistent across both films, focusing on preserving history and adventure. However, the beliefs of secondary characters differ, such as the cult's beliefs in 'Temple of Doom' compared to the Nazis' beliefs in 'Raiders of the Lost Ark.'"
+    },
+    "feature_2": {
+        "value": 70,
+        "description": "The primary and secondary motivations of characters.",
+        "reasoning": "Indy's motivation remains consistent: seeking artifacts for preservation. Secondary characters' motivations, such as rescuing enslaved children in 'Temple of Doom' versus finding the Ark in 'Raiders,' lead to different narrative paths."
+    },
+    "feature_3": {
+        "value": 60,
+        "description": "Interactions and relationships between characters.",
+        "reasoning": "The dynamics differ due to different supporting characters. 'Raiders' features Marion and Belloq, while 'Temple of Doom' introduces Willie and Short Round. These changes significantly affect the films' social dynamics."
+    },
+    "feature_4": {
+        "value": 75,
+        "description": "Narrative structure and progression.",
+        "reasoning": "Both films follow a similar adventure structure, with Indy facing numerous challenges and ultimately succeeding. However, the specific settings and events differ."
+    }
+}

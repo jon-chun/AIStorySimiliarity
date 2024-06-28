@@ -1,0 +1,23 @@
+{
+    "similarity_overall" : 85,
+    "feature_1": {
+        "value": 85,
+        "description": "Beliefs",
+        "reasoning": "Both films focus on historical artifacts with implied supernatural powers, although the specific artifacts differ in nature and significance."
+    },
+    "feature_2": {
+        "value": 90,
+        "description": "Motivations",
+        "reasoning": "Both narratives center around preventing powerful artifacts from being misused by Nazis, with an additional personal motivation in 'The Last Crusade.'"
+    },
+    "feature_3": {
+        "value": 80,
+        "description": "Social Dynamics",
+        "reasoning": "The social interactions in 'The Last Crusade' include a deeper layer of familial dynamics, whereas 'Raiders' focuses on romantic and friendship dynamics."
+    },
+    "feature_4": {
+        "value": 85,
+        "description": "Narrative Arc",
+        "reasoning": "Both films follow a similar adventure format with a quest for an artifact but 'The Last Crusade' has a more layered narrative due to personal stakes and historical context."
+    }
+}

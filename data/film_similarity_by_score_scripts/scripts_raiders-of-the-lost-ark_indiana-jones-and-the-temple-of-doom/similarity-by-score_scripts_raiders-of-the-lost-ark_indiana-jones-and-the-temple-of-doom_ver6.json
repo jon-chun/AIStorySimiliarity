@@ -1,0 +1,23 @@
+{
+    "similarity_overall" : 82,
+    "feature_1": {
+        "value": 90,
+        "description": "Central belief in the preservation of historical artifacts and respect for ancient curses.",
+        "reasoning": "Both narratives emphasize Indiana Jones's dedication to archaeology and the supernatural elements surrounding ancient artifacts."
+    },
+    "feature_2": {
+        "value": 80,
+        "description": "Driven by archaeological discovery, adventure, and protection of artifacts.",
+        "reasoning": "Indiana's motivations are consistent across both films, with slight variations in personal stakes and immediate goals."
+    },
+    "feature_3": {
+        "value": 85,
+        "description": "Interactions with sidekicks, combining elements of romance, loyalty, and humor.",
+        "reasoning": "The dynamics are similar, focusing on a mix of companionship and romantic tension that drives much of the character interaction."
+    },
+    "feature_4": {
+        "value": 75,
+        "description": "Classic adventure structure with discovery, danger, and resolution.",
+        "reasoning": "Both films follow a similar adventure format, though 'Raiders' has a broader global implication compared to the more localized conflict in 'Temple of Doom'."
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 85,
+    "feature_1": {
+        "value": 90,
+        "description": "The core values and worldviews held by the main characters.",
+        "reasoning": "Both films showcase Indiana Jones as a character driven by a deep respect for archaeology and historical artifacts, emphasizing that such treasures belong in museums rather than in the hands of private collectors or power-seeking individuals."
+    },
+    "feature_2": {
+        "value": 85,
+        "description": "The primary driving forces behind the characters' actions.",
+        "reasoning": "In both films, Indiana Jones is motivated by a mix of personal curiosity, professional duty, and the thrill of adventure. However, in 'The Last Crusade,' there is an added layer of personal motivation involving his relationship with his father and the search for the Holy Grail."
+    },
+    "feature_3": {
+        "value": 80,
+        "description": "The interactions and relationships between characters.",
+        "reasoning": "Both films feature a dynamic interplay between Indiana Jones and his companions. The relationships are characterized by camaraderie, loyalty, and mutual respect. However, 'The Last Crusade' focuses more on the father-son relationship."
+    },
+    "feature_4": {
+        "value": 85,
+        "description": "The overall structure and progression of the story.",
+        "reasoning": "Both films follow a similar narrative arc involving a quest for a significant artifact, encounters with antagonists, and a series of adventurous trials leading to a climactic resolution. However, 'The Last Crusade' incorporates a more personal journey for Indiana with his father."
+    }
+}

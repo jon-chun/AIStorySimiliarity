@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 77,
+    "feature_1": {
+        "value": 85,
+        "description": "Beliefs",
+        "reasoning": "Indiana Jones's core beliefs in archaeology, preserving history, and adventure remain consistent across both films.",
+    },
+    "feature_2": {
+        "value": 80,
+        "description": "Motivations",
+        "reasoning": "Jones's motivations evolve, integrating personal losses and a quest for redemption, adding depth to his character in 'The Dial of Destiny'.",
+    },
+    "feature_3": {
+        "value": 70,
+        "description": "Social Dynamics",
+        "reasoning": "The dynamics change with the introduction of new characters and modern contexts, adding complexity to Jones's interactions.",
+    },
+    "feature_4": {
+        "value": 75,
+        "description": "Arc",
+        "reasoning": "Both films follow an adventure arc, but 'The Dial of Destiny' reflects Jones’s character development and a more mature resolution.",
+    }
+}

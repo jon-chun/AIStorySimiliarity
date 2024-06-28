@@ -1,0 +1,23 @@
+{
+    "similarity_overall" : 83,
+    "feature_1": {
+        "value": 90,
+        "description": "Beliefs in the power of ancient artifacts",
+        "reasoning": "Both films focus on the pursuit of legendary artifacts believed to possess extraordinary powers, driving the central conflict and character motivations."
+    },
+    "feature_2": {
+        "value": 85,
+        "description": "Character motivations",
+        "reasoning": "Indiana Jones' motivations in both films are driven by a mix of professional interest and personal stakes, with a strong emphasis on preventing the antagonists from acquiring the artifacts."
+    },
+    "feature_3": {
+        "value": 75,
+        "description": "Social dynamics",
+        "reasoning": "Both films involve Indiana Jones teaming up with key allies and facing off against formidable antagonists, with the father-son dynamic adding depth to 'The Last Crusade.'"
+    },
+    "feature_4": {
+        "value": 80,
+        "description": "Narrative arc",
+        "reasoning": "The films share a similar narrative arc, following Indiana Jones on a quest, overcoming challenges, and ultimately securing the artifact from antagonistic forces."
+    }
+}

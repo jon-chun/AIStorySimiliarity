@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 75,
+    "feature_1": {
+        "value": 80,
+        "description": "Beliefs",
+        "reasoning": "Both films share a strong emphasis on the preservation of historical artifacts and the struggle against those who would misuse them. Indiana Jones consistently embodies the belief that history must be protected from exploitation.",
+    },
+    "feature_2": {
+        "value": 85,
+        "description": "Motivations",
+        "reasoning": "In both narratives, Indiana Jones is driven by a mix of personal and professional motivations, including a deep respect for archaeology and a desire to thwart the plans of antagonistic forces (Nazis in both cases). His quest often intertwines with his personal growth and discovery.",
+    },
+    "feature_3": {
+        "value": 70,
+        "description": "Social Dynamics",
+        "reasoning": "The social dynamics in both films revolve around Jones' relationships with allies and antagonists. Both films feature a sidekick and a female lead with complex interactions, although the specifics of these relationships differ.",
+    },
+    "feature_4": {
+        "value": 65,
+        "description": "Arc",
+        "reasoning": "The narrative arcs follow a similar structure of adventure, conflict, and resolution, but with differences in pacing and specific plot developments. 'Raiders of the Lost Ark' has a more streamlined arc, while 'The Dial of Destiny' incorporates more reflective and personal elements regarding Jones' past.",
+    }
+}

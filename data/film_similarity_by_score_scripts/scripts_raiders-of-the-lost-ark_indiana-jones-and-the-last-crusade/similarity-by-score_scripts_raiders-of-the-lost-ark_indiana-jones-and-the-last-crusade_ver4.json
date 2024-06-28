@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 83,
+    "feature_1": {
+        "value": 85,
+        "description": "Beliefs",
+        "reasoning": "Both films emphasize Indiana's dedication to historical preservation and his personal beliefs about the importance of artifacts."
+    },
+    "feature_2": {
+        "value": 80,
+        "description": "Motivations",
+        "reasoning": "While motivations in both films revolve around archaeology and historical preservation, 'The Last Crusade' adds a significant personal motivation (rescue of his father)."
+    },
+    "feature_3": {
+        "value": 75,
+        "description": "Social Dynamics",
+        "reasoning": "Both films feature rich social dynamics, but 'The Last Crusade' adds depth with the father-son relationship."
+    },
+    "feature_4": {
+        "value": 90,
+        "description": "Arc",
+        "reasoning": "Both narratives follow a similar adventure arc, with 'The Last Crusade' adding a significant personal growth element."
+    }
+}

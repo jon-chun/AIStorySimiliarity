@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 73,
+    "feature_1": {
+        "value": 75,
+        "description": "The core beliefs and values of Indiana Jones remain consistent across both films.",
+        "reasoning": "Indiana Jones consistently embodies the belief in the importance of historical artifacts and their preservation, as well as a deep-seated sense of adventure and moral integrity. Both films emphasize his belief in the supernatural aspects of the artifacts he seeks, whether it’s the Ark of the Covenant or the Crystal Skull."
+    },
+    "feature_2": {
+        "value": 80,
+        "description": "The primary motivations driving Indiana Jones are similar in both narratives.",
+        "reasoning": "In both films, Indiana Jones is driven by a mix of academic curiosity, a desire to prevent powerful artifacts from falling into the wrong hands, and personal connections. His motivations to protect historical treasures and thwart the plans of antagonists are key elements in both scripts."
+    },
+    "feature_3": {
+        "value": 65,
+        "description": "The relationships and interactions between characters vary moderately between the two films.",
+        "reasoning": "While Indiana Jones maintains complex relationships with his companions and adversaries in both films, the specific dynamics and character interactions differ. For instance, the presence of Marion in 'Raiders of the Lost Ark' adds a romantic subplot that is less pronounced in 'Kingdom of the Crystal Skull,' where his relationship with Mutt Williams introduces a paternal element."
+    },
+    "feature_4": {
+        "value": 70,
+        "description": "The overarching narrative structure and progression have notable similarities.",
+        "reasoning": "Both films follow a classic adventure arc with a clear beginning, middle, and end, involving the discovery, pursuit, and eventual confrontation over a powerful artifact. The structure includes high-stakes chases, encounters with antagonists, and moments of supernatural revelation, maintaining a similar narrative rhythm."
+    }
+}

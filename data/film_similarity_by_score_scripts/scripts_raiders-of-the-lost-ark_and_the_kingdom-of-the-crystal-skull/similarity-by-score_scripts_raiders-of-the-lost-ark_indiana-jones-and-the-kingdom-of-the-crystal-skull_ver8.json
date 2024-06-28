@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 73,
+    "feature_1": {
+        "value": 75,
+        "description": "The belief systems of Indiana Jones in both movies revolve around the importance of historical artifacts and the ethical implications of their discovery and preservation.",
+        "reasoning": "In both films, Indiana Jones showcases a deep respect for the cultural and historical significance of the artifacts he seeks. This is evident from his detailed knowledge and the reverence he exhibits towards these objects, reflecting a consistent belief system centered on historical preservation and academic integrity."
+    },
+    "feature_2": {
+        "value": 80,
+        "description": "The motivations of the main characters are driven by the quest for artifacts and the protection of these items from falling into the wrong hands.",
+        "reasoning": "In both films, Indiana Jones is motivated by a mix of personal and professional reasons. He aims to prevent powerful artifacts from being misused, which is a consistent theme seen in his pursuit of the Ark of the Covenant in 'Raiders of the Lost Ark' and the Crystal Skull in 'Kingdom of the Crystal Skull'."
+    },
+    "feature_3": {
+        "value": 70,
+        "description": "The interactions and relationships between characters, including allies and antagonists, play crucial roles in both narratives.",
+        "reasoning": "Both films feature a mix of trusted allies and formidable foes. In 'Raiders of the Lost Ark,' Indy collaborates with characters like Marion and Sallah while facing off against Belloq and the Nazis. Similarly, in 'Kingdom of the Crystal Skull,' he partners with Mutt and encounters antagonists like Irina Spalko. The dynamics involve cooperation, betrayal, and complex relationships that drive the story forward."
+    },
+    "feature_4": {
+        "value": 65,
+        "description": "The narrative structure and development of the main characters throughout the story.",
+        "reasoning": "Both films follow a similar adventure structure, with Indy starting from a point of discovery, facing numerous challenges, and finally achieving his goal while dealing with personal growth and resolving past conflicts. The arcs show progression in Indy's character, though 'Kingdom of the Crystal Skull' also touches on themes of legacy and passing the torch to the next generation with the introduction of Mutt."
+    }
+}
