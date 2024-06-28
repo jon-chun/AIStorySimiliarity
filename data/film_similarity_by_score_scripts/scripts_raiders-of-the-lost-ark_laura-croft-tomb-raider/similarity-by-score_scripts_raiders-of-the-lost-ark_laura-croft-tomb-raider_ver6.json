@@ -1,0 +1,28 @@
+{
+    "similarity_overall": 70,
+    "feature_1": {
+        "value": 80,
+        "description": "Character arcs and protagonist traits",
+        "reasoning": "Both feature capable archaeologist protagonists with similar backstories, but Lara Croft's arc focuses more on personal growth than Indiana Jones'."
+    },
+    "feature_2": {
+        "value": 70,
+        "description": "Plot structure and narrative flow",
+        "reasoning": "Both follow a treasure hunt structure with similar elements, but Tomb Raider has a more complex plot with additional motivations and twists."
+    },
+    "feature_3": {
+        "value": 65,
+        "description": "Thematic elements and exploration",
+        "reasoning": "Both explore themes of legacy and ethical archaeology, but Tomb Raider delves deeper into personal demons and dangers of advanced technology."
+    },
+    "feature_4": {
+        "value": 60,
+        "description": "Setting and atmosphere",
+        "reasoning": "Both feature exotic locations and ancient ruins, but Tomb Raider has a more modern, high-tech edge compared to Raiders' 1930s period setting."
+    },
+    "feature_5": {
+        "value": 75,
+        "description": "Action sequences and set pieces",
+        "reasoning": "Both showcase elaborate action involving ancient traps and chases, but Tomb Raider's action has a more acrobatic, video game-inspired style."
+    }
+}

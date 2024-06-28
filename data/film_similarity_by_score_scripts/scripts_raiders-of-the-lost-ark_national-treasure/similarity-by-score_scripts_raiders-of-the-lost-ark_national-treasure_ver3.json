@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 75,
+    "feature_1": {
+        "value": 80,
+        "description": "Beliefs",
+        "reasoning": "Both films revolve around a strong belief in the historical and cultural significance of artifacts. The protagonists, Indiana Jones and Benjamin Franklin Gates, share a deep respect for history and a commitment to uncovering the truth behind legendary treasures. The antagonists in both films also value the artifacts but for their potential power and monetary value."
+    },
+    "feature_2": {
+        "value": 85,
+        "description": "Motivations",
+        "reasoning": "The primary motivation for the protagonists in both films is to discover and protect historical treasures. Indiana Jones is driven by a passion for archaeology and historical preservation, while Benjamin Gates is motivated by a family legacy and a quest for historical truth. The antagonists are similarly motivated by greed and the desire for power that comes with possessing the artifacts."
+    },
+    "feature_3": {
+        "value": 70,
+        "description": "Social Dynamics",
+        "reasoning": "Both films feature a mix of camaraderie and betrayal among their characters. The protagonists work with a team of allies but face betrayals from those they considered friends. The dynamics within the teams reflect a blend of trust, tension, and cooperation in pursuit of a common goal."
+    },
+    "feature_4": {
+        "value": 65,
+        "description": "Arc",
+        "reasoning": "The narrative arcs in both films follow a similar structure: discovery, pursuit, conflict, and resolution. The protagonists encounter various obstacles and enemies as they uncover clues leading to the treasure. The climax involves a race against time to secure the artifact before the antagonists, followed by a resolution that restores balance."
+    }
+}

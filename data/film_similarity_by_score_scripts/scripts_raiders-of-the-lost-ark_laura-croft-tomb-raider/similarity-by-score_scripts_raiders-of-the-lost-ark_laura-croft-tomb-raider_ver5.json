@@ -1,0 +1,18 @@
+{
+    "similarity_overall": 81,
+    "feature_1": {
+        "value": 95,
+        "description": "Main character similarities",
+        "reasoning": "Both narratives center on Lara Croft as a strong, capable female protagonist who is an adventurer and archaeologist, maintaining consistent core character traits."
+    },
+    "feature_2": {
+        "value": 90,
+        "description": "Plot structure parallels",
+        "reasoning": "Both stories involve a quest for ancient artifacts or treasures, with Lara facing various traps, puzzles, and enemies along the way, following a similar adventure narrative arc."
+    },
+    "feature_3": {
+        "value": 85,
+        "description": "Setting and atmosphere",
+        "reasoning": "Both narratives take place in exotic locations and ancient ruins, creating a similar atmosphere of adventure and discovery in historical and archaeological contexts."
+    }
+}

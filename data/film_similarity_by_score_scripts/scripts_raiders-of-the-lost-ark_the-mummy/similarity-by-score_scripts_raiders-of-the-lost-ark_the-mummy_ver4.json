@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 85,
+    "feature_1": {
+        "value": 90,
+        "description": "Beliefs",
+        "reasoning": "Both films involve protagonists who are deeply invested in supernatural beliefs tied to ancient artifacts. This common ground in belief systems contributes significantly to the overall similarity.",
+    },
+    "feature_2": {
+        "value": 80,
+        "description": "Motivations",
+        "reasoning": "The motivations of the characters in both films are driven by a quest for powerful artifacts, albeit with different personal stakes and backgrounds. This shared motivation adds to their narrative similarities.",
+    },
+    "feature_3": {
+        "value": 75,
+        "description": "Social Dynamics",
+        "reasoning": "The social dynamics in both films involve intricate relationships and evolving interactions between the main characters and their adversaries. However, the dynamics in 'Raiders of the Lost Ark' are slightly more complex, involving a broader range of characters.",
+    },
+    "feature_4": {
+        "value": 85,
+        "description": "Arc",
+        "reasoning": "Both films follow a classic adventure arc with discovery, conflict, and resolution, featuring high-stakes encounters with supernatural elements. This structural similarity is a key factor in their overall resemblance.",
+    }
+}

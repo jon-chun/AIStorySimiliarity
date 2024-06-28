@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 85,
+    "feature_1": {
+        "value": 90,
+        "description": "Character archetypes and motivations",
+        "reasoning": "Both protagonists are skilled, determined archaeologists with tragic backstories, driven by a thirst for adventure and discovery. They face similar ethical dilemmas and personal growth throughout their journeys."
+    },
+    "feature_2": {
+        "value": 85,
+        "description": "Plot structure and pacing",
+        "reasoning": "Both narratives follow a similar quest structure, with the protagonists racing against villains to secure powerful artifacts. They face escalating challenges, betrayals, and must overcome both physical and personal obstacles."
+    },
+    "feature_3": {
+        "value": 80,
+        "description": "Setting and atmosphere",
+        "reasoning": "Both stories utilize exotic locations and ancient ruins as backdrops for their adventures. They blend historical and mythological elements to create a sense of wonder and danger in their exploration of lost civilizations."
+    },
+    "feature_4": {
+        "value": 75,
+        "description": "Supporting cast and relationships",
+        "reasoning": "While both feature mentor figures and temporary allies, the Tomb Raider script develops fewer strong supporting characters compared to Raiders of the Lost Ark, which has more distinct personalities in its supporting cast."
+    }
+}

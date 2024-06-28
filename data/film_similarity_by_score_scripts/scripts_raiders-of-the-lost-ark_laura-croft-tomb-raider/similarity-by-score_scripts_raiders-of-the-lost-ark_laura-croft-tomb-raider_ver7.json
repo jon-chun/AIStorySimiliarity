@@ -1,0 +1,28 @@
+{
+    "similarity_overall": 85,
+    "feature_1": {
+        "value": 95,
+        "description": "Protagonist characteristics and role",
+        "reasoning": "Both feature highly skilled, adventurous female archaeologists as protagonists, with similar abilities and goals. The core character concept is nearly identical, with minor differences in backstory."
+    },
+    "feature_2": {
+        "value": 90,
+        "description": "Plot structure and story elements",
+        "reasoning": "Both narratives follow a very similar structure of searching for powerful artifacts while racing against villains, navigating traps and challenges. The core story beats and elements are highly similar."
+    },
+    "feature_3": {
+        "value": 85,
+        "description": "Setting and action sequences",
+        "reasoning": "Both involve globe-trotting adventures to exotic locations, with similar types of action sequences involving ancient traps and ruins. The contemporary vs. 1930s setting creates some differences."
+    },
+    "feature_4": {
+        "value": 80,
+        "description": "Supporting characters and relationships",
+        "reasoning": "Both feature mentors, temporary allies, and similar antagonists. However, Lara's relationships and backstory are more developed, creating some differences in character dynamics."
+    },
+    "feature_5": {
+        "value": 75,
+        "description": "Tone and thematic elements",
+        "reasoning": "While both mix adventure with humor, Tomb Raider has some darker elements and more focus on the protagonist's personal journey. Raiders maintains a slightly lighter tone overall."
+    }
+}

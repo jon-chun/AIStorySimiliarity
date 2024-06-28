@@ -1,0 +1,18 @@
+{
+    "similarity_overall": 80,
+    "feature_1": {
+        "value": 85,
+        "description": "Quest for powerful ancient artifact",
+        "reasoning": "Both films center on archaeologists searching for legendary artifacts (Ark of the Covenant/Lost Ark) with supernatural powers, driving the main plot and conflict."
+    },
+    "feature_2": {
+        "value": 80,
+        "description": "Adventurous archaeologist protagonist",
+        "reasoning": "The main characters (Indiana Jones/Mia) are both daring archaeologists who embark on dangerous quests, showcasing similar heroic traits and expertise in their field."
+    },
+    "feature_3": {
+        "value": 75,
+        "description": "Blend of action, romance, and humor",
+        "reasoning": "Both narratives mix thrilling action sequences with romantic subplots and moments of levity, creating a similar tonal balance that appeals to a wide audience."
+    }
+}

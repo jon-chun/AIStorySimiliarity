@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 78,
+    "feature_1": {
+        "value": 85,
+        "description": "Beliefs",
+        "reasoning": "Both protagonists share a strong belief in the importance of historical artifacts and knowledge, driving their respective quests. The slight difference lies in their focus; Indy is more global, while Ben is more national."
+    },
+    "feature_2": {
+        "value": 75,
+        "description": "Motivations",
+        "reasoning": "Both characters are motivated by personal stakes and a desire to uncover historical secrets. However, Indy’s motivation is more academically driven, while Ben’s is rooted in family legacy and patriotism."
+    },
+    "feature_3": {
+        "value": 80,
+        "description": "Social Dynamics",
+        "reasoning": "Both narratives feature a protagonist working with a small, loyal team against a larger, well-equipped adversary. The dynamics of trust, betrayal, and cooperation are central to both stories."
+    },
+    "feature_4": {
+        "value": 70,
+        "description": "Arc",
+        "reasoning": "Both films follow a similar adventure structure with the protagonist on a quest for a significant artifact, but the specifics of their journeys and resolutions differ in tone and style."
+    }
+}

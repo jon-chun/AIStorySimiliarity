@@ -1,0 +1,33 @@
+{
+    "similarity_overall": 77,
+    "feature_1": {
+        "value": 90,
+        "description": "Protagonist characteristics",
+        "reasoning": "Both narratives feature strong, independent female protagonists with archaeological expertise, demonstrating remarkable physical and intellectual capabilities in their adventures."
+    },
+    "feature_2": {
+        "value": 85,
+        "description": "Plot structure",
+        "reasoning": "Both stories follow an adventure/treasure hunt structure with multiple action sequences and puzzles to solve, driving the narrative forward in a similar fashion."
+    },
+    "feature_3": {
+        "value": 75,
+        "description": "Setting and atmosphere",
+        "reasoning": "Both narratives involve exotic locations and ancient ruins, creating a similar atmosphere of mystery and danger, though the specific settings and time periods differ."
+    },
+    "feature_4": {
+        "value": 60,
+        "description": "Supporting character dynamics",
+        "reasoning": "While both have mentors and romantic interests, the specific dynamics and roles of supporting characters differ significantly between the two narratives."
+    },
+    "feature_5": {
+        "value": 70,
+        "description": "Antagonist motivations",
+        "reasoning": "Both feature ruthless villains seeking powerful artifacts, though their specific motivations and methods differ slightly, creating some variance in the conflict dynamics."
+    },
+    "feature_6": {
+        "value": 80,
+        "description": "Thematic elements",
+        "reasoning": "Both narratives explore themes of legacy, adventure, and the ethics of archaeology, providing similar underlying messages and character motivations throughout the stories."
+    }
+}

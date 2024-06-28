@@ -1,0 +1,23 @@
+{
+    "similarity_overall" : 35,
+    "feature_1": {
+        "value": 30,
+        "description": "Differences in core philosophical and ideological foundations.",
+        "reasoning": "The films operate on fundamentally different belief systems, with 'Titanic' focusing on personal and social class beliefs, while 'Raiders' emphasizes adventure and historical mysticism.",
+    },
+    "feature_2": {
+        "value": 40,
+        "description": "Varied character motivations aligned with the themes of romance versus adventure.",
+        "reasoning": "While both films involve personal quests, 'Titanic' is more about emotional and social survival, whereas 'Raiders' is driven by a sense of adventure and historical intrigue.",
+    },
+    "feature_3": {
+        "value": 35,
+        "description": "Interaction patterns among characters within different societal structures.",
+        "reasoning": "Social interactions in 'Titanic' are deeply rooted in societal norms and relationships, while 'Raiders' revolves around the interactions shaped by the adventurous plot.",
+    },
+    "feature_4": {
+        "value": 50,
+        "description": "Emotional and transformational journeys of characters.",
+        "reasoning": "Both films feature substantial character development, but in different contexts—emotional growth in 'Titanic' versus adventurous growth in 'Raiders'.",
+    }
+}

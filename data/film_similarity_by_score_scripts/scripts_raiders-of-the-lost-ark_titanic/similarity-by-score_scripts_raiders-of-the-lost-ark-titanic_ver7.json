@@ -1,0 +1,23 @@
+{
+    "similarity_overall" : 48,
+    "feature_1": {
+        "value": 40,
+        "description": "Core values and ideologies held by the main characters.",
+        "reasoning": "Indiana Jones is driven by historical preservation and clashing with exploitative motives. In Titanic, Rose and Jack challenge societal norms with beliefs centered on love and personal integrity."
+    },
+    "feature_2": {
+        "value": 50,
+        "description": "The driving forces behind the characters' actions.",
+        "reasoning": "Indiana Jones seeks to protect the Ark, driven by academic and ethical motives. In Titanic, Jack and Rose are driven by love and a desire for freedom, contrasting with other characters' motives of control and survival."
+    },
+    "feature_3": {
+        "value": 55,
+        "description": "The relationships and interactions between characters.",
+        "reasoning": "Raiders of the Lost Ark showcases hero-villain dynamics, while Titanic explores complex social interactions influenced by class, romance, and disaster."
+    },
+    "feature_4": {
+        "value": 45,
+        "description": "The overall structure and progression of the story.",
+        "reasoning": "Both films follow classic adventure arcs with climactic ends. Raiders is an action-packed treasure hunt with supernatural elements, while Titanic combines romance with historical tragedy."
+    }
+}

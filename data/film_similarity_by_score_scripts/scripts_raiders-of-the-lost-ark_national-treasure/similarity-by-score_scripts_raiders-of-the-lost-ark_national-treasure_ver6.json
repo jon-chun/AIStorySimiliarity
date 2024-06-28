@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 73,
+    "feature_1": {
+        "value": 80,
+        "description": "Both protagonists are motivated by a deep respect for history and cultural heritage.",
+        "reasoning": "The core beliefs of both characters align closely. They prioritize the preservation and discovery of historical artifacts over personal gain, showing a strong moral compass and dedication to their field."
+    },
+    "feature_2": {
+        "value": 75,
+        "description": "Both characters are motivated by a blend of personal and professional reasons.",
+        "reasoning": "While their specific goals differ (Indiana's focus on preventing Nazi exploitation vs. Ben's focus on uncovering and protecting American history), their motivations are similarly rooted in a blend of personal history, professional dedication, and a desire to protect historical artifacts."
+    },
+    "feature_3": {
+        "value": 70,
+        "description": "Both films feature complex social dynamics with allies and enemies playing crucial roles.",
+        "reasoning": "Both narratives have rich social interactions where the protagonists work closely with allies and face off against well-defined antagonists. The nature of these relationships and their evolution throughout the stories are significant to the plots."
+    },
+    "feature_4": {
+        "value": 65,
+        "description": "Both characters undergo significant personal growth and shifts in their understanding of their quests.",
+        "reasoning": "The character arcs show a progression from initial motivations to a more profound appreciation of their roles in preserving history. Indiana's growth is more about the mystical and ethical dimensions, while Ben's is about validating his family's legacy and the broader historical context."
+    }
+}

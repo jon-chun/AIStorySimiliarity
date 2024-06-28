@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 68,
+    "feature_1": {
+        "value": 60,
+        "description": "The central beliefs and ideologies that drive the protagonists and their adversaries.",
+        "reasoning": "Both narratives center around a strong belief in the historical and cultural significance of their respective artifacts (the Ark of the Covenant and the Declaration of Independence), which drives the protagonists to undertake dangerous quests. However, the specific historical and mystical elements differ."
+    },
+    "feature_2": {
+        "value": 70,
+        "description": "The primary motivations behind the characters' actions.",
+        "reasoning": "The motivations in both narratives are quite similar, revolving around a quest for significant historical artifacts. Indiana Jones is motivated by a sense of academic and historical duty, while Benjamin Gates is driven by a mix of family legacy and historical curiosity. Both characters also face adversaries with conflicting motivations (personal gain versus preservation of history)."
+    },
+    "feature_3": {
+        "value": 65,
+        "description": "The interactions and relationships between the characters.",
+        "reasoning": "Both films feature a mix of collaboration and conflict among the characters. Indiana Jones works with various allies and faces betrayals, similar to Benjamin Gates, who collaborates with his team while dealing with adversaries. The dynamics of trust, betrayal, and teamwork are prominent in both narratives."
+    },
+    "feature_4": {
+        "value": 75,
+        "description": "The overall structure and progression of the story.",
+        "reasoning": "The narrative arcs of both films follow a similar structure: the discovery of clues leading to a high-stakes adventure, overcoming various obstacles, and culminating in a dramatic climax involving the artifact. The pacing, key plot points, and resolution share notable similarities."
+    }
+}

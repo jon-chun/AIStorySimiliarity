@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 28,
+    "feature_1": {
+        "value": 25,
+        "description": "Core ideologies and values held by characters.",
+        "reasoning": "The characters in 'Raiders of the Lost Ark' are motivated by adventure, history, and heroism, while those in 'Office Space' are driven by dissatisfaction with corporate life and personal freedom. The fundamental beliefs differ significantly."
+    },
+    "feature_2": {
+        "value": 30,
+        "description": "Driving forces behind characters' actions.",
+        "reasoning": "While 'Raiders of the Lost Ark' characters pursue historical artifacts and fight evil, 'Office Space' characters seek to escape a mundane work environment and find personal satisfaction. Both involve a quest but in very different contexts."
+    },
+    "feature_3": {
+        "value": 20,
+        "description": "Interactions and relationships among characters.",
+        "reasoning": "Social dynamics in 'Raiders of the Lost Ark' are high-stakes and adventure-driven, whereas 'Office Space' presents everyday corporate interactions and social commentary. The nature of relationships and interactions varies greatly between the two films."
+    },
+    "feature_4": {
+        "value": 35,
+        "description": "Narrative structure and character development.",
+        "reasoning": "The arcs in both narratives are clear but serve different genres. 'Raiders of the Lost Ark' follows a classic adventure structure with significant character development, while 'Office Space' has a satirical, comedic arc focusing on personal growth in a corporate setting."
+    }
+}

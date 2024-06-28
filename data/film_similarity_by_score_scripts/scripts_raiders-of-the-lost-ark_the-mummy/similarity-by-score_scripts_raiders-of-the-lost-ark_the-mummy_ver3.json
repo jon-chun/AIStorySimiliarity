@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 80,
+    "feature_1": {
+        "value": 85,
+        "description": "Plot Structure and Theme",
+        "reasoning": "Both films follow a classic adventure narrative, involving protagonists who embark on dangerous expeditions to uncover ancient artifacts. The themes of good versus evil, treasure hunting, and supernatural elements are prominent in both movies."
+    },
+    "feature_2": {
+        "value": 80,
+        "description": "Character Beliefs and Motivations",
+        "reasoning": "The protagonists, Indiana Jones and Rick O'Connell, are motivated by a mix of personal interest, historical curiosity, and a desire to stop evil forces. The antagonists in both films are driven by greed and a lust for power."
+    },
+    "feature_3": {
+        "value": 75,
+        "description": "Social Dynamics and Interactions",
+        "reasoning": "Both films feature a mix of camaraderie and conflict among characters. The protagonists form alliances with various companions, and their interactions with enemies are marked by intense confrontations."
+    },
+    "feature_4": {
+        "value": 78,
+        "description": "Character Arc",
+        "reasoning": "Both Indiana Jones and Rick O'Connell exhibit growth throughout their respective stories. They evolve from self-serving adventurers to heroes who recognize the importance of their quests beyond personal gain."
+    }
+}

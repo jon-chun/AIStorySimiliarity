@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 82,
+    "feature_1": {
+        "value": 85,
+        "description": "Strong beliefs in historical myths",
+        "reasoning": "The core belief in a powerful, hidden treasure rooted in historical lore is a significant commonality.",
+    },
+    "feature_2": {
+        "value": 80,
+        "description": "Personal and noble motivations",
+        "reasoning": "The blend of personal legacy and noble intentions in seeking and protecting historical artifacts aligns closely between the two stories.",
+    },
+    "feature_3": {
+        "value": 75,
+        "description": "Cooperative and rival relationships shape the narrative",
+        "reasoning": "Both films depict a mix of allies and antagonists, with complex social dynamics that drive the plot.",
+    },
+    "feature_4": {
+        "value": 90,
+        "description": "Classic treasure hunt narrative arc",
+        "reasoning": "The adventure and discovery arc, featuring high stakes and significant character development, are remarkably similar in structure.",
+    }
+}

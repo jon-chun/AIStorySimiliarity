@@ -1,0 +1,23 @@
+{
+    "similarity_overall" : 80,
+    "feature_1": {
+        "value": 70,
+        "description": "Beliefs",
+        "reasoning": "Both narratives revolve around powerful, ancient beliefs and artifacts. However, 'The Mummy' focuses on Egyptian mythology, while 'Raiders of the Lost Ark' centers on Judeo-Christian relics.",
+    },
+    "feature_2": {
+        "value": 75,
+        "description": "Motivations",
+        "reasoning": "Characters in both films are driven by a mix of personal and grander motivations, including greed, duty, and the quest for power. The specifics differ, but the underlying drives are similar.",
+    },
+    "feature_3": {
+        "value": 85,
+        "description": "Social Dynamics",
+        "reasoning": "Both films feature a mix of heroism, romance, and rivalry among characters. The interplay between protagonists and antagonists is a common thread.",
+    },
+    "feature_4": {
+        "value": 90,
+        "description": "Story Arc",
+        "reasoning": "Both stories follow a classical adventure arc with elements of discovery, supernatural conflict, and resolution. The structure and pacing are very similar.",
+    }
+}

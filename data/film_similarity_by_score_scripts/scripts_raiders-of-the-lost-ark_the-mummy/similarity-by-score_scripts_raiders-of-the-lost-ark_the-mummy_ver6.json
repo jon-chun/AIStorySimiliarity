@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 75,
+    "feature_1": {
+        "value": 70,
+        "description": "Beliefs",
+        "reasoning": "Both films feature protagonists and antagonists driven by strong beliefs in the supernatural and the power of ancient artifacts, though the cultural contexts differ.",
+    },
+    "feature_2": {
+        "value": 80,
+        "description": "Motivations",
+        "reasoning": "The motivations in both films are centered around the protection and control of powerful artifacts, with personal and larger-scale implications driving the characters' actions.",
+    },
+    "feature_3": {
+        "value": 75,
+        "description": "Social Dynamics",
+        "reasoning": "The dynamics among the protagonists and antagonists in both films involve loyalty, teamwork, and hierarchical structures, with a mix of camaraderie and tension.",
+    },
+    "feature_4": {
+        "value": 75,
+        "description": "Character Arc",
+        "reasoning": "Both films feature character arcs that reinforce the protagonists' values and beliefs, with the antagonists' arcs highlighting their downfall due to their obsessions.",
+    }
+}

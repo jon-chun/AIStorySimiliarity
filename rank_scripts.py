@@ -35,7 +35,7 @@ COMPARISON_TYPE = 'element-element'
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 if OPENAI_API_KEY:
     openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
-    SLEEP_SECONDS = 1
+    SLEEP_SECONDS = 5
 
 MODEL_NAME = 'gpt-3.5-turbo' # 'gpt-4o'
 # 'gpt-3.5-turbo is limited to 16k tokens ~12kb plain text file 
@@ -50,7 +50,7 @@ OVERWRITE_FLAG = False
 MAX_RETRY_DICT_PARSE = 3
 
 # Configure how many iterations to run
-SAMPLE_SIZE = 20
+SAMPLE_SIZE = 3
 
 
 # IMPORT PROMPTS =====
@@ -88,11 +88,23 @@ print(f"FIRST scripts_list: {scripts_list}")
 
 ELEMENTS_TYPE_LIST = ['characters','plot','setting','themes']
 
-OUTPUT_DIR_SIM_BY_SCORE_GENAI = os.path.join('data', 'film_similarity_by_score_genai')
-output_filename_pkl = f"similarity_by_score_genai_{SCRIPT_REFERENCE}.pkl"
-output_fullpath_pkl = os.path.join(OUTPUT_DIR_SIM_BY_SCORE_GENAI, output_filename_pkl)
-output_filename_csv = f"similarity_by_score_genai_{SCRIPT_REFERENCE}.csv"
-output_fullpath_csv = os.path.join(OUTPUT_DIR_SIM_BY_SCORE_GENAI, output_filename_csv)
+if COMPARISON_TYPE == 'genai-genai':
+    OUTPUT_DIR_SIM_BY_SCORE = os.path.join('data', 'film_similarity_by_score_genai')
+    output_filename_pkl = f"similarity_by_score_genai_{SCRIPT_REFERENCE}.pkl"
+    output_fullpath_pkl = os.path.join(OUTPUT_DIR_SIM_BY_SCORE, output_filename_pkl)
+    output_filename_csv = f"similarity_by_score_genai_{SCRIPT_REFERENCE}.csv"
+    output_fullpath_csv = os.path.join(OUTPUT_DIR_SIM_BY_SCORE, output_filename_csv)
+elif COMPARISON_TYPE == 'element-element':
+    OUTPUT_DIR_SIM_BY_SCORE = os.path.join('data', 'film_similarity_by_score_elements')
+    output_filename_pkl = f"similarity_by_score_elements_{SCRIPT_REFERENCE}.pkl"
+    output_fullpath_pkl = os.path.join(OUTPUT_DIR_SIM_BY_SCORE, output_filename_pkl)
+    output_filename_csv = f"similarity_by_score_elements_{SCRIPT_REFERENCE}.csv"
+    output_fullpath_csv = os.path.join(OUTPUT_DIR_SIM_BY_SCORE, output_filename_csv)
+    INPUT_DIR_ELEMENTS = os.path.join('data','film_narrative_elements')
+else:
+    print(f"ERROR: Illegal value for COMPARISON_TYPE: {COMPARISON_TYPE}")
+    exit()
+
 
 
 # Add overwrite flag
@@ -382,8 +394,14 @@ def clean_title(title_dirty):
     # print(f"IN clea_title() with title_clean: {title_clean}")
     return title_clean
 
-def get_element_description(reference_elements, test_elements):
-    pass
+
+def get_element_description(film_name, narrative_elements):
+    film_dir_list = sorted(os.listdir(INPUT_DIR_ELEMENTS))
+    for film_dir_name in film_dir_list:
+        if film_name in film_dir_name:
+            print(f"  MATCH: film_name: {film_name} **IN** film_dir_name: {film_dir_name}")
+        else:
+            print(f"  MISS: film_name: {film_name} **NOT IN** film_dir_name: {film_dir_name}")
 
 def get_element_distance(script_reference, film_name, narrative_element, unique_id):
     title_clean_reference = clean_title(SCRIPT_REFERENCE)
@@ -407,7 +425,7 @@ def get_element_distance(script_reference, film_name, narrative_element, unique_
     # print(prompt_full)
 
     response_raw = call_openai(prompt_full)
-    time.sleep(3)
+    time.sleep(SLEEP_SECONDS)
     
     # Log the raw response (for debugging purposes)
     print(f"RESPONSE from OpenAI for {narrative_element}:")
@@ -446,7 +464,7 @@ def get_genai_distance(script_reference, film_name, narrative_element, unique_id
     # print(prompt_full)
 
     response_raw = call_openai(prompt_full)
-    time.sleep(10)
+    time.sleep(SLEEP_SECONDS)
     
     # Log the raw response (for debugging purposes)
     print(f"RESPONSE from OpenAI for {narrative_element}:")
@@ -500,7 +518,14 @@ def main():
         for film_index, film_info in enumerate(scripts_list_filtered):
             film_name, film_year = film_info
             
-            output_file = f"{output_fullpath_csv.rsplit('.', 1)[0]}_{film_name}.csv"
+            if COMPARISON_TYPE == 'genai-genai':
+                output_file = f"{output_fullpath_csv.rsplit('.', 1)[0]}_{film_name}.csv"
+            elif COMPARISON_TYPE == 'element-element':
+                output_file = f"{output_fullpath_csv.rsplit('.', 1)[0]}_{film_name}.csv"
+            else:
+                print(f"ERROR: Illegal value for COMPARISON_TYPE: {COMPARISON_TYPE}")
+                exit()
+
             if os.path.exists(output_file) and not OVERWRITE_FLAG:
                 print(f"Appending to existing file for film {film_name}.")
             else:

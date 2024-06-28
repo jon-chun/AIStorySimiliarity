@@ -1,0 +1,23 @@
+{
+    "similarity_overall": 75,
+    "feature_1": {
+        "value": 85,
+        "description": "Plot Structure",
+        "reasoning": "Both films follow a similar adventure narrative structure, involving archaeologists uncovering ancient artifacts, facing supernatural threats, and battling antagonistic forces. The pacing and sequence of discovery, conflict, and resolution are closely aligned."
+    },
+    "feature_2": {
+        "value": 70,
+        "description": "Character Archetypes",
+        "reasoning": "Both movies feature protagonists who are rugged, knowledgeable adventurers (Indiana Jones and Rick O'Connell) and female leads who are intelligent, resourceful, and vital to the plot (Marion Ravenwood and Evelyn Carnarvon). Additionally, they both have strong, charismatic antagonists connected to ancient curses and mythology (Belloq and Imhotep)."
+    },
+    "feature_3": {
+        "value": 65,
+        "description": "Themes",
+        "reasoning": "The central themes of exploration, ancient curses, and the battle between good and evil are prevalent in both narratives. However, 'Raiders of the Lost Ark' has a stronger emphasis on the occult and historical elements, while 'The Mummy' leans more towards horror and supernatural themes."
+    },
+    "feature_4": {
+        "value": 80,
+        "description": "Setting",
+        "reasoning": "Both films are set in exotic locations with significant historical and archaeological importance (Egypt and various ancient sites in 'The Mummy'; South America, Egypt, and other locations in 'Raiders of the Lost Ark'). The settings play a crucial role in creating the atmosphere and driving the plot."
+    }
+}
