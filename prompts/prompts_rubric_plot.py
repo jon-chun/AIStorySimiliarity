@@ -2,7 +2,7 @@ prompt_similarity_plot_referencefilm = f"""
 ###REFERENCE_FILM:
 """;
 
-prompt_similarity_plot_referencefilm = f"""
+prompt_similarity_plot_testfilm = f"""
 ###TEST_FILM:
 """;
 

@@ -2,7 +2,7 @@ prompt_similarity_themes_referencefilm = f"""
 ###REFERENCE_FILM:
 """;
 
-prompt_similarity_themes_referencefilm = f"""
+prompt_similarity_themes_testfilm = f"""
 ###TEST_FILM:
 """;
 

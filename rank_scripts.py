@@ -11,11 +11,16 @@ from openai import OpenAI
 from typing import List, Dict, Tuple, Optional
 from fix_busted_json import repair_json
 from json_repair import repair_json 
+from functools import lru_cache
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger()
 logger.addHandler(logging.StreamHandler())
+
+# SETUP COMPARISON =====
+# Select COMPARISION_TYPE from ['genai-genai','element-element','script-script']
+COMPARISON_TYPE = 'element-element'
 
 # SETUP OPENAI =====
 
@@ -45,11 +50,18 @@ OVERWRITE_FLAG = False
 MAX_RETRY_DICT_PARSE = 3
 
 # Configure how many iterations to run
-SAMPLE_SIZE = 10
+SAMPLE_SIZE = 20
 
 
 # IMPORT PROMPTS =====
 
+# For RefElements-TestElements Comparisons
+from prompts.prompts_compare_characters import prompt_similarity_characters as prompt_compare_characters
+from prompts.prompts_compare_plot import prompt_similarity_plot as prompt_compare_plot
+from prompts.prompts_compare_setting import prompt_similarity_setting as prompt_compare_setting
+from prompts.prompts_compare_themes import prompt_similarity_themes as prompt_compare_themes
+
+# For RefGenAI-RefGenAI Comparisons
 from prompts.prompts_rubric_characters import prompt_similarity_characters
 from prompts.prompts_rubric_plot import prompt_similarity_plot
 from prompts.prompts_rubric_setting import prompt_similarity_setting
@@ -370,6 +382,52 @@ def clean_title(title_dirty):
     # print(f"IN clea_title() with title_clean: {title_clean}")
     return title_clean
 
+def get_element_description(reference_elements, test_elements):
+    pass
+
+def get_element_distance(script_reference, film_name, narrative_element, unique_id):
+    title_clean_reference = clean_title(SCRIPT_REFERENCE)
+    title_clean_test = clean_title(film_name)
+
+    reference_element_description = get_element_description(script_reference, narrative_element)
+    prompt_header_reference_elements = f"\n\n###REFERENCE_FILM:\n{title_clean_reference}\n\n{reference_element_description}"
+    
+    test_element_description = get_element_description(film_name, narrative_element)
+    prompt_header_test_elements = "\n\n###TEST_FILM:\n{title_clean_test}\n"
+
+    try:
+        prompt_compare_value = eval(f"prompt_compare_{narrative_element}")
+    except NameError:
+        raise ValueError(f"Variable prompt_similarity_{narrative_element} is not defined")
+
+    prompt_full = f"ID: {unique_id}\n\n" + prompt_header_reference_elements + prompt_header_test_elements + prompt_compare_value
+    
+    # Log the prompt being sent (for debugging purposes)
+    # print(f"PROMPT_FULL to OpenAI for {narrative_element}:")
+    # print(prompt_full)
+
+    response_raw = call_openai(prompt_full)
+    time.sleep(3)
+    
+    # Log the raw response (for debugging purposes)
+    print(f"RESPONSE from OpenAI for {narrative_element}:")
+    print(json.dumps(response_raw, indent=2))
+
+    if isinstance(response_raw, dict):
+        response_dict = response_raw
+    elif isinstance(response_raw, list) and len(response_raw) > 0:
+        response_dict = response_raw[0]
+    else:
+        raise ValueError(f"Unexpected response format from OpenAI API for {narrative_element}")
+
+    # Ensure the response has the expected structure
+    if 'similarity_overall' not in response_dict:
+        raise ValueError(f"Response for {narrative_element} does not contain 'similarity_overall'")
+
+    similarity_overall = response_dict['similarity_overall']
+
+    return response_dict
+
 
 def get_genai_distance(script_reference, film_name, narrative_element, unique_id):
     title_clean_reference = clean_title(SCRIPT_REFERENCE)
@@ -409,12 +467,17 @@ def get_genai_distance(script_reference, film_name, narrative_element, unique_id
 
     return response_dict
 
-from functools import lru_cache
 
+
+
+# DO NOT USE: for illustrative purpose only
+# results in duplicate respones due to local client-side caching
 @lru_cache(maxsize=None)
 def cached_get_genai_distance(SCRIPT_REFERENCE: str, film_name: str, narrative_element: str) -> Dict[str, any]:
     return get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element)
 
+# Generate a unique ID to inject into the prompt to try to avoid remote caching on OpenAI side
+# and duplicate responses
 def generate_unique_id(length=8):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
@@ -454,7 +517,13 @@ def main():
 
                 for narrative_element in ELEMENTS_TYPE_LIST:
                     print(f"  NARRATIVE ELEMENT: {narrative_element}")
-                    similarity_element_dict = get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element, unique_id)
+                    if COMPARISON_TYPE == 'genai-genai':
+                        similarity_element_dict = get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element, unique_id)
+                    elif COMPARISON_TYPE == 'element-element':
+                        similarity_element_dict = get_element_distance(SCRIPT_REFERENCE, film_name, narrative_element, unique_id)
+                    else:
+                        print(f"ERROR: Illegal value for COMPARISON_TYPE: {COMPARISON_TYPE}")
+                        exit()
                     print(f"\n\n\nsimilarity_element_dict for {narrative_element}:")
                     print(json.dumps(similarity_element_dict, indent=4, ensure_ascii=False))
                     rankbyscore_refgentestgen_elementdict[narrative_element] = similarity_element_dict

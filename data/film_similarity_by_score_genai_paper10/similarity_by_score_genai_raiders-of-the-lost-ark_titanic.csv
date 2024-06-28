@@ -1,0 +1,11 @@
+film,datetime,sample,unique_id,characters,plot,setting,themes,overall
+titanic,20240627-174722,1,gk3D9qzm,65,70,46,50,57.75
+titanic,20240627-180050,2,xODo8tvL,66,70,56,40,58.0
+titanic,20240627-181439,3,ArbmMgwd,66,68,50,38,55.5
+titanic,20240627-182819,4,hYs2emTz,70,70,46,28,53.5
+titanic,20240627-184212,5,9ErmcqCU,60,70,60,27,54.25
+titanic,20240627-185603,6,v2ceCz5F,63,0,56,25,36.0
+titanic,20240627-190946,7,anwnwckM,66,68,56,25,53.75
+titanic,20240627-192302,8,H7yZUO8O,66,70,46,40,55.5
+titanic,20240627-193635,9,z3fVfwYs,63,0,46,40,37.25
+titanic,20240627-194920,10,TYCB8nDW,62,70,44,40,54.0

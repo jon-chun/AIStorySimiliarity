@@ -1,0 +1,11 @@
+film,datetime,sample,unique_id,characters,plot,setting,themes,overall
+office-space,20240627-174444,1,bHJl7B6P,60,45,28,11,36.0
+office-space,20240627-175813,2,yWe2GEhz,60,50,18,5,33.25
+office-space,20240627-181152,3,mIx10cDg,50,45,22,12,32.25
+office-space,20240627-182543,4,CqV0dWzs,60,45,13,0,29.5
+office-space,20240627-183927,5,SsjLcmLI,45,60,15,0,30.0
+office-space,20240627-185326,6,zJYxueym,65,57,20,40,45.5
+office-space,20240627-190652,7,by7JG0Yi,57,52,28,11,37.0
+office-space,20240627-192023,8,XUj0n8q5,63,45,20,27,38.75
+office-space,20240627-193340,9,MKoCf5pX,60,66,11,18,38.75
+office-space,20240627-194650,10,QAoR66GA,50,46,20,0,29.0
