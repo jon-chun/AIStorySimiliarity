@@ -9,7 +9,7 @@ import pickle
 import logging
 from openai import OpenAI
 from typing import List, Dict, Tuple, Optional
-from fix_busted_json import repair_json as fix_busted_repair_json
+from fix_busted_json import repair_json
 from json_repair import repair_json 
 from functools import lru_cache
 
@@ -80,29 +80,29 @@ INPUT_SCRIPTS_DIR = os.path.join('data', 'film_scripts_txt')
 INPUT_ELEMENTS_DIR = os.path.join('data','film_narrative_elements')
 
 # REFERENCE FILM
-FILM_REFERENCE = 'raiders-of-the-lost-ark'
+SCRIPT_REFERENCE = 'raiders-of-the-lost-ark'
 SCRIPT_TITLE_YEAR = '###FILM: Raiders of the Lost Ark\n###YEAR: 1981\n'
 SCRIPT_TITLE_YEAR_FILENAME = 'raiders-of-the-lost-ark_1981'
 
 scripts_list_full = sorted(os.listdir(INPUT_SCRIPTS_DIR))
 scripts_list = [string.split('.')[0] for string in scripts_list_full] # Remove filename .ext suffix
 scripts_list = [string.split('_')[1:] for string in scripts_list] # Remove leading (type)_ prefix
-scripts_list = [string for string in scripts_list if string[0] != FILM_REFERENCE]
+scripts_list = [string for string in scripts_list if string[0] != SCRIPT_REFERENCE]
 print(f"FIRST scripts_list: {scripts_list}")
 
 ELEMENTS_TYPE_LIST = ['characters','plot','setting','themes']
 
 if COMPARISON_TYPE == 'genai-genai':
     OUTPUT_DIR_SIM_BY_SCORE = os.path.join('data', 'film_similarity_by_score_genai')
-    output_filename_pkl = f"similarity-by-score_genai_{FILM_REFERENCE}.pkl"
+    output_filename_pkl = f"similarity-by-score_genai_{SCRIPT_REFERENCE}.pkl"
     output_fullpath_pkl = os.path.join(OUTPUT_DIR_SIM_BY_SCORE, output_filename_pkl)
-    output_filename_csv = f"similarity-by-score_genai_{FILM_REFERENCE}.csv"
+    output_filename_csv = f"similarity-by-score_genai_{SCRIPT_REFERENCE}.csv"
     output_fullpath_csv = os.path.join(OUTPUT_DIR_SIM_BY_SCORE, output_filename_csv)
 elif COMPARISON_TYPE == 'element-element':
     OUTPUT_DIR_SIM_BY_SCORE = os.path.join('data', 'film_similarity_by_score_elements')
-    output_filename_pkl = f"similarity-by-score_elements_{FILM_REFERENCE}.pkl"
+    output_filename_pkl = f"similarity-by-score_elements_{SCRIPT_REFERENCE}.pkl"
     output_fullpath_pkl = os.path.join(OUTPUT_DIR_SIM_BY_SCORE, output_filename_pkl)
-    output_filename_csv = f"similarity-by-score_elements_{FILM_REFERENCE}.csv"
+    output_filename_csv = f"similarity-by-score_elements_{SCRIPT_REFERENCE}.csv"
     output_fullpath_csv = os.path.join(OUTPUT_DIR_SIM_BY_SCORE, output_filename_csv)
     INPUT_DIR_ELEMENTS = os.path.join('data','film_narrative_elements')
 else:
@@ -230,7 +230,7 @@ def call_openai(prompt_str: str) -> Optional[Dict]:
                 # A. https://github.com/Qarj/fix-busted-json 202404 27s
                 # B. https://github.com/mangiucugna/json_repair/ 20040627 429s
                 try:
-                    response_fix_json_pass1 = fix_busted_repair_json(response) # Attempt to repair malformed JSON string
+                    response_fix_json_pass1 = repair_json(response) # Attempt to repair malformed JSON string
                 except:
                     response_fix_json_pass1 = response
                 try:
@@ -469,9 +469,9 @@ def get_element_distance(film_reference, film_test, narrative_element, unique_id
     return response_dict
 
 
-def get_genai_distance(film_reference, film_test, narrative_element, unique_id):
-    title_clean_reference = clean_title(film_reference)
-    title_clean_test = clean_title(film_reference)
+def get_genai_distance(script_reference, film_name, narrative_element, unique_id):
+    title_clean_reference = clean_title(SCRIPT_REFERENCE)
+    title_clean_test = clean_title(film_name)
     prompt_header = f"\n\n###REFERENCE_FILM:\n{title_clean_reference}\n\n###TEST_FILM:\n{title_clean_test}\n"
 
     try:
@@ -513,8 +513,8 @@ def get_genai_distance(film_reference, film_test, narrative_element, unique_id):
 # DO NOT USE: for illustrative purpose only
 # results in duplicate respones due to local client-side caching
 @lru_cache(maxsize=None)
-def cached_get_genai_distance(FILM_REFERENCE: str, film_name: str, narrative_element: str) -> Dict[str, any]:
-    return get_genai_distance(FILM_REFERENCE, film_name, narrative_element)
+def cached_get_genai_distance(SCRIPT_REFERENCE: str, film_name: str, narrative_element: str) -> Dict[str, any]:
+    return get_genai_distance(SCRIPT_REFERENCE, film_name, narrative_element)
 
 # Generate a unique ID to inject into the prompt to try to avoid remote caching on OpenAI side
 # and duplicate responses
@@ -522,17 +522,12 @@ def generate_unique_id(length=8):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
 
+import os
+import datetime
+import json
+import pandas as pd
 
-
-def get_similarity_function(comparison_type, film_reference, film_test, narrative_element, unique_id)):
-    if comparison_type == 'genai-genai':
-        return get_genai_distance(film_reference, film_test, narrative_element, unique_id)
-    elif comparison_type == 'element-element':
-        return get_element_distance(film_reference, film_test, narrative_element, unique_id)
-    else:
-        raise ValueError(f"Invalid COMPARISON_TYPE: {comparison_type}")
-
-def process_film(film_reference, film_test, sample, comparison_type):
+def process_film(film_name, film_year, sample, scripts_list_filtered):
     datetime_str = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     unique_id = generate_unique_id()
     film_similarity_row = {
@@ -544,20 +539,12 @@ def process_film(film_reference, film_test, sample, comparison_type):
     
     similarity_sum = 0
     element_similarities = {}
-    # similarity_func = get_similarity_function(comparison_type, film_reference, film_test, narrative_element, unique_id)
 
     for narrative_element in ELEMENTS_TYPE_LIST:
         output_file = f"{output_fullpath_csv.rsplit('.', 1)[0]}_{film_name}_{narrative_element}.csv"
         
-        if comparison_type == 'genai-gentai':
-            get_genai_distance(FILM_REFERENCE, film_test, narrative_element, )
-        elif comparison_type == 'element-element':
-            get_element_distance(film_reference, film_test, narrative_element, unique_id)
-        else:
-            print(f"ERROR: Illegal value for comparision_type: {comparison_type}")
-            exit()
-        
-        #similarity_element = similarity_func(FILM_REFERENCE, film_name, narrative_element, unique_id)
+        similarity_func = get_genai_distance if COMPARISON_TYPE == 'genai-genai' else get_element_distance
+        similarity_element = similarity_func(SCRIPT_REFERENCE, film_name, narrative_element, unique_id)
         
         element_similarities[narrative_element] = similarity_element
         similarity_overall = similarity_element['similarity_overall']
@@ -587,7 +574,7 @@ def save_results(film_name, film_similarity_row, element_similarities, output_fi
         return False
 
 def main():
-    print(f"PROCESSING: FILM_REFERENCE: {FILM_REFERENCE}")
+    print(f"PROCESSING: FILM_REFERENCE: {SCRIPT_REFERENCE}")
     print(f"film_list: {scripts_list}\n")
 
     columns = ['film', 'datetime', 'sample', 'unique_id'] + ELEMENTS_TYPE_LIST + ['overall']
@@ -598,18 +585,12 @@ def main():
         print(f"Processing sample {sample + 1} of {SAMPLE_SIZE}")
 
         for film_index, (film_name, film_year) in enumerate(scripts_list):
-            print(f"PROCESSING film #{film_index}: {film_name} vs REFERENCE: {FILM_REFERENCE}")
+            print(f"PROCESSING film #{film_index}: {film_name} vs REFERENCE: {SCRIPT_REFERENCE}")
             
-            if COMPARISON_TYPE == 'genai-genai':
-                output_file = f"{output_fullpath_csv.rsplit('.', 1)[0]}_{film_name}.csv"
-            elif COMPARISON_TYPE == 'element-element':
-                output_file = f"{output_fullpath_csv.rsplit('.', 1)[0]}_{film_name}.csv"
-            else:
-                print(f"ERROR: Invalid COMPARISON_TYPE: {COMPARISON_TYPE}")
-                return
+            output_file = f"{output_fullpath_csv.rsplit('.', 1)[0]}_{film_name}.csv"
             
             try:
-                film_similarity_row, element_similarities = process_film(REFERENCE_FILM, film_name, film_year, sample, COMPARISON_TYPE)
+                film_similarity_row, element_similarities = process_film(film_name, film_year, sample, scripts_list)
                 if save_results(film_name, film_similarity_row, element_similarities, output_file):
                     results_df = pd.concat([results_df, pd.DataFrame([film_similarity_row])], ignore_index=True)
                     all_results[f"{film_name}_{film_similarity_row['datetime']}"] = element_similarities
