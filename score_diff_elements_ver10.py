@@ -54,7 +54,7 @@ def log_error(message, exception=None, TERMINAL_TOO=True):
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 if OPENAI_API_KEY:
     openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
-    SLEEP_SECONDS = 5
+    SLEEP_SECONDS = 1
 
 MODEL_NAME = 'gpt-3.5-turbo' # 'gpt-4o'
 # 'gpt-3.5-turbo is limited to 16k tokens ~12kb plain text file 
@@ -66,7 +66,7 @@ DEFAULT_TOP_P = 0.5
 OVERWRITE_FLAG = False  
 
 # Max retries to parse OpenAI API response into Python Dictionary
-MAX_RETRY_DICT_PARSE = 35
+MAX_RETRY_DICT_PARSE = 30
 
 # Configure how many iterations to run
 SAMPLE_SIZE = 3
