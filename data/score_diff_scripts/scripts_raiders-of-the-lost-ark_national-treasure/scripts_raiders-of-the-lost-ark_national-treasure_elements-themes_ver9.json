@@ -1,0 +1,30 @@
+{
+    "overall": {
+        "similarity": 85,
+        "reasoning": "Both films focus on the adventure of uncovering historical artifacts with strong themes of heritage and the fight between good and evil. The contexts and characters differ, but the core thematic elements are highly similar."
+    },
+    "main_theme": {
+        "similarity": 90,
+        "reasoning": "The main theme of both movies revolves around the pursuit and preservation of historical artifacts. Both protagonists are driven by a deep respect for history and a desire to protect valuable cultural heritage."
+    },
+    "secondary_themes": {
+        "similarity": 80,
+        "reasoning": "While both films explore themes of personal integrity, intelligence, and the battle against evil forces, 'Raiders of the Lost Ark' includes more supernatural elements compared to the more intellectual and puzzle-solving focus in 'National Treasure.'"
+    },
+    "tertiary_themes": {
+        "similarity": 75,
+        "reasoning": "Both films include themes of romance, teamwork, and the moral implications of their quests. However, 'Raiders' delves more into cultural clashes and supernatural aspects, adding a different layer to its narrative."
+    },
+    "resolution_main_theme": {
+        "similarity": 85,
+        "reasoning": "Both films conclude with the successful resolution of their quests, emphasizing the protagonist's growth and the importance of preserving history. The resolution underscores the victory of good over evil and the safeguarding of cultural heritage."
+    },
+    "resolution_secondary_themes": {
+        "similarity": 80,
+        "reasoning": "The resolutions in both films address personal relationships and the protagonist's integrity. 'Raiders' focuses more on individual triumphs over greed, while 'National Treasure' highlights reconciliation and intellectual achievements."
+    },
+    "resolution_tertiary_themes": {
+        "similarity": 75,
+        "reasoning": "Both films resolve minor themes such as betrayal, teamwork, and the ethical handling of historical artifacts. 'Raiders' incorporates more elements of cultural understanding and the supernatural, while 'National Treasure' focuses on the practical and intellectual aspects."
+    }
+}

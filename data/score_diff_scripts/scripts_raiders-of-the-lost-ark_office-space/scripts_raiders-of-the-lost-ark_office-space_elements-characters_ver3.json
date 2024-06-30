@@ -1,0 +1,38 @@
+{
+    "overall": {
+        "similarity": 60,
+        "reasoning": "Both characters are protagonists who drive their respective stories through their actions. They share a resourcefulness and intelligence but differ significantly in their backstories, motivations, and psychological profiles."
+    },
+    "backstory": {
+        "similarity": 50,
+        "reasoning": "Peter's backstory as a disillusioned office worker contrasts with Indiana's adventurous and historically rich background. Both, however, are shaped by dissatisfaction with their current situations and seek change."
+    },
+    "strengths": {
+        "similarity": 65,
+        "reasoning": "Both characters are intelligent and resourceful. Indiana's additional physical and combat skills contrast with Peter's more mental and strategic strengths."
+    },
+    "weaknesses": {
+        "similarity": 70,
+        "reasoning": "Both have specific weaknesses that impact their actions. Peter's passivity and authority issues are somewhat mirrored by Indiana's impulsiveness and fear of snakes."
+    },
+    "psychology": {
+        "similarity": 55,
+        "reasoning": "Both characters score high on openness, but Peter's higher neuroticism and lower conscientiousness and agreeableness contrast with Indiana's more balanced personality traits."
+    },
+    "beliefs": {
+        "similarity": 60,
+        "reasoning": "Both characters value authenticity and have a strong sense of ethics, though Indiana's are more aligned with historical preservation and justice, while Peter's are more about personal freedom and anti-corporate sentiment."
+    },
+    "motivations": {
+        "similarity": 55,
+        "reasoning": "Peter's motivations are centered on personal fulfillment and escaping corporate monotony, while Indiana is driven by adventure, knowledge, and legacy."
+    },
+    "social_dynamics": {
+        "similarity": 60,
+        "reasoning": "Both characters navigate complex social interactions, though Indiana's relationships are more diverse and deeply personal, while Peter's are initially strained but improve as he rebels."
+    },
+    "arc": {
+        "similarity": 65,
+        "reasoning": "Both characters undergo significant transformations, with Peter taking control of his life in a rebellious way and Indiana deepening his understanding of personal values and history."
+    }
+}

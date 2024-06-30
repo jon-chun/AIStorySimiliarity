@@ -1,0 +1,30 @@
+{
+    "overall": {
+        "similarity": 55,
+        "reasoning": "Both narratives involve characters seeking something more meaningful beyond their current circumstances. However, 'Office Space' focuses on corporate disillusionment, while 'Raiders of the Lost Ark' centers on adventurous pursuits and historical significance."
+    },
+    "main_theme": {
+        "similarity": 50,
+        "reasoning": "'Office Space' deals with corporate life's absurdities and personal freedom, while 'Raiders of the Lost Ark' focuses on adventurous quests and good versus evil. Both involve a search for something greater but in very different contexts."
+    },
+    "secondary_themes": {
+        "similarity": 45,
+        "reasoning": "While both films explore secondary themes of personal conflicts and ideological struggles, 'Office Space' is more about workplace dissatisfaction and identity, whereas 'Raiders' delves into loyalty and bravery."
+    },
+    "tertiary_themes": {
+        "similarity": 60,
+        "reasoning": "Both films include minor themes that enhance the main narrative. 'Office Space' touches on technology's impact, personal relationships, and rebellion, whereas 'Raiders' covers colonialism, historical preservation, and romance."
+    },
+    "resolution_main_theme": {
+        "similarity": 65,
+        "reasoning": "Both films resolve their main themes by achieving the protagonists' goals, though the goals themselves differ significantly—personal freedom in 'Office Space' and the successful artifact retrieval in 'Raiders.'"
+    },
+    "resolution_secondary_themes": {
+        "similarity": 50,
+        "reasoning": "The resolution of secondary themes in both films involves personal satisfaction and conflict resolution. 'Office Space' focuses on workplace and personal conflicts, while 'Raiders' addresses loyalty and ideological triumphs."
+    },
+    "resolution_tertiary_themes": {
+        "similarity": 55,
+        "reasoning": "Both films address minor themes by the end, with 'Office Space' focusing on personal growth and new directions, while 'Raiders' emphasizes historical importance and romantic complexities."
+    }
+}

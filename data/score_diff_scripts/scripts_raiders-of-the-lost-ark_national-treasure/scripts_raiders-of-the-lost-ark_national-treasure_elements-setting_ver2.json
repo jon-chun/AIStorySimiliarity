@@ -1,0 +1,30 @@
+{
+    "overall": {
+        "similarity": 70,
+        "reasoning": "Both films revolve around the theme of treasure hunting with protagonists facing various challenges to uncover historical artifacts. While the core narrative structures are similar, differences in historical context, geographical locations, and cultural settings create distinctive experiences."
+    },
+    "time_period": {
+        "similarity": 60,
+        "reasoning": "Raiders of the Lost Ark is set in the 1930s during the rise of Nazi Germany, whereas National Treasure is set in contemporary times, reflecting modern societal issues and technology&#8203;:citation[oaicite:10]{index=10}&#8203;&#8203;:citation[oaicite:9]{index=9}&#8203;."
+    },
+    "geographical_location": {
+        "similarity": 50,
+        "reasoning": "Raiders of the Lost Ark spans various exotic locations like jungles and deserts, while National Treasure is primarily set in urban settings within the United States, including Washington D.C.&#8203;:citation[oaicite:8]{index=8}&#8203;&#8203;:citation[oaicite:7]{index=7}&#8203;."
+    },
+    "cultural_context": {
+        "similarity": 70,
+        "reasoning": "Both stories are deeply influenced by their respective cultural contexts. Raiders of the Lost Ark incorporates elements of archaeology and myth, while National Treasure involves American historical legends and Freemasonry&#8203;:citation[oaicite:6]{index=6}&#8203;&#8203;:citation[oaicite:5]{index=5}&#8203;."
+    },
+    "social_class": {
+        "similarity": 55,
+        "reasoning": "Both protagonists navigate through different social environments: Indiana Jones as an academic and adventurer, and Benjamin Franklin Gates as a historian. Their interactions with diverse social classes highlight their respective struggles and privileges&#8203;:citation[oaicite:4]{index=4}&#8203;&#8203;:citation[oaicite:3]{index=3}&#8203;."
+    },
+    "ideology_and_beliefs": {
+        "similarity": 65,
+        "reasoning": "Ideological conflicts play significant roles in both narratives. Raiders of the Lost Ark features conflicts rooted in religious and supernatural beliefs, while National Treasure deals with patriotic ideals and historical integrity&#8203;:citation[oaicite:2]{index=2}&#8203;."
+    },
+    "economic_and_political_context": {
+        "similarity": 45,
+        "reasoning": "Raiders of the Lost Ark is influenced by the political climate of pre-World War II with Nazi ambitions, whereas National Treasure is shaped by modern economic realities and the political landscape of the United States&#8203;:citation[oaicite:1]{index=1}&#8203;&#8203;:citation[oaicite:0]{index=0}&#8203;."
+    }
+}

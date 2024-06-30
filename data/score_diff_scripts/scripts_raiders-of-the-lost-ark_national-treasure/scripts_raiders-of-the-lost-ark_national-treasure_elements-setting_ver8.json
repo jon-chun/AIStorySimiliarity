@@ -1,0 +1,30 @@
+{
+    "overall": {
+        "similarity": 40,
+        "reasoning": "Despite differing time periods, geographical locations, and specific cultural contexts, both films share common themes of treasure hunting, ideological pursuits, and characters navigating through complex social hierarchies. However, the differences in setting, time, and specific narrative elements lead to a moderate overall similarity."
+    },
+    "time_period": {
+        "similarity": 20,
+        "reasoning": "The stories are set in significantly different time periods, which influences the characters' behaviors, technology available, and societal norms."
+    },
+    "geographical_location": {
+        "similarity": 40,
+        "reasoning": "Both films feature a wide range of geographical locations, but they differ significantly in their regional focus (domestic vs. international settings)."
+    },
+    "cultural_context": {
+        "similarity": 30,
+        "reasoning": "Both narratives are deeply rooted in historical contexts, but the cultural backdrops they draw from are distinct and culturally specific."
+    },
+    "social_class": {
+        "similarity": 60,
+        "reasoning": "Both films depict characters who operate within a hierarchical social structure, often facing challenges related to their social environments."
+    },
+    "ideology_and_beliefs": {
+        "similarity": 50,
+        "reasoning": "Both films explore strong ideological beliefs that drive the characters' motivations, though the specific beliefs and contexts differ."
+    },
+    "economic_and_political_context": {
+        "similarity": 40,
+        "reasoning": "While both films incorporate political and economic contexts that drive the plot, the specifics of these contexts are quite different due to the different time periods and global situations."
+    }
+}

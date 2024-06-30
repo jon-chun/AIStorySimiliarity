@@ -1,0 +1,30 @@
+{
+    "overall": {
+        "similarity": 30,
+        "reasoning": "Both stories involve protagonists dealing with significant challenges in their respective environments, but the settings, time periods, and thematic focuses are distinct, leading to limited overall similarity."
+    },
+    "time_period": {
+        "similarity": 10,
+        "reasoning": "Office Space is set in the contemporary 1990s, while Raiders of the Lost Ark takes place in the 1930s, reflecting different historical contexts and societal norms."
+    },
+    "geographical_location": {
+        "similarity": 20,
+        "reasoning": "Office Space is set in a modern urban office environment, contrasting sharply with the various exotic and historical locations in Raiders of the Lost Ark."
+    },
+    "cultural_context": {
+        "similarity": 30,
+        "reasoning": "While both narratives engage with specific cultural settings, the corporate culture of Office Space differs significantly from the adventure and historical themes of Raiders of the Lost Ark."
+    },
+    "social_class": {
+        "similarity": 40,
+        "reasoning": "Both elements feature characters from varied social standings, though the nature of their interactions and conflicts differ due to their distinct environments and narratives."
+    },
+    "ideology_and_beliefs": {
+        "similarity": 50,
+        "reasoning": "Both stories explore ideological conflicts, though Office Space focuses on corporate satire, while Raiders of the Lost Ark involves historical and supernatural elements."
+    },
+    "economic_and_political_context": {
+        "similarity": 30,
+        "reasoning": "The economic and political contexts are different: Office Space deals with late 1990s corporate anxieties, while Raiders of the Lost Ark is influenced by the geopolitics of the 1930s and WWII."
+    }
+}

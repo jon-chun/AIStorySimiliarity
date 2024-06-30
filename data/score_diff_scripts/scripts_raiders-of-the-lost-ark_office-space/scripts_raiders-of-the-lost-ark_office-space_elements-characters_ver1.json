@@ -1,0 +1,38 @@
+{
+    "overall": {
+        "similarity": 45,
+        "reasoning": "While both characters are protagonists who undergo personal growth and face significant challenges, their environments, motivations, and roles are vastly different. Indiana is an adventurer dealing with physical and moral challenges, while Peter is an office worker dealing with existential and professional dissatisfaction."
+    },
+    "backstory": {
+        "similarity": 30,
+        "reasoning": "Indiana's backstory is rich with historical and adventurous elements, shaped by his father and a passion for archaeology. Peter's backstory revolves around a mundane, corporate existence with little emphasis on personal history shaping his motivations."
+    },
+    "strengths": {
+        "similarity": 40,
+        "reasoning": "Both characters are intelligent and resourceful, but Indiana's strengths are more physical and skill-based, while Peter's are more intellectual and related to navigating corporate life and personal justice."
+    },
+    "weaknesses": {
+        "similarity": 50,
+        "reasoning": "Both characters have notable weaknesses that affect their actions. Indiana's are more fear-based (snakes) and impulsive, while Peter's are related to lack of motivation and fear of confrontation."
+    },
+    "psychology": {
+        "similarity": 55,
+        "reasoning": "Both characters share high openness and some level of agreeableness. Indiana is more conscientious and low in neuroticism, while Peter is less conscientious and has moderate neuroticism."
+    },
+    "beliefs": {
+        "similarity": 35,
+        "reasoning": "Indiana's beliefs revolve around historical preservation and moral righteousness, while Peter values personal freedom and despises corporate monotony."
+    },
+    "motivations": {
+        "similarity": 40,
+        "reasoning": "Both are motivated by a desire for something more fulfilling than their current lives. Indiana seeks adventure and knowledge, while Peter seeks personal happiness and freedom from corporate oppression."
+    },
+    "social_dynamics": {
+        "similarity": 50,
+        "reasoning": "Both characters have important relationships that impact their stories. Indiana has allies and antagonists in his adventures, while Peter has friends, a complicated romantic relationship, and a toxic work environment."
+    },
+    "arc": {
+        "similarity": 45,
+        "reasoning": "Both characters experience significant personal growth and change. Indiana often learns about the importance of relationships and values, while Peter transitions from passive dissatisfaction to actively seeking personal fulfillment."
+    }
+}
