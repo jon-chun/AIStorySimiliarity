@@ -50,7 +50,7 @@ OVERWRITE_FLAG = False
 MAX_RETRY_DICT_PARSE = 3
 
 # Configure how many iterations to run
-SAMPLE_SIZE = 3
+SAMPLE_SIZE = 27
 
 
 # IMPORT PROMPTS =====

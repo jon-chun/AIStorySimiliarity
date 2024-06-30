@@ -1,0 +1,8 @@
+reference_film,test_film,version_number,feature_1_value,feature_1_description,feature_2_value,feature_2_description,feature_3_value,feature_3_description,feature_4_value,feature_4_description,similarity_overall
+raiders-of-the-lost-ark,la-la-land,0,85,Protagonist's artistic aspirations and journey,70,Romance subplot and relationship dynamics,80,Thematic focus on passion vs practicality,75.0,Nostalgic/romanticized view of the past,78
+raiders-of-the-lost-ark,la-la-land,1,90,Protagonist archetype and character traits,85,Plot structure and narrative progression,80,Setting and time period,75.0,Themes of preservation vs. exploitation of historical artifacts,82
+raiders-of-the-lost-ark,la-la-land,2,90,Protagonist archetype and characterization,85,Plot structure and quest narrative,75,Romantic subplot and character dynamics,40.0,Genre and stylistic approach,73
+raiders-of-the-lost-ark,la-la-land,3,85,Character dreams and aspirations,70,Romance and relationship dynamics,80,Pursuit of passion vs practicality,65.0,Hollywood/showbusiness setting,78
+raiders-of-the-lost-ark,la-la-land,4,85,Character dreams and aspirations,70,Romance and relationship dynamics,80,Pursuit of passion vs practicality,65.0,Hollywood/showbusiness setting,78
+raiders-of-the-lost-ark,la-la-land,5,85,Protagonist pursuing artistic dreams in Los Angeles,70,"Romance between two passionate, career-driven individuals",65,Nostalgic tone and reverence for the past,60.0,Themes of compromise between artistic integrity and commercial success,72
+raiders-of-the-lost-ark,la-la-land,6,85,Quest for powerful ancient artifact,80,Adventurous archaeologist protagonist,75,"Blend of action, romance, and humor",,,80

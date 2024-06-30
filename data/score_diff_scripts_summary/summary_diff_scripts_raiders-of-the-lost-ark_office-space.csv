@@ -1,0 +1,11 @@
+reference_film,test_film,version_number,feature_1_value,feature_1_description,feature_2_value,feature_2_description,feature_3_value,feature_3_description,feature_4_value,feature_4_description,similarity_overall
+raiders-of-the-lost-ark,office-space,0,25.0,Core ideologies and values held by characters.,30.0,Driving forces behind characters' actions.,20.0,Interactions and relationships among characters.,35.0,Narrative structure and character development.,28
+raiders-of-the-lost-ark,office-space,1,20.0,Core values and ideological principles guiding characters' actions.,15.0,Driving forces behind the characters' actions throughout the narrative.,25.0,"Relationships and interactions between characters, including conflicts and alliances.",30.0,Overall structure and progression of the storyline.,23
+raiders-of-the-lost-ark,office-space,2,20.0,Similarity in character beliefs,30.0,Similarity in character motivations,40.0,Similarity in social dynamics,25.0,Similarity in narrative arc,28
+raiders-of-the-lost-ark,office-space,3,25.0,Underlying philosophical and ideological beliefs of characters,30.0,Characters' primary motivations and goals,40.0,Interpersonal relationships and social interactions among characters,20.0,The overall structure and progression of the narrative,30
+raiders-of-the-lost-ark,office-space,4,30.0,Ideological convictions and worldviews of characters.,20.0,Driving forces behind character actions.,40.0,Interaction patterns among characters.,25.0,Evolution and development of characters.,29
+raiders-of-the-lost-ark,office-space,5,20.0,Beliefs,30.0,Motivations,40.0,Social Dynamics,10.0,Arc,25
+raiders-of-the-lost-ark,office-space,6,,,,,,,,,35
+raiders-of-the-lost-ark,office-space,7,40.0,Beliefs,35.0,Motivations,30.0,Social Dynamics,25.0,Arc,33
+raiders-of-the-lost-ark,office-space,8,20.0,Beliefs and core values,30.0,Characters' motivations,40.0,Social dynamics and interactions,35.0,Narrative arc and character progression,31
+raiders-of-the-lost-ark,office-space,9,20.0,Core beliefs of the characters in these films differ significantly.,30.0,The motivations in both films involve a pursuit but for vastly different ends.,25.0,The interactions and relationships among characters are shaped by their environments.,35.0,The narrative structures follow different genres and storytelling methods.,27

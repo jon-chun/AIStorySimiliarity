@@ -69,7 +69,7 @@ OVERWRITE_FLAG = False
 MAX_RETRY_DICT_PARSE = 30
 
 # Configure how many iterations to run
-SAMPLE_SIZE = 3
+SAMPLE_SIZE = 30
 
 INPUT_ROOT_DIR = os.path.join('.','data', 'film_narrative_elements')
 OUTPUT_ROOT_DIR = os.path.join('.','data', 'score_diff_elements')

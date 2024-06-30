@@ -20,7 +20,7 @@ logger.addHandler(logging.StreamHandler())
 
 # SETUP COMPARISON =====
 # Select COMPARISION_TYPE from ['genai-genai','element-element','script-script']
-COMPARISON_TYPE = 'element-element'
+COMPARISON_TYPE = 'genai-genai' # 'element-element'
 
 # SETUP OPENAI =====
 
