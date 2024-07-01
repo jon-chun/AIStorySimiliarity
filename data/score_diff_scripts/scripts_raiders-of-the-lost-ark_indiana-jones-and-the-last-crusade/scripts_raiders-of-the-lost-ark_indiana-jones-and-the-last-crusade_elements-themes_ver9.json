@@ -1,1 +1,30 @@
-{"content": "empty"}
+{
+    "overall": {
+        "similarity": 85,
+        "reasoning": "Both films share a core narrative of seeking ancient artifacts with significant historical and supernatural importance, underpinned by themes of loyalty, family, and moral consequences."
+    },
+    "main_theme": {
+        "similarity": 90,
+        "reasoning": "Both films revolve around the pursuit of a powerful, mystical artifact that can alter the fate of mankind, highlighting the hero's journey and the battle between good and evil."
+    },
+    "secondary_themes": {
+        "similarity": 80,
+        "reasoning": "Both films explore relationships and loyalty, with 'Raiders' focusing on romance and 'Last Crusade' on family dynamics, particularly the father-son relationship."
+    },
+    "tertiary_themes": {
+        "similarity": 70,
+        "reasoning": "While both films touch on minor themes of faith, morality, and the consequences of seeking power, 'Last Crusade' delves deeper into generational knowledge and cultural significance."
+    },
+    "resolution_main_theme": {
+        "similarity": 85,
+        "reasoning": "Both films conclude with the artifact being secured or lost, emphasizing the limitations of human control over such powerful objects and the resolution of personal quests."
+    },
+    "resolution_secondary_themes": {
+        "similarity": 75,
+        "reasoning": "Both films resolve secondary themes by reaffirming relationships and loyalty, but 'Last Crusade' places more emphasis on family reconciliation."
+    },
+    "resolution_tertiary_themes": {
+        "similarity": 70,
+        "reasoning": "Both films tie up minor themes by emphasizing the dangers of seeking supernatural power and the preservation of historical knowledge, but 'Last Crusade' highlights the personal growth of the characters more."
+    }
+}

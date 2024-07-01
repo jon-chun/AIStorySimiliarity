@@ -1,1 +1,30 @@
-{"content": "empty"}
+{
+    "overall": {
+        "similarity": 30,
+        "reasoning": "While both films address themes of struggle and personal growth, their contexts and central conflicts differ greatly. 'Raiders' is driven by adventure and historical quests, whereas 'Office Space' focuses on workplace satire and personal liberation."
+    },
+    "main_theme": {
+        "similarity": 20,
+        "reasoning": "The main themes are quite different: one centers on adventure and historical preservation, the other on workplace dissatisfaction and personal rebellion."
+    },
+    "secondary_themes": {
+        "similarity": 40,
+        "reasoning": "Both narratives involve rebellion against oppressive systems and personal sacrifice, but the specifics and contexts of these themes vary significantly."
+    },
+    "tertiary_themes": {
+        "similarity": 50,
+        "reasoning": "Both films include tertiary themes of romance and personal identity, but 'Raiders' leans more into trust and betrayal while 'Office Space' focuses on the mundane and absurd aspects of office life."
+    },
+    "resolution_main_theme": {
+        "similarity": 30,
+        "reasoning": "The resolutions both involve a sense of personal achievement and peace, but through very different means and contexts: one through adventure and historical significance, the other through personal liberation from corporate drudgery."
+    },
+    "resolution_secondary_themes": {
+        "similarity": 40,
+        "reasoning": "Both films resolve secondary themes by emphasizing personal growth and the resolution of conflicts, though the nature of these conflicts and resolutions differ."
+    },
+    "resolution_tertiary_themes": {
+        "similarity": 45,
+        "reasoning": "The tertiary themes are resolved with a sense of closure and personal reconciliation in both films, albeit in different narrative contexts and tones."
+    }
+}

@@ -1,1 +1,38 @@
-{"content": "empty"}
+{
+    "overall": {
+        "similarity": 83,
+        "reasoning": "Both characters share similar roles, strengths, and motivations, with slight differences in backstory, psychology, and social dynamics. They are both driven by a passion for history and face similar challenges and growth arcs."
+    },
+    "backstory": {
+        "similarity": 75,
+        "reasoning": "Indiana Jones' backstory is more focused on professional experiences, while Ben Gates' is deeply rooted in family legacy and tradition. Both have backgrounds tied to historical pursuits."
+    },
+    "strengths": {
+        "similarity": 85,
+        "reasoning": "Both characters share intelligence, resourcefulness, and deep historical knowledge. Indiana has additional combat skills, while Gates' strengths are more academically focused."
+    },
+    "weakness": {
+        "similarity": 70,
+        "reasoning": "Both have weaknesses that lead to reckless behavior. Indiana's impulsiveness and fear of snakes are more specific, while Gates' obsession with treasure is more directly tied to his motivations."
+    },
+    "psychology": {
+        "similarity": 85,
+        "reasoning": "They share high openness, conscientiousness, and low neuroticism. Differences include higher extraversion in Indiana and higher agreeableness in Gates."
+    },
+    "beliefs": {
+        "similarity": 90,
+        "reasoning": "Both value history, preservation, and protecting artifacts. Gates emphasizes familial duty, while Indiana focuses on the ethical stance against misuse of artifacts."
+    },
+    "motivations": {
+        "similarity": 80,
+        "reasoning": "Both are driven by a desire to preserve history and fulfill personal quests. Gates is focused on family legacy, while Indiana's includes adventure and living up to his father's legacy."
+    },
+    "social_dynamics": {
+        "similarity": 75,
+        "reasoning": "Both form alliances and face adversaries. Indiana's relationships are more complex, while Gates' dynamics focus on his team and antagonist."
+    },
+    "arc": {
+        "similarity": 85,
+        "reasoning": "Both characters evolve to understand deeper values. Indiana's arc focuses on his relationship with his father, while Gates emphasizes valuing relationships and heritage more broadly."
+    }
+}

@@ -1,1 +1,30 @@
-{"content": "empty"}
+{
+    "overall": {
+        "similarity": 25,
+        "reasoning": "Both stories involve protagonists who face significant challenges and navigate complex environments. However, 'Raiders of the Lost Ark' is an adventure set in historical contexts with significant external conflicts, while 'Office Space' is a modern comedy focusing on internal conflicts and corporate life. The time periods, settings, and cultural contexts are vastly different, contributing to the low overall similarity."
+    },
+    "time_period": {
+        "similarity": 10,
+        "reasoning": "'Raiders of the Lost Ark' is set in the 1930s, a historical era with distinct socio-political contexts, while 'Office Space' is set in the late 1990s, reflecting contemporary corporate culture. The differing time periods significantly impact the narratives, making them quite distinct."
+    },
+    "geographical_location": {
+        "similarity": 20,
+        "reasoning": "'Raiders of the Lost Ark' takes place in various exotic and historical locations like Egypt and Nepal, which are crucial to the adventure narrative. 'Office Space' is set in a modern American office environment, reflecting mundane corporate life. The contrasting settings create different atmospheres and challenges for the characters."
+    },
+    "cultural_context": {
+        "similarity": 30,
+        "reasoning": "While both films reflect the cultural contexts of their respective settings, they do so in very different ways. 'Raiders of the Lost Ark' integrates 1930s archaeology and the Nazi threat into its storyline, whereas 'Office Space' focuses on late 20th-century American corporate culture. Both cultural settings influence the characters' lives but in vastly different manners."
+    },
+    "social_class": {
+        "similarity": 40,
+        "reasoning": "Both films explore social hierarchies and class dynamics. In 'Raiders of the Lost Ark,' the protagonist navigates elite academic and adventurous circles, while 'Office Space' focuses on middle-class corporate employees dealing with workplace dissatisfaction and hierarchical structures. Despite different settings, social class issues drive character interactions in both films."
+    },
+    "ideology_and_beliefs": {
+        "similarity": 35,
+        "reasoning": "'Raiders of the Lost Ark' involves ideological conflicts surrounding archaeology and supernatural beliefs, whereas 'Office Space' centers on personal ideologies about corporate life and job satisfaction. Both narratives delve into the protagonists' beliefs and motivations, but the specific ideologies and conflicts differ significantly."
+    },
+    "economic_and_political_context": {
+        "similarity": 25,
+        "reasoning": "The economic and political contexts in both films drive the plots but in different ways. 'Raiders of the Lost Ark' is influenced by the political context of Nazi Germany and its ambitions, while 'Office Space' is shaped by the economic realities of corporate America in the 1990s. The specific contexts create unique challenges for the characters in each film."
+    }
+}

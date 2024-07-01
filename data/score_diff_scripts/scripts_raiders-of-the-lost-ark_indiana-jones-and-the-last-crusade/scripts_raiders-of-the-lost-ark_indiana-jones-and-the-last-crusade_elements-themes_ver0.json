@@ -1,1 +1,30 @@
-{"content": "empty"}
+{
+    "overall": {
+        "similarity": 80,
+        "reasoning": "Both narratives revolve around Indiana Jones' adventurous quests for significant historical artifacts and address themes of good vs. evil, historical preservation, and personal relationships. While the specific artifacts and relationship dynamics differ, the core structure and thematic elements are quite similar."
+    },
+    "main_theme": {
+        "similarity": 85,
+        "reasoning": "Both films focus on the quest for a powerful religious artifact, emphasizing the battle between good and evil. However, 'Last Crusade' adds a strong element of familial reconciliation."
+    },
+    "secondary_themes": {
+        "similarity": 75,
+        "reasoning": "Both movies feature themes of adventure and personal relationships. 'Raiders' includes more emphasis on personal sacrifice, while 'Last Crusade' focuses on faith and the father-son relationship."
+    },
+    "tertiary_themes": {
+        "similarity": 70,
+        "reasoning": "Minor themes like betrayal and love interests appear in both films, but 'Raiders' focuses more on betrayal and ancient power, while 'Last Crusade' delves into intellectual pursuits and redemption."
+    },
+    "resolution_main_them": {
+        "similarity": 80,
+        "reasoning": "Both films conclude with the main artifact being secured but out of reach, underscoring the main theme. 'Last Crusade' places more emphasis on the personal growth and faith of the characters."
+    },
+    "resolution_secondary_them": {
+        "similarity": 75,
+        "reasoning": "Both movies resolve their secondary themes through the conclusion of the adventure and character arcs. 'Raiders' highlights historical preservation, while 'Last Crusade' focuses on faith and familial bonds."
+    },
+    "resolution_tertiary_them": {
+        "similarity": 70,
+        "reasoning": "The tertiary themes are tied up in both films but with different emphases. 'Raiders' leaves some personal relationships open-ended, while 'Last Crusade' resolves intellectual pursuits and redemption more clearly."
+    }
+}

@@ -1,1 +1,30 @@
-{"content": "empty"}
+{
+    "overall": {
+        "similarity": 85,
+        "reasoning": "Both stories follow Indiana Jones in his quests for religious artifacts, facing off against Nazis. The similarities in themes, character motivations, and overarching plot structure contribute to a high overall similarity."
+    },
+    "time_period": {
+        "similarity": 100,
+        "reasoning": "Both movies are set in the late 1930s, with 'Raiders of the Lost Ark' taking place in 1936 and 'The Last Crusade' in 1938. The consistent time period ensures similar historical contexts, societal norms, and technological levels."
+    },
+    "geographical_location": {
+        "similarity": 80,
+        "reasoning": "Both movies feature a variety of international locations, including deserts, jungles, and urban settings. While 'Raiders' focuses more on Egypt and South America, 'The Last Crusade' includes settings like Italy and the Middle East."
+    },
+    "cultural_context": {
+        "similarity": 85,
+        "reasoning": "The cultural contexts in both films revolve around archaeological pursuits and the conflict between Western adventurers and ancient cultures, with significant influence from the era's geopolitical tensions, particularly involving Nazi Germany."
+    },
+    "social_class": {
+        "similarity": 70,
+        "reasoning": "Indiana Jones navigates various social classes in both films, from dealing with wealthy patrons and scholars to encountering local laborers and soldiers. The consistency in social interactions highlights class dynamics but with slight variations in each narrative."
+    },
+    "ideology_and_beliefs": {
+        "similarity": 90,
+        "reasoning": "Both stories heavily feature ideological conflicts involving religion, the supernatural, and the pursuit of power. The Nazis' obsession with occult artifacts and Indiana Jones' academic and moral pursuits form a core ideological battle."
+    },
+    "economic_and_political_context": {
+        "similarity": 85,
+        "reasoning": "The political backdrop of both films is dominated by the rise of Nazi Germany and its aggressive quest for supernatural artifacts to gain global dominance. The economic motivations for various characters also tie closely with these political ambitions."
+    }
+}

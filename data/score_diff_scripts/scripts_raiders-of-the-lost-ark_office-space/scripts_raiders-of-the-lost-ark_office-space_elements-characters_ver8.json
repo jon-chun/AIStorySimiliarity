@@ -1,1 +1,38 @@
-{"content": "empty"}
+{
+    "overall": {
+        "similarity": 45,
+        "reasoning": "While both characters are protagonists driven by a desire for change, their contexts and the nature of their actions are vastly different. Indiana's journey is rooted in adventure and historical preservation, while Peter's is a rebellion against corporate monotony."
+    },
+    "backstory": {
+        "similarity": 30,
+        "reasoning": "Indiana has a rich backstory as an archaeologist with many adventures, whereas Peter's backstory focuses on his dissatisfaction with his mundane job."
+    },
+    "strengths": {
+        "similarity": 40,
+        "reasoning": "Both characters are intelligent and resourceful, but Indiana's strengths are more physical and adventure-oriented, while Peter's are more intellectual and related to his rebellion."
+    },
+    "weakness": {
+        "similarity": 50,
+        "reasoning": "Both characters exhibit weaknesses that affect their actions. Indiana's fear of snakes and recklessness compare with Peter's initial passivity and lack of direction."
+    },
+    "psychology": {
+        "similarity": 60,
+        "reasoning": "Both show high Openness and moderate Conscientiousness. However, Indiana is more extraverted and agreeable, while Peter is more neurotic."
+    },
+    "beliefs": {
+        "similarity": 35,
+        "reasoning": "Indiana values historical preservation and ethics, whereas Peter values personal freedom and is disillusioned with corporate culture."
+    },
+    "motivations": {
+        "similarity": 45,
+        "reasoning": "Indiana is driven by adventure and duty, while Peter is motivated by a desire to escape monotony and find personal satisfaction. Both seek significant changes in their lives."
+    },
+    "social_dynamics": {
+        "similarity": 50,
+        "reasoning": "Both characters form important relationships and confront adversaries. Indiana's relationships are more complex and varied, while Peter's are centered around his workplace."
+    },
+    "arc": {
+        "similarity": 40,
+        "reasoning": "Indiana grows to appreciate the importance of preservation beyond personal glory. Peter transforms from a passive employee to someone who takes control of his life, both reflecting significant personal growth."
+    }
+}

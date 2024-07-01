@@ -1,1 +1,30 @@
-{"content": "empty"}
+{
+    "overall": {
+        "similarity": 80,
+        "reasoning": "Both films focus on the pursuit of significant historical artifacts (the Ark of the Covenant and the Holy Grail) and confrontations with Nazis. The primary difference lies in the added personal dimension in 'The Last Crusade' with the father-son relationship."
+    },
+    "main_theme": {
+        "similarity": 75,
+        "reasoning": "The main themes of both films involve the pursuit of important historical artifacts and the struggle against evil forces. However, 'The Last Crusade' adds a significant personal element with the father-son relationship."
+    },
+    "secondary_themes": {
+        "similarity": 85,
+        "reasoning": "Both films feature adventure, conflict with Nazis, and the exploration of belief and mythology. The secondary themes are very aligned, though 'The Last Crusade' emphasizes familial bonds more."
+    },
+    "tertiary_themes": {
+        "similarity": 70,
+        "reasoning": "Tertiary themes like romantic elements, friendship, and loyalty are present in both films. 'The Last Crusade' focuses more on family dynamics and betrayal than 'Raiders'."
+    },
+    "resolution_main_theme": {
+        "similarity": 80,
+        "reasoning": "Both films resolve their main themes with the protagonist's realization of the artifacts' true significance and the dangers of their misuse. 'The Last Crusade' also emphasizes personal growth and family reconciliation."
+    },
+    "resolution_secondary_themes": {
+        "similarity": 85,
+        "reasoning": "Both films conclude with the defeat of the Nazis and the safeguarding of historical artifacts. Personal growth and adventure elements are resolved, with 'The Last Crusade' focusing more on family reconciliation."
+    },
+    "resolution_tertiary_themes": {
+        "similarity": 75,
+        "reasoning": "Minor plot threads and character arcs are concluded in both films. 'The Last Crusade' has a stronger emphasis on resolving trust issues and the father-son dynamic."
+    }
+}

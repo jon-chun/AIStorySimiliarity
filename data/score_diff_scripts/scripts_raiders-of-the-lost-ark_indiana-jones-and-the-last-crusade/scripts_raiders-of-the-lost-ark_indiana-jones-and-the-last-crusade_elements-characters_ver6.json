@@ -1,1 +1,38 @@
-{"content": "empty"}
+{
+    "overall": {
+    "similarity": 95,
+    "reasoning": "Indiana Jones remains a consistent character in both films with minor developments. His core traits, strengths, weaknesses, and motivations are preserved while his backstory and emotional depth are further explored in 'Indiana Jones and the Last Crusade.'"
+    },
+    "backstory": {
+    "similarity": 85,
+    "reasoning": "The backstory is expanded in 'The Last Crusade,' providing more insight into his early life and relationship with his father, which was only hinted at in 'Raiders of the Lost Ark.'"
+    },
+    "strengths": {
+    "similarity": 90,
+    "reasoning": "The strengths of Indiana Jones are consistent across both films, emphasizing his intelligence, physical abilities, and resourcefulness."
+    },
+    "weaknesses": {
+    "similarity": 80,
+    "reasoning": "His weaknesses are consistent, though 'The Last Crusade' adds emotional depth with his vulnerability regarding his father."
+    },
+    "psychology": {
+    "similarity": 90,
+    "reasoning": "The psychological traits of Indiana Jones are consistent, with additional depth provided in 'The Last Crusade' through his relationships and emotional development."
+    },
+    "beliefs": {
+    "similarity": 95,
+    "reasoning": "Indiana's beliefs about preserving artifacts and combating exploitation remain consistent, with 'The Last Crusade' adding a personal dimension related to his father's legacy."
+    },
+    "motivations": {
+    "similarity": 85,
+    "reasoning": "While the core motivations remain the same, 'The Last Crusade' adds the personal motivation of rescuing his father and continuing his father's quest."
+    },
+    "social_dynamics": {
+    "similarity": 80,
+    "reasoning": "Social dynamics are expanded in 'The Last Crusade,' including more complex relationships, particularly with his father."
+    },
+    "arc": {
+    "similarity": 85,
+    "reasoning": "Indiana's character arc is consistent but shows more significant personal growth in 'The Last Crusade,' particularly in reconciling with his father."
+    }
+}

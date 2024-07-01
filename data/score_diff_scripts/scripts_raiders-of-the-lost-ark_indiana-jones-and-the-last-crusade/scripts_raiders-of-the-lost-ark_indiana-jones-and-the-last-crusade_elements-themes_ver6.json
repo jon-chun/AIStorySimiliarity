@@ -1,1 +1,30 @@
-{"content": "empty"}
+{
+    "overall": {
+        "similarity": 80,
+        "reasoning": "Both narratives revolve around the pursuit of significant historical artifacts and their moral and ethical implications, although the specific artifacts and relational dynamics differ."
+    },
+    "main_theme": {
+        "similarity": 75,
+        "reasoning": "Both films center on the pursuit of a legendary artifact with immense power and the personal growth of Indiana Jones, but 'Raiders' focuses more on the artifact's uncontrollable power, while 'Last Crusade' emphasizes familial reconciliation."
+    },
+    "secondary_themes": {
+        "similarity": 85,
+        "reasoning": "Both films explore the moral conflicts inherent in the pursuit of power and knowledge, the battle between good and evil, and personal relationships, although 'Last Crusade' adds a deeper father-son dynamic."
+    },
+    "tertiary_themes": {
+        "similarity": 70,
+        "reasoning": "Both films incorporate themes of destiny, the clash of cultures, and the reverence for history, but 'Last Crusade' delves more into personal reconciliation and the symbolic significance of the Grail."
+    },
+    "resolution_main_theme": {
+        "similarity": 80,
+        "reasoning": "Both films resolve their main themes by emphasizing that some quests are more about personal growth and understanding rather than the actual acquisition of the artifact, though 'Last Crusade' places a stronger emphasis on familial bonds."
+    },
+    "resolution_secondary_themes": {
+        "similarity": 75,
+        "reasoning": "Both films resolve secondary themes by highlighting the perils of pursuing ultimate power and the importance of moral choices, with 'Last Crusade' also addressing the resolution of historical and personal knowledge."
+    },
+    "resolution_tertiary_themes": {
+        "similarity": 70,
+        "reasoning": "Both films tie up minor themes by reinforcing the importance of respecting history and understanding one's place within it, though 'Last Crusade' includes a more personal resolution with Indy and his father."
+    }
+}

@@ -1,1 +1,30 @@
-{"content": "empty"}
+{
+    "overall": {
+        "similarity": 85,
+        "reasoning": "Both narratives revolve around the pursuit of historical artifacts and involve themes of loyalty, betrayal, and personal sacrifice. However, 'The Last Crusade' places a stronger emphasis on familial relationships."
+    },
+    "main_theme": {
+        "similarity": 90,
+        "reasoning": "Both films focus on the pursuit of legendary artifacts with significant historical and religious implications, driving the main plot and character actions."
+    },
+    "secondary_themes": {
+        "similarity": 80,
+        "reasoning": "While both films address themes of loyalty, betrayal, and ethical dilemmas, 'The Last Crusade' adds a deeper layer with the father-son relationship, differentiating it from 'Raiders of the Lost Ark.'"
+    },
+    "tertiary_themes": {
+        "similarity": 75,
+        "reasoning": "Both films include minor themes that enhance the narrative depth, though the specifics vary slightly, with 'The Last Crusade' focusing more on personal faith and ideological conflicts."
+    },
+    "resolution_main_theme": {
+        "similarity": 85,
+        "reasoning": "Both films conclude with the artifact being secured or lost, reflecting character growth and the overarching message about the limits of human ambition."
+    },
+    "resolution_secondary_themes": {
+        "similarity": 80,
+        "reasoning": "The resolutions of secondary themes in both films highlight personal relationships and the ethical implications of the protagonists' actions, though 'The Last Crusade' emphasizes the father-son dynamic."
+    },
+    "resolution_tertiary_themes": {
+        "similarity": 75,
+        "reasoning": "Both films address and conclude their minor themes effectively, though 'The Last Crusade' gives more focus to the ideological and faith-based aspects."
+    }
+}
