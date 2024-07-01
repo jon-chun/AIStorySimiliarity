@@ -62,7 +62,7 @@ Return your response in JSON form following this ###TEMPLATE as demostrated in t
         "similarity": integer range(0,100),
         "reasoning": string len(100,200)
     },
-    "sodial_dynamics": {
+    "social_dynamics": {
         "similarity": integer range(0,100),
         "reasoning": string len(100,200)
     },

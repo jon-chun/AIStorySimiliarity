@@ -17,7 +17,7 @@ prompt_similarity_attached2scripts = f"""
 
             "beliefs": integer range(0,100),
             "motivations": integer range(0,100),
-            "sodial_dynamics": integer range(0,100),
+            "social_dynamics": integer range(0,100),
             "arc": integer range(0,100)
     {
         "similarity_overall" : integer range(0,100),

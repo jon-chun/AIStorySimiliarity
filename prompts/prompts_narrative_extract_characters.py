@@ -33,7 +33,7 @@ and return a response in JSON format using this ###TEMPLATE
         "psychology": string len(100,200),
         "beliefs": string len(100,200),
         "motivations": string len(100,200),
-        "sodial_dynamics": string len(100,200),
+        "social_dynamics": string len(100,200),
         "arc": string len(100,200)
     },
     "name": string len(,50) {

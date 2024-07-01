@@ -1,5 +1,6 @@
 import os
 import re
+import logging
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -8,10 +9,24 @@ from matplotlib.lines import Line2D
 from typing import List, Tuple, Dict
 from scipy.interpolate import make_interp_spline
 
+
 # Set up input and output directories
 cwd = os.getcwd()
 INPUT_ROOT_DIR = os.path.abspath(os.path.join(cwd, '..', 'data', 'score_diff_genai_summary'))
 OUTPUT_ROOT_DIR = os.path.abspath(os.path.join(cwd, '..', 'data', 'figures_diff_genai'))
+
+REFERENCE_FILM = 'raiders-of-the-lost-ark'
+
+TEST_FILM_LIST = [
+    'indiana-jones-and-the-last-crusade',
+    'indiana-jones-and-the-temple-of-doom',
+    'la-la-land',
+    'laura-croft-tomb-raider',
+    'national-treasure',
+    'office-space',
+    'the-mummy',
+    'titanic'
+]
 
 # Ensure output directory exists
 os.makedirs(OUTPUT_ROOT_DIR, exist_ok=True)
@@ -20,36 +35,56 @@ os.makedirs(OUTPUT_ROOT_DIR, exist_ok=True)
 sns.set_style("whitegrid")
 plt.rcParams['font.size'] = 12
 
+
+# def log_and_print(message: str, level: str = "info"):
+
+def log_and_print(message: str):
+    # getattr(logger, level)(message)
+    print(message)
+
 def clean_film_name(film_name: str) -> str:
     return ' '.join(word.capitalize() for word in film_name.replace('_', ' ').split())
+
 def extract_film_info(filename: str) -> Tuple[str, str]:
-    pattern = r"summary_genai_(.+)_(.+)\.csv"
+    pattern = r"summary_genai_(.+)_script_(.+)\.csv"
     match = re.match(pattern, filename)
     if match:
-        return clean_film_name(match.group(1)), clean_film_name(match.group(2))
+        log_and_print(f"  IN extract_film_info(): with group1: {match.group(1)}, group2: {match.group(2)}")
+        return match.group(1), match.group(2)
     return "", ""
 
 def read_csv_file(file_path: str) -> pd.DataFrame:
     df = pd.read_csv(file_path)
+    log_and_print(f"df.shape(): {df.shape}")
     return df
 
-def compute_similarity_mean(df: pd.DataFrame) -> pd.DataFrame:
+def compute_similarity_mean(df: pd.DataFrame) -> Tuple[pd.Series, pd.DataFrame]:
+    log_and_print(f"Computing similarity mean for DataFrame with shape: {df.shape}")
+    
     overall_columns = ['characters_similarity_overall', 'plot_similarity_overall', 'setting_similarity_overall', 'themes_similarity_overall']
-    df['similarity_mean'] = df[overall_columns].mean(axis=1)
-    return df
+    means = df[overall_columns].mean()
+    means['similarity_mean'] = means.mean()
+    
+    log_and_print("Computed means:")
+    log_and_print(means)
+    return means, df[overall_columns]
+
 
 def clean_feature_labels(columns: List[str]) -> List[str]:
     elements = ['characters', 'plot', 'setting', 'themes']
     return [col.split('_')[-1] if any(col.startswith(e) for e in elements) else col for col in columns]
 
-def create_bar_chart(data: Dict[str, pd.DataFrame], element: str, title: str, filename: str):
+def create_bar_chart(data_means: Dict[str, pd.Series], element: str, title: str, filename: str):
     plt.figure(figsize=(12, 6))
-    if element == 'overall':
-        bar_data = {film: df['similarity_mean'].mean() for film, df in data.items()}
-    else:
-        bar_data = {film: df[f'{element}_similarity_overall'].mean() for film, df in data.items()}
+    log_and_print(f"Creating bar chart for {element}")
     
-    # ... rest of the function remains the same
+    if element == 'overall':
+        bar_data = {film: values['similarity_mean'] for film, values in data_means.items()}
+    else:
+        bar_data = {film: values[f'{element}_similarity_overall'] for film, values in data_means.items()}
+    
+    log_and_print(f"Bar data for {element}: {bar_data}")
+
     sorted_data = sorted(bar_data.items(), key=lambda x: x[1], reverse=True)
     films, scores = zip(*sorted_data)
     
@@ -64,18 +99,18 @@ def create_bar_chart(data: Dict[str, pd.DataFrame], element: str, title: str, fi
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()
 
-def create_box_whisker(data: Dict[str, pd.DataFrame], element: str, title: str, filename: str):
+
+def create_box_whisker(data_original: Dict[str, pd.DataFrame], element: str, title: str, filename: str):
     plt.figure(figsize=(12, 6))
-    if element == 'overall':
-        plot_data = pd.DataFrame({film: df['similarity_mean'] for film, df in data.items()})
-    else:
-        plot_data = pd.DataFrame({
-            film: df[[col for col in df.columns if col.startswith(f'{element}_') and col != f'{element}_similarity_overall']].melt()['value']
-            for film, df in data.items()
-        })
     
+    if element == 'overall':
+        plot_data = pd.DataFrame({film: df['similarity_mean'] for film, df in data_original.items()})
+    else:
+        plot_data = pd.DataFrame({film: df[f'{element}_similarity_overall'] for film, df in data_original.items()})
+
+
     if plot_data.empty:
-        print(f"No data to plot for {element}. Skipping this plot.")
+        log_and_print(f"No data to plot for {element}. Skipping this plot.")
         return
     
     # Calculate mean values for sorting
@@ -91,18 +126,16 @@ def create_box_whisker(data: Dict[str, pd.DataFrame], element: str, title: str, 
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()
 
-def create_kde_plot(data: Dict[str, pd.DataFrame], element: str, title: str, filename: str):
+def create_kde_plot(data_original: Dict[str, pd.DataFrame], element: str, title: str, filename: str):
     plt.figure(figsize=(12, 6))
+    
     if element == 'overall':
-        plot_data = pd.DataFrame({film: df['similarity_mean'] for film, df in data.items()})
+        plot_data = pd.DataFrame({film: df.mean(axis=1) for film, df in data_original.items()})
     else:
-        plot_data = pd.DataFrame({
-            film: df[[col for col in df.columns if col.startswith(f'{element}_') and col != f'{element}_similarity_overall']].melt()['value']
-            for film, df in data.items()
-        })
+        plot_data = pd.DataFrame({film: df[f'{element}_similarity_overall'] for film, df in data_original.items()})
     
     if plot_data.empty:
-        print(f"No data to plot for {element}. Skipping this plot.")
+        log_and_print(f"No data to plot for {element}. Skipping this plot.")
         return
     
     for film in plot_data.columns:
@@ -116,7 +149,7 @@ def create_kde_plot(data: Dict[str, pd.DataFrame], element: str, title: str, fil
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()
 
-def create_radar_chart(data: Dict[str, pd.DataFrame], title: str, filename: str):
+def create_radar_chart(data_means: Dict[str, pd.Series], title: str, filename: str):
     elements = ['similarity_mean', 'characters_similarity_overall', 'plot_similarity_overall', 'setting_similarity_overall', 'themes_similarity_overall']
     labels = ['Overall', 'Characters', 'Plot', 'Setting', 'Themes']
     n_elements = len(elements)
@@ -124,11 +157,13 @@ def create_radar_chart(data: Dict[str, pd.DataFrame], title: str, filename: str)
     angles += angles[:1]
 
     fig, ax = plt.subplots(figsize=(10, 10), subplot_kw=dict(projection='polar'))
-    for film, df in data.items():
-        values = [df[e].mean() for e in elements]
+    for film, means in data_means.items():
+        values = [means[e] for e in elements]
         values += values[:1]
         ax.plot(angles, values, linewidth=1, linestyle='solid', label=film)
         ax.fill(angles, values, alpha=0.1)
+
+    # ... rest of the function remains the same
 
     ax.set_theta_offset(np.pi / 2)
     ax.set_theta_direction(-1)
@@ -241,51 +276,61 @@ def create_parallel_coordinates_with_std(data: Dict[str, pd.DataFrame], title: s
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()
 
-def process_and_plot_data(all_data: Dict[str, pd.DataFrame], ref_film: str):
-    title_base = f"Similarity comparison with {ref_film}"
-    output_base = f"{ref_film.replace(' ', '_')}"
-    
-    # ... rest of the function remains the same
 
+def process_and_plot_data(data_means: Dict[str, pd.Series], data_original: Dict[str, pd.DataFrame], REFERENCE_FILM: str):
+    log_and_print(f"Processing data for {len(data_means)} test films")
+    title_base = f"Similarity comparison with {REFERENCE_FILM}"
+    output_base = f"{REFERENCE_FILM.replace(' ', '_')}"
+    
     elements = ['overall', 'characters', 'plot', 'setting', 'themes']
     
     for element in elements:
         title = f"{element.capitalize()} {title_base}"
         
-        create_bar_chart(all_data, element, title, os.path.join(OUTPUT_ROOT_DIR, f"bar_chart_{element}_{output_base}.png"))
-        create_box_whisker(all_data, element, title, os.path.join(OUTPUT_ROOT_DIR, f"box_whisker_{element}_{output_base}.png"))
-        create_kde_plot(all_data, element, title, os.path.join(OUTPUT_ROOT_DIR, f"kde_{element}_{output_base}.png"))
+        create_bar_chart(data_means, element, title, os.path.join(OUTPUT_ROOT_DIR, f"bar_chart_{element}_{output_base}.png"))
+        create_box_whisker(data_original, element, title, os.path.join(OUTPUT_ROOT_DIR, f"box_whisker_{element}_{output_base}.png"))
+        create_kde_plot(data_original, element, title, os.path.join(OUTPUT_ROOT_DIR, f"kde_{element}_{output_base}.png"))
     
-    create_radar_chart(all_data, f"Element comparison {title_base}", os.path.join(OUTPUT_ROOT_DIR, f"radar_chart_{output_base}.png"))
-    create_parallel_coordinates(all_data, f"Element comparison {title_base}", os.path.join(OUTPUT_ROOT_DIR, f"parallel_coordinates_{output_base}.png"))
-    create_parallel_coordinates_with_std(all_data, f"Element comparison with std {title_base}", os.path.join(OUTPUT_ROOT_DIR, f"parallel_coordinates_std_{output_base}.png"))
+    create_radar_chart(data_means, f"Element comparison {title_base}", os.path.join(OUTPUT_ROOT_DIR, f"radar_chart_{output_base}.png"))
+    create_parallel_coordinates(data_means, f"Element comparison {title_base}", os.path.join(OUTPUT_ROOT_DIR, f"parallel_coordinates_{output_base}.png"))
+    create_parallel_coordinates_with_std(data_original, f"Element comparison with std {title_base}", os.path.join(OUTPUT_ROOT_DIR, f"parallel_coordinates_std_{output_base}.png"))
+
+
+
 
 def main():
-    all_data = {}
-    ref_film = ""
+    log_and_print("Starting main() function")
+    all_data_means = {}
+    all_data_original = {}
     
     for filename in os.listdir(INPUT_ROOT_DIR):
         if filename.endswith('.csv'):
             file_path = os.path.join(INPUT_ROOT_DIR, filename)
-            df = read_csv_file(file_path)
-            ref_film = df['reference_film'].iloc[0]
+            reference_film, test_film = extract_film_info(filename)
             
-            # Group data by test_film
-            grouped = df.groupby('test_film')
-            for test_film, group_df in grouped:
-                group_df = compute_similarity_mean(group_df)
-                if test_film not in all_data:
-                    all_data[test_film] = group_df
-                else:
-                    all_data[test_film] = pd.concat([all_data[test_film], group_df])
+            if reference_film == REFERENCE_FILM and test_film in TEST_FILM_LIST:
+                df = read_csv_file(file_path)
+                log_and_print(f"Read file: {filename}")
+                log_and_print(f"DataFrame shape: {df.shape}")
+                
+                group_key = f"{reference_film}_{test_film}"
+                means, original_data = compute_similarity_mean(df)
+                all_data_means[group_key] = means
+                all_data_original[group_key] = original_data
+                
+                log_and_print(f"Processed test film: {test_film}")
     
-    # Save the combined dataframe
-    combined_df = pd.concat(all_data.values(), keys=all_data.keys())
-    combined_df.to_csv(os.path.join(OUTPUT_ROOT_DIR, "summary_diff_all_genai.csv"))
-    
-    process_and_plot_data(all_data, ref_film)
-    print(f"Figures for comparisons with {ref_film} have been saved in {OUTPUT_ROOT_DIR}")
+    # Log statistics for each group
+    log_and_print("Statistics for each group:")
+    for group_key, means in all_data_means.items():
+        log_and_print(f"Group: {group_key}")
+        for key, value in means.items():
+            log_and_print(f"  {key}: {value:.2f}")
 
-    
+    # Modify the process_and_plot_data function to work with the new data structure
+    process_and_plot_data(all_data_means, all_data_original, REFERENCE_FILM)
+
+
 if __name__ == "__main__":
     main()
+

@@ -45,8 +45,8 @@ def process_file(file_path):
             
             for feature, value in similarity_features.items():
                 if feature != 'film_title':  # Exclude film_title for setting
-                    # Fix the typo in 'sodial_dynamics'
-                    if feature == 'sodial_dynamics':
+                    # Fix the typo in 'social_dynamics'
+                    if feature == 'social_dynamics':
                         feature = 'social_dynamics'
                     extracted_data[f'{category}_{feature}'] = safe_float(value)
     

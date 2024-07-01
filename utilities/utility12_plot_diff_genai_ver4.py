@@ -21,35 +21,24 @@ sns.set_style("whitegrid")
 plt.rcParams['font.size'] = 12
 
 def clean_film_name(film_name: str) -> str:
-    return ' '.join(word.capitalize() for word in film_name.replace('_', ' ').split())
-def extract_film_info(filename: str) -> Tuple[str, str]:
-    pattern = r"summary_genai_(.+)_(.+)\.csv"
+    return ' '.join(word.capitalize() for word in film_name.replace('-', ' ').split())
+
+def extract_film_info(filename: str) -> Tuple[str, str, str, str]:
+    pattern = r"summary_diff_genai_genai_(.+)_(\d{4})_(.+)_(\d{4})\.csv"
     match = re.match(pattern, filename)
     if match:
-        return clean_film_name(match.group(1)), clean_film_name(match.group(2))
-    return "", ""
+        return clean_film_name(match.group(1)), match.group(2), clean_film_name(match.group(3)), match.group(4)
+    return "", "", "", ""
 
-def read_csv_file(file_path: str) -> pd.DataFrame:
+def read_csv_file(file_path: str) -> Tuple[pd.DataFrame, str, str, str, str]:
     df = pd.read_csv(file_path)
-    return df
-
-def compute_similarity_mean(df: pd.DataFrame) -> pd.DataFrame:
-    overall_columns = ['characters_similarity_overall', 'plot_similarity_overall', 'setting_similarity_overall', 'themes_similarity_overall']
-    df['similarity_mean'] = df[overall_columns].mean(axis=1)
-    return df
-
-def clean_feature_labels(columns: List[str]) -> List[str]:
-    elements = ['characters', 'plot', 'setting', 'themes']
-    return [col.split('_')[-1] if any(col.startswith(e) for e in elements) else col for col in columns]
+    ref_film, ref_year, test_film, test_year = extract_film_info(os.path.basename(file_path))
+    return df, ref_film, ref_year, test_film, test_year
 
 def create_bar_chart(data: Dict[str, pd.DataFrame], element: str, title: str, filename: str):
     plt.figure(figsize=(12, 6))
-    if element == 'overall':
-        bar_data = {film: df['similarity_mean'].mean() for film, df in data.items()}
-    else:
-        bar_data = {film: df[f'{element}_similarity_overall'].mean() for film, df in data.items()}
+    bar_data = {film: df[element].mean() for film, df in data.items()}
     
-    # ... rest of the function remains the same
     sorted_data = sorted(bar_data.items(), key=lambda x: x[1], reverse=True)
     films, scores = zip(*sorted_data)
     
@@ -66,13 +55,7 @@ def create_bar_chart(data: Dict[str, pd.DataFrame], element: str, title: str, fi
 
 def create_box_whisker(data: Dict[str, pd.DataFrame], element: str, title: str, filename: str):
     plt.figure(figsize=(12, 6))
-    if element == 'overall':
-        plot_data = pd.DataFrame({film: df['similarity_mean'] for film, df in data.items()})
-    else:
-        plot_data = pd.DataFrame({
-            film: df[[col for col in df.columns if col.startswith(f'{element}_') and col != f'{element}_similarity_overall']].melt()['value']
-            for film, df in data.items()
-        })
+    plot_data = pd.DataFrame({film: df[element] for film, df in data.items()})
     
     if plot_data.empty:
         print(f"No data to plot for {element}. Skipping this plot.")
@@ -93,13 +76,7 @@ def create_box_whisker(data: Dict[str, pd.DataFrame], element: str, title: str, 
 
 def create_kde_plot(data: Dict[str, pd.DataFrame], element: str, title: str, filename: str):
     plt.figure(figsize=(12, 6))
-    if element == 'overall':
-        plot_data = pd.DataFrame({film: df['similarity_mean'] for film, df in data.items()})
-    else:
-        plot_data = pd.DataFrame({
-            film: df[[col for col in df.columns if col.startswith(f'{element}_') and col != f'{element}_similarity_overall']].melt()['value']
-            for film, df in data.items()
-        })
+    plot_data = pd.DataFrame({film: df[element] for film, df in data.items()})
     
     if plot_data.empty:
         print(f"No data to plot for {element}. Skipping this plot.")
@@ -117,7 +94,7 @@ def create_kde_plot(data: Dict[str, pd.DataFrame], element: str, title: str, fil
     plt.close()
 
 def create_radar_chart(data: Dict[str, pd.DataFrame], title: str, filename: str):
-    elements = ['similarity_mean', 'characters_similarity_overall', 'plot_similarity_overall', 'setting_similarity_overall', 'themes_similarity_overall']
+    elements = ['overall', 'characters', 'plot', 'setting', 'themes']
     labels = ['Overall', 'Characters', 'Plot', 'Setting', 'Themes']
     n_elements = len(elements)
     angles = [n / float(n_elements) * 2 * np.pi for n in range(n_elements)]
@@ -141,21 +118,25 @@ def create_radar_chart(data: Dict[str, pd.DataFrame], title: str, filename: str)
     plt.close()
 
 def create_parallel_coordinates(data: Dict[str, pd.DataFrame], title: str, filename: str):
-    elements = ['characters_similarity_overall', 'plot_similarity_overall', 'setting_similarity_overall', 'themes_similarity_overall']
+    elements = ['characters', 'plot', 'setting', 'themes']
     labels = ['Characters', 'Plot', 'Setting', 'Themes']
     
+    # Calculate means and std for each element
     element_stats = {element: {'mean': np.mean([df[element].mean() for df in data.values()]),
                                'std': np.mean([df[element].std() for df in data.values()])}
                      for element in elements}
     
+    # Sort elements by mean
     sorted_elements = sorted(element_stats.items(), key=lambda x: x[1]['mean'], reverse=True)
     sorted_labels = [labels[elements.index(e[0])] for e in sorted_elements]
     sorted_elements = [e[0] for e in sorted_elements]
 
     plt.figure(figsize=(14, 10))
     
+    # Define line styles for mean lines
     line_styles = [('dotted', (0, (1, 1))), ('dashed', (0, (5, 5))), ('dashdot', (0, (3, 5, 1, 5))), ('loosely dotted', (0, (1, 10)))]
     
+    # Plot horizontal lines for means with different styles
     mean_lines = []
     for i, (element, style) in enumerate(zip(sorted_elements, line_styles)):
         stats = element_stats[element]
@@ -163,6 +144,7 @@ def create_parallel_coordinates(data: Dict[str, pd.DataFrame], title: str, filen
         mean_lines.append(line)
         plt.text(i, stats['mean'], f'{stats["mean"]:.2f}', ha='center', va='bottom')
 
+    # Plot data lines
     data_lines = []
     for film, df in data.items():
         means = [df[e].mean() for e in sorted_elements]
@@ -173,6 +155,7 @@ def create_parallel_coordinates(data: Dict[str, pd.DataFrame], title: str, filen
     plt.title(f"[GenAI] {title}", fontsize=16)
     plt.ylim(0, 100)
 
+    # Create legend
     film_legend = plt.legend(handles=data_lines, title="Films", loc='lower left', bbox_to_anchor=(0.05, 0.05))
     plt.gca().add_artist(film_legend)
 
@@ -185,21 +168,25 @@ def create_parallel_coordinates(data: Dict[str, pd.DataFrame], title: str, filen
     plt.close()
 
 def create_parallel_coordinates_with_std(data: Dict[str, pd.DataFrame], title: str, filename: str):
-    elements = ['characters_similarity_overall', 'plot_similarity_overall', 'setting_similarity_overall', 'themes_similarity_overall']
+    elements = ['characters', 'plot', 'setting', 'themes']
     labels = ['Characters', 'Plot', 'Setting', 'Themes']
     
+    # Calculate means and std for each element
     element_stats = {element: {'mean': np.mean([df[element].mean() for df in data.values()]),
                                'std': np.mean([df[element].std() for df in data.values()])}
                      for element in elements}
     
+    # Sort elements by mean
     sorted_elements = sorted(element_stats.items(), key=lambda x: x[1]['mean'], reverse=True)
     sorted_labels = [labels[elements.index(e[0])] for e in sorted_elements]
     sorted_elements = [e[0] for e in sorted_elements]
 
     plt.figure(figsize=(14, 10))
     
+    # Define line styles for mean lines
     line_styles = [('dotted', (0, (1, 1))), ('dashed', (0, (5, 5))), ('dashdot', (0, (3, 5, 1, 5))), ('loosely dotted', (0, (1, 10)))]
     
+    # Plot horizontal lines for means with different styles
     mean_lines = []
     for i, (element, style) in enumerate(zip(sorted_elements, line_styles)):
         stats = element_stats[element]
@@ -207,15 +194,18 @@ def create_parallel_coordinates_with_std(data: Dict[str, pd.DataFrame], title: s
         mean_lines.append(line)
         plt.text(i, stats['mean'], f'{stats["mean"]:.2f}', ha='center', va='bottom')
 
+    # Plot data lines with smooth interpolation and std
     data_lines = []
     for film, df in data.items():
         means = [df[e].mean() for e in sorted_elements]
         stds = [df[e].std() for e in sorted_elements]
         
+        # Create smooth line
         x_smooth = np.linspace(0, len(sorted_labels) - 1, 300)
         spl = make_interp_spline(range(len(sorted_labels)), means, k=3)
         y_smooth = spl(x_smooth)
         
+        # Create smooth std areas
         spl_upper = make_interp_spline(range(len(sorted_labels)), np.array(means) + np.array(stds), k=3)
         spl_lower = make_interp_spline(range(len(sorted_labels)), np.array(means) - np.array(stds), k=3)
         y_upper = spl_upper(x_smooth)
@@ -230,6 +220,7 @@ def create_parallel_coordinates_with_std(data: Dict[str, pd.DataFrame], title: s
     plt.title(f"[GenAI] {title}", fontsize=16)
     plt.ylim(0, 100)
 
+    # Create legend
     film_legend = plt.legend(handles=data_lines, title="Films", loc='lower left', bbox_to_anchor=(0.05, 0.05))
     plt.gca().add_artist(film_legend)
 
@@ -241,51 +232,51 @@ def create_parallel_coordinates_with_std(data: Dict[str, pd.DataFrame], title: s
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()
 
-def process_and_plot_data(all_data: Dict[str, pd.DataFrame], ref_film: str):
-    title_base = f"Similarity comparison with {ref_film}"
-    output_base = f"{ref_film.replace(' ', '_')}"
-    
-    # ... rest of the function remains the same
+def process_and_plot_data(all_data: Dict[str, pd.DataFrame], ref_film: str, ref_year: str):
+    title_base = f"Similarity comparison with {ref_film} ({ref_year})"
+    output_base = f"{ref_film.replace(' ', '_')}_{ref_year}"
 
     elements = ['overall', 'characters', 'plot', 'setting', 'themes']
     
     for element in elements:
         title = f"{element.capitalize()} {title_base}"
         
+        # Create bar chart
         create_bar_chart(all_data, element, title, os.path.join(OUTPUT_ROOT_DIR, f"bar_chart_{element}_{output_base}.png"))
+        
+        # Create box and whisker plot
         create_box_whisker(all_data, element, title, os.path.join(OUTPUT_ROOT_DIR, f"box_whisker_{element}_{output_base}.png"))
+        
+        # Create KDE plot
         create_kde_plot(all_data, element, title, os.path.join(OUTPUT_ROOT_DIR, f"kde_{element}_{output_base}.png"))
     
+    # Create radar chart
     create_radar_chart(all_data, f"Element comparison {title_base}", os.path.join(OUTPUT_ROOT_DIR, f"radar_chart_{output_base}.png"))
+    
+    # Create parallel coordinates plot
     create_parallel_coordinates(all_data, f"Element comparison {title_base}", os.path.join(OUTPUT_ROOT_DIR, f"parallel_coordinates_{output_base}.png"))
+    
+    # Create parallel coordinates plot with std
     create_parallel_coordinates_with_std(all_data, f"Element comparison with std {title_base}", os.path.join(OUTPUT_ROOT_DIR, f"parallel_coordinates_std_{output_base}.png"))
 
 def main():
     all_data = {}
-    ref_film = ""
+    ref_film, ref_year = "", ""
     
     for filename in os.listdir(INPUT_ROOT_DIR):
         if filename.endswith('.csv'):
+            print(f"PROCESSING filename: {filename}")
             file_path = os.path.join(INPUT_ROOT_DIR, filename)
-            df = read_csv_file(file_path)
-            ref_film = df['reference_film'].iloc[0]
-            
-            # Group data by test_film
-            grouped = df.groupby('test_film')
-            for test_film, group_df in grouped:
-                group_df = compute_similarity_mean(group_df)
-                if test_film not in all_data:
-                    all_data[test_film] = group_df
-                else:
-                    all_data[test_film] = pd.concat([all_data[test_film], group_df])
+            df, ref_film, ref_year, test_film, test_year = read_csv_file(file_path)
+            print(f"  read into df.shape: {df.shape}")
+            all_data[f"{test_film} ({test_year})"] = df
     
     # Save the combined dataframe
     combined_df = pd.concat(all_data.values(), keys=all_data.keys())
     combined_df.to_csv(os.path.join(OUTPUT_ROOT_DIR, "summary_diff_all_genai.csv"))
-    
-    process_and_plot_data(all_data, ref_film)
+
+    process_and_plot_data(all_data, ref_film, ref_year)
     print(f"Figures for comparisons with {ref_film} have been saved in {OUTPUT_ROOT_DIR}")
 
-    
 if __name__ == "__main__":
     main()
