@@ -56,7 +56,7 @@ def create_bar_chart(data: Dict[str, pd.DataFrame], element: str, title: str, fi
     films, scores = zip(*sorted_data)
     
     plt.bar(films, scores)
-    plt.title(f"GenAI {title}", fontsize=16)
+    plt.title(f"[Elements] {title}", fontsize=16)
     plt.ylabel('Similarity Score', fontsize=14)
     plt.xticks(rotation=45, ha='right')
     plt.ylim(0, 100)
@@ -86,7 +86,7 @@ def create_box_whisker(data: Dict[str, pd.DataFrame], element: str, title: str, 
     plot_data = plot_data[mean_values.index]
     
     sns.boxplot(data=plot_data)
-    plt.title(f"GenAI {title}", fontsize=16)
+    plt.title(f"[Elements] {title}", fontsize=16)
     plt.ylabel('Similarity Score', fontsize=14)
     plt.xticks(rotation=45, ha='right')
     plt.ylim(0, 100)
@@ -112,7 +112,7 @@ def create_kde_plot(data: Dict[str, pd.DataFrame], element: str, title: str, fil
     for film in plot_data.columns:
         sns.kdeplot(data=plot_data[film], label=film, fill=True)  # Changed 'shade' to 'fill'
     
-    plt.title(f"GenAI {title}", fontsize=16)
+    plt.title(f"[Elements] {title}", fontsize=16)
     plt.xlabel('Similarity Score', fontsize=14)
     plt.ylabel('Density', fontsize=14)
     plt.legend(title='Films', bbox_to_anchor=(1.05, 1), loc='upper left')
@@ -141,7 +141,7 @@ def create_radar_chart(data: Dict[str, pd.DataFrame], title: str, filename: str)
     ax.set_thetagrids(np.degrees(angles[:-1]), labels)
     ax.set_ylim(0, 100)
     plt.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
-    plt.title(f"GenAI {title}", fontsize=16)
+    plt.title(f"[Elements] {title}", fontsize=16)
     plt.tight_layout()
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()
@@ -181,7 +181,7 @@ def create_parallel_coordinates(data: Dict[str, pd.DataFrame], title: str, filen
         data_lines.append(line)
     
     plt.ylabel('Similarity Score')
-    plt.title(f"GenAI {title}", fontsize=16)
+    plt.title(f"[Elements] {title}", fontsize=16)
     plt.ylim(0, 100)
 
     # Create legend
@@ -247,7 +247,7 @@ def create_parallel_coordinates_with_std(data: Dict[str, pd.DataFrame], title: s
 
     plt.xticks(range(len(sorted_labels)), sorted_labels)
     plt.ylabel('Similarity Score')
-    plt.title(f"GenAI {title}", fontsize=16)
+    plt.title(f"[Elements] {title}", fontsize=16)
     plt.ylim(0, 100)
 
     # Create legend
