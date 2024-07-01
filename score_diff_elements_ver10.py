@@ -59,7 +59,7 @@ if OPENAI_API_KEY:
 MODEL_NAME = 'gpt-3.5-turbo' # 'gpt-4o'
 # 'gpt-3.5-turbo is limited to 16k tokens ~12kb plain text file 
 # 'gpt-4o' has 128k tokens window
-DEFAULT_TEMPERATURE = 0.1
+DEFAULT_TEMPERATURE = 0.7
 DEFAULT_TOP_P = 0.5
 
 # Set to True if you want to reprocess all films, else make for more efficient restarting without reprocessing
@@ -74,6 +74,7 @@ SAMPLE_SIZE = 30
 INPUT_ROOT_DIR = os.path.join('.','data', 'film_narrative_elements')
 OUTPUT_ROOT_DIR = os.path.join('.','data', 'score_diff_elements')
 ELEMENTS_LIST = ['characters', 'plot', 'setting', 'themes']
+ELEMENTS_LIST = ['characters']
 REFERENCE_FILM = 'elements_raiders-of-the-lost-ark_1981'
 
 
