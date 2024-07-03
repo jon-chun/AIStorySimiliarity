@@ -1,0 +1,14 @@
+{
+    "accuracy_overall_score": 75,
+    "accuracy_characters_score": 70,
+    "accuracy_plot_score": 80,
+    "accuracy_setting_score": 60,
+    "accuracy_themes_score": 50,
+    "factual_errors": [
+        "Indiana Jones is high in conscientiousness, not low.",
+        "Peter Gibbons' psychology is inaccurately described as low in extraversion and conscientiousness.",
+        "Office Space's primary setting is more suburban office than city-specific.",
+        "The primary theme of Raiders of the Lost Ark is not just about preserving cultural heritage."
+    ],
+    "reasoning_errors": "The comparison between 'Raiders of the Lost Ark' and 'Office Space' suffers from some inaccuracies. For characters, Indiana Jones is indeed high in conscientiousness, contradicting the assessment. Peter Gibbons' psychology is oversimplified and not entirely accurate. The plot similarities are mostly well reasoned, but the settings lack depth in comparison, especially considering the very different contexts of a 1930s adventure film versus a 1990s corporate satire. The themes are too broadly defined and miss the nuanced differences between the adventure-driven, high-stakes quest in 'Raiders' and the satirical, mundane rebellion in 'Office Space'. Overall, the similarities are overemphasized without sufficiently accounting for the fundamental genre and tone differences between the two films."
+}

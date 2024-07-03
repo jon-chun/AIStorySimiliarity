@@ -1,0 +1,12 @@
+{
+    "accuracy_overall_score": 85,
+    "accuracy_characters_score": 90,
+    "accuracy_plot_score": 80,
+    "accuracy_setting_score": 95,
+    "accuracy_themes_score": 75,
+    "factual_errors": [
+    "Office Space is set in late 1990s, not 1980s",
+    "Raiders of the Lost Ark is set in 1936, not 1930s-1940s"
+    ],
+    "reasoning_errors": "The overall similarity score (53%) seems inconsistent with the individual category scores. The plot similarity (60%) and character similarity (53%) are higher than expected given the vastly different genres and storylines. The themes similarity (9%) is more accurate but could be slightly higher due to some shared elements like rebellion against authority and personal growth."
+}

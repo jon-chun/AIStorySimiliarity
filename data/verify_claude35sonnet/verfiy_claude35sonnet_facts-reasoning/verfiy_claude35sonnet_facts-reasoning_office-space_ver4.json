@@ -1,0 +1,12 @@
+{
+    "accuracy_overall_score": 85,
+    "accuracy_characters_score": 90,
+    "accuracy_plot_score": 80,
+    "accuracy_setting_score": 95,
+    "accuracy_themes_score": 75,
+    "factual_errors": [
+    "Office Space is set in 1999, not late 1990s",
+    "Raiders of the Lost Ark is not set in Tanis"
+    ],
+    "reasoning_errors": "The analysis overemphasizes superficial similarities in character arcs while overlooking fundamental differences in genre, tone, and narrative structure. The plot similarity score of 63 is too high given the vastly different story progressions and stakes. The themes similarity of 12 is reasonable but could be lower considering the films' contrasting messages and philosophical underpinnings."
+}

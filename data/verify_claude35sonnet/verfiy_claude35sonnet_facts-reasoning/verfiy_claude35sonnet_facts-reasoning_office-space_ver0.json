@@ -1,0 +1,12 @@
+{
+    "accuracy_overall_score": 85,
+    "accuracy_characters_score": 90,
+    "accuracy_plot_score": 80,
+    "accuracy_setting_score": 95,
+    "accuracy_themes_score": 75,
+    "factual_errors": [
+    "Indiana Jones' first name is misspelled as 'Indiana' instead of 'Indiana'",
+    "Office Space is set in the late 1990s, not specifically 1999"
+    ],
+    "reasoning_errors": "The similarity score for themes (40) seems too low given the provided analysis. While the main themes differ significantly, there are some parallels in secondary and tertiary themes that could warrant a slightly higher score. Additionally, the resolution of themes shows some similarities in character growth and pursuit of personal fulfillment that may not be fully reflected in the current score."
+}

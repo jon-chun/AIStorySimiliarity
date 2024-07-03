@@ -1,0 +1,12 @@
+{
+    "accuracy_overall_score": 85,
+    "accuracy_characters_score": 90,
+    "accuracy_plot_score": 80,
+    "accuracy_setting_score": 95,
+    "accuracy_themes_score": 70,
+    "factual_errors": [
+    "Incorrect release year for Office Space (1999, not 1998)",
+    "Mischaracterization of Peter's hypnotherapy outcome"
+    ],
+    "reasoning_errors": "The thematic comparison between Raiders of the Lost Ark and Office Space lacks depth and nuance. While the overall low similarity score (25) is appropriate, the reasoning doesn't fully capture the stark contrast in tone, genre, and central conflicts between the two films. The analysis overemphasizes surface-level plot elements without delving into the underlying philosophical differences in how each film approaches work, adventure, and personal fulfillment. Additionally, the character comparison could benefit from a more nuanced examination of how each protagonist's journey reflects broader societal themes of their respective eras."
+    }

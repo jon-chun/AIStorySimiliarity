@@ -1,0 +1,14 @@
+{
+    "accuracy_overall_score": 60,
+    "accuracy_characters_score": 65,
+    "accuracy_plot_score": 50,
+    "accuracy_setting_score": 30,
+    "accuracy_themes_score": 40,
+    "factual_errors": [
+        "Raiders of the Lost Ark is set in the 1930s, not 1940s.",
+        "Office Space is not centered around a treasure hunt or any form of adventure.",
+        "Office Space's protagonist is a software engineer, not a hacker.",
+        "Raiders of the Lost Ark's main theme is the battle between good and evil involving supernatural elements, not mundane corporate life."
+    ],
+    "reasoning_errors": "The comparison between 'Raiders of the Lost Ark' and 'Office Space' contains several fundamental inaccuracies. First, the reference to the 1930s setting in 'Raiders of the Lost Ark' is incorrect, as the film is set in the late 1930s, not the 1940s. Secondly, 'Office Space' is a satirical comedy about corporate life, which starkly contrasts with the action-adventure genre of 'Raiders of the Lost Ark.' The characters, plots, and themes of these two films differ significantly. For instance, Indiana Jones is an adventurous archaeologist while Peter Gibbons is a disillusioned office worker. The plots diverge entirely: one follows a quest to prevent Nazis from obtaining a powerful artifact, while the other depicts the mundane and oppressive nature of corporate life. The settings also differ, with 'Raiders' taking place in exotic locations worldwide, and 'Office Space' being confined to a generic office environment. Additionally, the themes in 'Raiders' involve the battle between good and evil, the supernatural, and preserving history, whereas 'Office Space' critiques corporate culture and explores personal fulfillment."
+}

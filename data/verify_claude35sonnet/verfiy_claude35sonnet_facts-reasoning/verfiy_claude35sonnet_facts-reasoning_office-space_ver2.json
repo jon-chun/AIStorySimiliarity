@@ -1,0 +1,12 @@
+{
+    "accuracy_overall_score": 80,
+    "accuracy_characters_score": 90,
+    "accuracy_plot_score": 85,
+    "accuracy_setting_score": 95,
+    "accuracy_themes_score": 60,
+    "factual_errors": [
+    "Incorrect release year for Office Space (1999, not 1998)",
+    "Mischaracterization of Peter's hypnotherapy outcome"
+    ],
+    "reasoning_errors": "The themes similarity score of 4 seems overly low. While the main themes differ significantly, there are some underlying similarities in character motivations and rebellion against authority that warrant a slightly higher score. Additionally, the reasoning for plot similarities overemphasizes structural parallels without adequately addressing the vast differences in tone, stakes, and genre between the two films."
+}

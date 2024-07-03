@@ -1,0 +1,12 @@
+{
+    "accuracy_overall_score": 85,
+    "accuracy_characters_score": 90,
+    "accuracy_plot_score": 80,
+    "accuracy_setting_score": 95,
+    "accuracy_themes_score": 70,
+    "factual_errors": [
+    "Incorrect time period for Raiders of the Lost Ark",
+    "Mischaracterization of Peter Gibbons' motivation"
+    ],
+    "reasoning_errors": "The analysis overemphasizes superficial similarities in plot structure while overlooking significant differences in genre, tone, and thematic intent. The comparison of character arcs, while generally accurate, fails to fully capture the stark contrast between the heroic journey of Indiana Jones and the mundane rebellion of Peter Gibbons. Additionally, the thematic analysis oversimplifies the complex satirical elements present in Office Space."
+}

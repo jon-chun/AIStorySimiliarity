@@ -1,0 +1,10 @@
+{
+    "1": { "name": "Indiana Jones and the Last Crusade", "similarity": 95 },
+    "2": { "name": "Indiana Jones and the Temple of Doom", "similarity": 90 },
+    "3": { "name": "The Mummy", "similarity": 75 },
+    "4": { "name": "Laura Croft Tomb Raider", "similarity": 70 },
+    "5": { "name": "National Treasure", "similarity": 65 },
+    "6": { "name": "Titanic", "similarity": 20 },
+    "7": { "name": "Office Space", "similarity": 5 },
+    "8": { "name": "La La Land", "similarity": 5 }
+}
