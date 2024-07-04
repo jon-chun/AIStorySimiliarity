@@ -323,3 +323,103 @@ plt.tight_layout()
 plt.savefig(os.path.join(output_dir, 'radar_all_rankings.png'))
 plt.close()
 print("Saved: radar_all_rankings.png")
+
+
+# 1. Horizontal Heatmap (switching x and y axes)
+plt.figure(figsize=(12, 8))
+sns.heatmap(rankings_sorted.T, annot=True, cmap='YlOrRd', fmt='.0f')
+plt.title('Horizontal Heatmap of Rankings (Sorted by GenAI Rank)')
+plt.xlabel('Test Films')
+plt.ylabel('Models')
+plt.tight_layout()
+plt.savefig(os.path.join(output_dir, 'heatmap_rankings_horizontal.png'))
+plt.close()
+print("Saved: heatmap_rankings_horizontal.png")
+
+# 2. Grouped Bar Chart
+plt.figure(figsize=(14, 8))
+x = range(len(rankings_sorted.index))
+width = 0.25
+
+plt.bar(x, rankings_sorted['GenAI'], width, label='GenAI', align='center')
+plt.bar([i + width for i in x], rankings_sorted['Claude 3.5 Sonnet'], width, label='Claude 3.5 Sonnet', align='center')
+plt.bar([i + 2*width for i in x], rankings_sorted['GPT4o'], width, label='GPT4o', align='center')
+
+plt.ylabel('Rank')
+plt.xlabel('Test Films')
+plt.title('Rankings Grouped by Model')
+plt.xticks([i + width for i in x], rankings_sorted.index, rotation=45, ha='right')
+plt.legend()
+plt.gca().invert_yaxis()  # Invert y-axis so that rank 1 is at the top
+plt.tight_layout()
+plt.savefig(os.path.join(output_dir, 'bar_rankings_grouped_by_model.png'))
+plt.close()
+print("Saved: bar_rankings_grouped_by_model.png")
+
+
+
+
+
+
+
+# 1. Horizontal Heatmap (switching x and y axes)
+plt.figure(figsize=(12, 8))
+sns.heatmap(rankings_sorted.T, annot=True, cmap='YlOrRd', fmt='.0f')
+plt.title('Horizontal Heatmap of Rankings (Sorted by GenAI Rank)')
+plt.xlabel('Test Films')
+plt.ylabel('Models')
+plt.tight_layout()
+plt.savefig(os.path.join(output_dir, 'heatmap_rankings_horizontal.png'))
+plt.close()
+print("Saved: heatmap_rankings_horizontal.png")
+
+# 2. Grouped Bar Chart (Flipped, starting from bottom)
+plt.figure(figsize=(14, 8))
+x = range(len(rankings_sorted.index))
+width = 0.25
+
+plt.bar(x, rankings_sorted['GenAI'], width, label='GenAI', align='center')
+plt.bar([i + width for i in x], rankings_sorted['Claude 3.5 Sonnet'], width, label='Claude 3.5 Sonnet', align='center')
+plt.bar([i + 2*width for i in x], rankings_sorted['GPT4o'], width, label='GPT4o', align='center')
+
+plt.ylabel('Rank')
+plt.xlabel('Test Films')
+plt.title('Rankings Grouped by Model')
+plt.xticks([i + width for i in x], rankings_sorted.index, rotation=45, ha='right')
+plt.legend()
+plt.ylim(0, rankings_sorted.max().max() + 1)  # Set y-axis limit to max rank + 1
+plt.tight_layout()
+plt.savefig(os.path.join(output_dir, 'bar_rankings_grouped_by_model.png'))
+plt.close()
+print("Saved: bar_rankings_grouped_by_model_rightsideup.png")
+
+# 3. Grouped Bar Chart of Average Overall Similarity Scores
+# First, we need to calculate the average overall similarity scores
+# Assuming you have this data in a DataFrame called 'similarity_scores'
+# If not, you'll need to create it from your original data
+
+# This is a placeholder. Replace with your actual data calculation
+similarity_scores = pd.DataFrame({
+    'GenAI': rankings_sorted['GenAI'].apply(lambda x: 100 - x * 5),  # Placeholder calculation
+    'Claude 3.5 Sonnet': rankings_sorted['Claude 3.5 Sonnet'].apply(lambda x: 100 - x * 5),  # Placeholder calculation
+    'GPT4o': rankings_sorted['GPT4o'].apply(lambda x: 100 - x * 5)  # Placeholder calculation
+})
+
+plt.figure(figsize=(14, 8))
+x = range(len(similarity_scores.index))
+width = 0.25
+
+plt.bar(x, similarity_scores['GenAI'], width, label='GenAI', align='center')
+plt.bar([i + width for i in x], similarity_scores['Claude 3.5 Sonnet'], width, label='Claude 3.5 Sonnet', align='center')
+plt.bar([i + 2*width for i in x], similarity_scores['GPT4o'], width, label='GPT4o', align='center')
+
+plt.ylabel('Average Overall Similarity Score')
+plt.xlabel('Test Films')
+plt.title('Average Overall Similarity Scores Grouped by Model')
+plt.xticks([i + width for i in x], similarity_scores.index, rotation=45, ha='right')
+plt.legend()
+plt.ylim(0, 100)  # Assuming similarity scores are percentages
+plt.tight_layout()
+plt.savefig(os.path.join(output_dir, 'bar_similarity_scores_grouped_by_model.png'))
+plt.close()
+print("Saved: bar_similarity_scores_grouped_by_model.png")
