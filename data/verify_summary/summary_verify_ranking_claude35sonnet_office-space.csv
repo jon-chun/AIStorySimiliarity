@@ -1,0 +1,81 @@
+model_name,test_film,version_number,name,similarity,rank
+claude35sonnet,office-space,0,Indiana Jones and the Last Crusade,95,1
+claude35sonnet,office-space,0,Indiana Jones and the Temple of Doom,90,2
+claude35sonnet,office-space,0,The Mummy,75,3
+claude35sonnet,office-space,0,Laura Croft Tomb Raider,70,4
+claude35sonnet,office-space,0,National Treasure,65,5
+claude35sonnet,office-space,0,Titanic,25,6
+claude35sonnet,office-space,0,Office Space,5,7
+claude35sonnet,office-space,0,La La Land,5,8
+claude35sonnet,office-space,1,Indiana Jones and the Last Crusade,95,1
+claude35sonnet,office-space,1,Indiana Jones and the Temple of Doom,90,2
+claude35sonnet,office-space,1,The Mummy,80,3
+claude35sonnet,office-space,1,National Treasure,75,4
+claude35sonnet,office-space,1,Laura Croft Tomb Raider,70,5
+claude35sonnet,office-space,1,Titanic,15,6
+claude35sonnet,office-space,1,Office Space,5,7
+claude35sonnet,office-space,1,La La Land,5,8
+claude35sonnet,office-space,2,Indiana Jones and the Last Crusade,95,1
+claude35sonnet,office-space,2,Indiana Jones and the Temple of Doom,90,2
+claude35sonnet,office-space,2,The Mummy,75,3
+claude35sonnet,office-space,2,Laura Croft Tomb Raider,70,4
+claude35sonnet,office-space,2,National Treasure,65,5
+claude35sonnet,office-space,2,Titanic,20,6
+claude35sonnet,office-space,2,Office Space,5,7
+claude35sonnet,office-space,2,La La Land,5,8
+claude35sonnet,office-space,3,Indiana Jones and the Last Crusade,95,1
+claude35sonnet,office-space,3,Indiana Jones and the Temple of Doom,90,2
+claude35sonnet,office-space,3,The Mummy,75,3
+claude35sonnet,office-space,3,Laura Croft Tomb Raider,70,4
+claude35sonnet,office-space,3,National Treasure,65,5
+claude35sonnet,office-space,3,Titanic,25,6
+claude35sonnet,office-space,3,Office Space,5,7
+claude35sonnet,office-space,3,La La Land,5,8
+claude35sonnet,office-space,4,Indiana Jones and the Last Crusade,95,1
+claude35sonnet,office-space,4,Indiana Jones and the Temple of Doom,90,2
+claude35sonnet,office-space,4,The Mummy,75,3
+claude35sonnet,office-space,4,Laura Croft Tomb Raider,70,4
+claude35sonnet,office-space,4,National Treasure,65,5
+claude35sonnet,office-space,4,Titanic,20,6
+claude35sonnet,office-space,4,Office Space,5,7
+claude35sonnet,office-space,4,La La Land,5,8
+claude35sonnet,office-space,5,Indiana Jones and the Last Crusade,95,1
+claude35sonnet,office-space,5,Indiana Jones and the Temple of Doom,90,2
+claude35sonnet,office-space,5,The Mummy,75,3
+claude35sonnet,office-space,5,Laura Croft Tomb Raider,65,4
+claude35sonnet,office-space,5,National Treasure,60,5
+claude35sonnet,office-space,5,Titanic,25,6
+claude35sonnet,office-space,5,Office Space,5,7
+claude35sonnet,office-space,5,La La Land,5,8
+claude35sonnet,office-space,6,Indiana Jones and the Last Crusade,95,1
+claude35sonnet,office-space,6,Indiana Jones and the Temple of Doom,90,2
+claude35sonnet,office-space,6,The Mummy,75,3
+claude35sonnet,office-space,6,Laura Croft Tomb Raider,65,4
+claude35sonnet,office-space,6,National Treasure,60,5
+claude35sonnet,office-space,6,Titanic,20,6
+claude35sonnet,office-space,6,Office Space,5,7
+claude35sonnet,office-space,6,La La Land,5,8
+claude35sonnet,office-space,7,Indiana Jones and the Last Crusade,95,1
+claude35sonnet,office-space,7,Indiana Jones and the Temple of Doom,90,2
+claude35sonnet,office-space,7,The Mummy,75,3
+claude35sonnet,office-space,7,Laura Croft Tomb Raider,70,4
+claude35sonnet,office-space,7,National Treasure,65,5
+claude35sonnet,office-space,7,Titanic,20,6
+claude35sonnet,office-space,7,Office Space,5,7
+claude35sonnet,office-space,7,La La Land,5,8
+claude35sonnet,office-space,8,Indiana Jones and the Last Crusade,95,1
+claude35sonnet,office-space,8,Indiana Jones and the Temple of Doom,90,2
+claude35sonnet,office-space,8,The Mummy,75,3
+claude35sonnet,office-space,8,Laura Croft Tomb Raider,70,4
+claude35sonnet,office-space,8,National Treasure,65,5
+claude35sonnet,office-space,8,Titanic,25,6
+claude35sonnet,office-space,8,Office Space,10,7
+claude35sonnet,office-space,8,La La Land,5,8
+claude35sonnet,office-space,9,Indiana Jones and the Last Crusade,95,1
+claude35sonnet,office-space,9,Indiana Jones and the Temple of Doom,90,2
+claude35sonnet,office-space,9,The Mummy,75,3
+claude35sonnet,office-space,9,Laura Croft Tomb Raider,70,4
+claude35sonnet,office-space,9,National Treasure,65,5
+claude35sonnet,office-space,9,Titanic,20,6
+claude35sonnet,office-space,9,Office Space,5,7
+claude35sonnet,office-space,9,La La Land,5,8
