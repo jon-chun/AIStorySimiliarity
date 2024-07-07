@@ -4,7 +4,7 @@ Estimate a similarity score (0-100) for each of the following films with the ref
 1. Titanic (1997)
 2. The Mummy (1999)
 3. Office Space (1999)
-4. Laura Croft Tomb Raider (2001)
+4. Lara Croft Tomb Raider (2001)
 5. Indiana Jones and the Last Crusade (1989)
 6. National Treasure (2004)
 7. Indiana Jones and the Temple of Doom (1984)
@@ -67,7 +67,7 @@ Would you like me to elaborate on any of these ratings?
     "similarity": 75
   },
   "4": {
-    "name": "Laura Croft Tomb Raider",
+    "name": "Lara Croft Tomb Raider",
     "similarity": 70
   },
   "5": {

@@ -42,7 +42,7 @@ SAMPLE_SIZE = 30
 
 INPUT_DIR = os.path.join('data','film_scripts_txt')
 
-SCRIPT_REFERENCE = 'script_laura-croft-tomb-raider_2001.txt'
+SCRIPT_REFERENCE = 'script_lara-croft-tomb-raider_2001.txt'
 SCRIPT_TITLE_YEAR = '###FILM: Raiders of the Lost Ark\n###YEAR: 1981\n'
 SCRIPT_TITLE_YEAR_FILENAME = 'raiders-of-the-lost-ark_1981'
 

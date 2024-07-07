@@ -5,7 +5,7 @@ with the reference film 'Raiders of the Lost Ark' from 1981:
     1. Titanic (1997) 
     2. The Mummy (1999) 
     3. Office Space (1999) 
-    4. Laura Croft Tomb Raider (2001) 
+    4. Lara Croft Tomb Raider (2001) 
     5. Indiana Jones and the Last Crusade (1989) 
     6. National Treasure (2004) 
     7. Indiana Jones and the Temple of Doom (1984) 

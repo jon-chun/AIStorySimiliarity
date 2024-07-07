@@ -4,7 +4,7 @@ film_dir_list = [
     "similiarity-by-score_elements_indiana-jones-and-the-last-crusade_1989",
     "similiarity-by-score_elements_indiana-jones-and-the-temple-of-doom_1984",
     "similiarity-by-score_elements_la-la-land_2016",
-    "similiarity-by-score_elements_laura-croft-tomb-raider_2001",
+    "similiarity-by-score_elements_lara-croft-tomb-raider_2001",
     "similiarity-by-score_elements_national-treasure_2014",
     "similiarity-by-score_elements_office-space_1999",
     "similiarity-by-score_elements_raiders-of-the-lost-arc_1981",

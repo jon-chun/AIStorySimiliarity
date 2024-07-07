@@ -21,7 +21,7 @@ TEST_FILM_LIST = [
     'indiana-jones-and-the-last-crusade',
     'indiana-jones-and-the-temple-of-doom',
     'la-la-land',
-    'laura-croft-tomb-raider',
+    'lara-croft-tomb-raider',
     'national-treasure',
     'office-space',
     'the-mummy',

@@ -18,8 +18,9 @@ input_dir = os.path.abspath(os.path.join(cwd, '..', 'data', 'verify_summary'))
 output_dir = os.path.abspath(os.path.join(cwd, '..', 'data', 'figures_verify'))
 os.makedirs(output_dir, exist_ok=True)
 
-gpt4o_file = os.path.join(input_dir, 'summary_verify_ranking_gpt4o_office-space.csv')
-claude_file = os.path.join(input_dir, 'summary_verify_ranking_claude35sonnet_office-space.csv')
+# gpt4o_file = os.path.join(input_dir, 'summary_verify_ranking_gpt4o_office-space.csv')
+# claude_file = os.path.join(input_dir, 'summary_verify_ranking_claude35sonnet_office-space.csv')
+
 
 
 
@@ -31,7 +32,7 @@ def normalize_film_name(name):
 def read_csv(file_path):
     df = pd.read_csv(file_path)
     df['version_number'] = df['version_number'].astype(int)
-    df['name'] = df['name'].replace('Laura Croft Tomb Raider', 'Lara Croft: Tomb Raider')
+    df['name'] = df['name'].replace('Lara Croft Tomb Raider', 'Lara Croft: Tomb Raider')
     return df
 
 def read_genai_summaries(directory):
@@ -75,7 +76,43 @@ claude_df = read_csv(claude_file)
 combined_df = pd.concat([gpt4o_df, claude_df])
 
 
+# Calculate average overall similarity scores
+gpt4o_scores = gpt4o_df.groupby('name')['similarity'].mean()
+claude_scores = claude_df.groupby('name')['similarity'].mean()
 
+# For GenAI, we need to use the 'overall' column from the genai_df
+genai_scores = genai_df.set_index('test_film')['overall']
+
+# Combine all scores into a single DataFrame
+similarity_scores = pd.DataFrame({
+    'GenAI': genai_scores,
+    'Claude 3.5 Sonnet': claude_scores,
+    'GPT4o': gpt4o_scores
+})
+
+
+# Sort the similarity scores to match the order of rankings_sorted
+similarity_scores = similarity_scores.reindex(rankings_sorted.index)
+
+# Now create the bar plot with these correct scores
+plt.figure(figsize=(14, 8))
+x = range(len(similarity_scores.index))
+width = 0.25
+
+plt.bar(x, similarity_scores['GenAI'], width, label='GenAI', align='center')
+plt.bar([i + width for i in x], similarity_scores['Claude 3.5 Sonnet'], width, label='Claude 3.5 Sonnet', align='center')
+plt.bar([i + 2*width for i in x], similarity_scores['GPT4o'], width, label='GPT4o', align='center')
+
+plt.ylabel('Average Overall Similarity Score')
+plt.xlabel('Test Films')
+plt.title('Average Overall Similarity Scores Grouped by Model')
+plt.xticks([i + width for i in x], similarity_scores.index, rotation=45, ha='right')
+plt.legend()
+plt.ylim(0, 100)  # Assuming similarity scores are percentages
+plt.tight_layout()
+plt.savefig(os.path.join(output_dir, 'bar_similarity_scores_grouped_by_model.png'))
+plt.close()
+print("Saved: bar_similarity_scores_grouped_by_model_corrected.png") 
 
 # 1. Box plot of accuracy scores for each movie
 plt.figure(figsize=(14, 8))

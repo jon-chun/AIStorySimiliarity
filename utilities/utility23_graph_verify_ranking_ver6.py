@@ -31,7 +31,7 @@ def normalize_film_name(name):
 def read_csv(file_path):
     df = pd.read_csv(file_path)
     df['version_number'] = df['version_number'].astype(int)
-    df['name'] = df['name'].replace('Laura Croft Tomb Raider', 'Lara Croft: Tomb Raider')
+    df['name'] = df['name'].replace('Lara Croft Tomb Raider', 'Lara Croft: Tomb Raider')
     return df
 
 def read_genai_summaries(directory):
