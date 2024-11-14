@@ -1,0 +1,55 @@
+\begin{table}[ht]
+\centering
+\begin{tabular}{lll}
+\hline
+filename & stat & value \\
+\hline
+script_indiana-jones-and-the-last-crusade_1989.txt & char_count & 137750.0 \\
+script_indiana-jones-and-the-temple-of-doom_1984.txt & char_count & 190111.0 \\
+script_la-la-land_2016.txt & char_count & 104568.0 \\
+script_lara-croft-tomb-raider_2001.txt & char_count & 158941.0 \\
+script_national-treasure_2004.txt & char_count & 169878.0 \\
+script_office-space_1999.txt & char_count & 64777.0 \\
+script_raiders-of-the-lost-ark_1981.txt & char_count & 160278.0 \\
+script_the-mummy_1999.txt & char_count & 157912.0 \\
+script_titanic_1997.txt & char_count & 246677.0 \\
+script_indiana-jones-and-the-last-crusade_1989.txt & word_count & 26181.0 \\
+script_indiana-jones-and-the-temple-of-doom_1984.txt & word_count & 34230.0 \\
+script_la-la-land_2016.txt & word_count & 20520.0 \\
+script_lara-croft-tomb-raider_2001.txt & word_count & 28546.0 \\
+script_national-treasure_2004.txt & word_count & 31030.0 \\
+script_office-space_1999.txt & word_count & 12838.0 \\
+script_raiders-of-the-lost-ark_1981.txt & word_count & 29870.0 \\
+script_the-mummy_1999.txt & word_count & 27759.0 \\
+script_titanic_1997.txt & word_count & 46028.0 \\
+script_indiana-jones-and-the-last-crusade_1989.txt & sentence_count & 2957.0 \\
+script_indiana-jones-and-the-temple-of-doom_1984.txt & sentence_count & 2926.0 \\
+script_la-la-land_2016.txt & sentence_count & 2416.0 \\
+script_lara-croft-tomb-raider_2001.txt & sentence_count & 2479.0 \\
+script_national-treasure_2004.txt & sentence_count & 3485.0 \\
+script_office-space_1999.txt & sentence_count & 1661.0 \\
+script_raiders-of-the-lost-ark_1981.txt & sentence_count & 2847.0 \\
+script_the-mummy_1999.txt & sentence_count & 3127.0 \\
+script_titanic_1997.txt & sentence_count & 4564.0 \\
+script_indiana-jones-and-the-last-crusade_1989.txt & vocab_size & 4523.0 \\
+script_indiana-jones-and-the-temple-of-doom_1984.txt & vocab_size & 5142.0 \\
+script_la-la-land_2016.txt & vocab_size & 3626.0 \\
+script_lara-croft-tomb-raider_2001.txt & vocab_size & 5678.0 \\
+script_national-treasure_2004.txt & vocab_size & 5113.0 \\
+script_office-space_1999.txt & vocab_size & 2037.0 \\
+script_raiders-of-the-lost-ark_1981.txt & vocab_size & 4730.0 \\
+script_the-mummy_1999.txt & vocab_size & 4571.0 \\
+script_titanic_1997.txt & vocab_size & 6824.0 \\
+script_indiana-jones-and-the-last-crusade_1989.txt & reading_level & 111.68132418613366 \\
+script_indiana-jones-and-the-temple-of-doom_1984.txt & reading_level & 102.61079129227822 \\
+script_la-la-land_2016.txt & reading_level & 114.36934354848889 \\
+script_lara-croft-tomb-raider_2001.txt & reading_level & 105.8092721856021 \\
+script_national-treasure_2004.txt & reading_level & 118.92892783702358 \\
+script_office-space_1999.txt & reading_level & 117.64573879051213 \\
+script_raiders-of-the-lost-ark_1981.txt & reading_level & 103.86365136374756 \\
+script_the-mummy_1999.txt & reading_level & 109.8585084084941 \\
+script_titanic_1997.txt & reading_level & 111.65342061215564 \\
+\hline
+\end{tabular}
+\caption{Scripts Dataset Statistics}
+\end{table}

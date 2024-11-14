@@ -1,9 +1,0 @@
-{
-    "accuracy_overall_score": 90,
-    "accuracy_characters_score": 80,
-    "accuracy_plot_score": 85,
-    "accuracy_setting_score": 95,
-    "accuracy_themes_score": 95,
-    "factual_errors": ["Office Space incorrectly specified as set during dot-com boom"],
-    "reasoning_errors": "The comparison occasionally overstates similarities, particularly in character dynamics. The character similarity score seems inflated given the significant differences between the protagonists in terms of personality, background, and motivations. The plot similarity score also appears slightly high considering the vast differences in story structure and content between an adventure film and a workplace comedy."
-}
