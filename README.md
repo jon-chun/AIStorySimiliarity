@@ -17,6 +17,8 @@ This paper introduces **AIStorySimilarity**, a novel benchmark for measuring sem
 
 Our approach compares three methods: evaluating extracted elements from film scripts (**Elements**), directly evaluating entire scripts (**Scripts**), and extracting elements from the parametric memory of a state-of-the-art LLM without provided scripts (**GenAI**). To our knowledge, **AIStorySimilarity** is the first benchmark to measure story similarity over long texts comprehensively grounded in narrative theory.
 
+![AIStorySimilarity Poster Image](Conference2024_CoNLL-5_AIStorySimilarity_chunj.png)
+
 Code and data are available at: [https://github.com/jon-chun/AIStorySimiliarity](https://github.com/jon-chun/AIStorySimiliarity).
 
 ## Citation
